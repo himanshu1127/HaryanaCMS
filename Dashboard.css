@@ -1,0 +1,116 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+      Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+      sans-serif;
+  }
+  #navbar {
+    height: 70px;
+    display: flex;
+    /* border: 1px solid cyan; */
+    justify-content: space-between;
+    /* align-self: center; */
+    background-color: #142649;
+    position: sticky;
+    top: 0;
+  }
+  #navLeft {
+    /* border: 1px solid red; */
+    width: 50%;
+    /* height: 100%; */
+    align-self: center;
+    box-sizing: border-box;
+    padding-left: 5%;
+  }
+  #navRight {
+    align-self: center;
+    width: 50%;
+    /* justify-content: right; */
+    text-align: right;
+    box-sizing: border-box;
+    padding-right: 5%;
+  }
+  #navRight button {
+    height: 40px;
+    width: 15%;
+    background-color: #fb771a;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    border-radius: 2%;
+    border: none;
+    cursor: pointer;
+  }
+  #main {
+    background-color: #f7f7f9;
+    display: flex;
+  }
+
+  #sidebar {
+    height: 90vh;
+    width: 18%;
+    /* border: 1px solid cyan; */
+    margin-left: 25px;
+    margin-top: 10px;
+    padding: 20px;
+    box-sizing: border-box;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    position: sticky;
+    top: 10vh;
+  }
+.row{
+    display: flex;
+    justify-content: space-between;
+    /* box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px; */
+}
+.row>div{
+    width: 32%;
+    height: 100px;
+    padding: 10px;
+    box-sizing: border-box;
+    /* margin: auto; */
+    /* border: 1px solid blue; */
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.secondint{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+thead{
+    height: 50px;
+}
+
+#sideMenu{
+  /* border: 1px solid red; */
+  margin-top: 20px;
+  padding: 10px;
+}
+#sideMenu p{
+  margin-bottom: 20px;
+  color: #341ebd;
+}
+/* #sideMen{
+  margin-bottom: 20px;
+  border: 1px solid red;
+} */
+
+.aTag{
+  /* border: 1px solid cyan; */
+  margin-bottom: 20px;
+  display: block;
+  font-size: 14px;
+  color: black;
+  text-decoration: none;
+  font-weight: 500;
+}
+ul {
+  list-style-position: none;
+}
+ul {
+  list-style-type: square;
+  color: #d88206;
+  margin-left: 20px;
+}

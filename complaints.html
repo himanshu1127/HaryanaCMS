@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./Dashboard.css" />
+    <link rel="stylesheet" href="./complaints.css" />
+  </head>
+  <body>
+    <nav id="navbar">
+      <div id="navLeft">
+        <h3 style="color: #f1e98c">Administrator</h3>
+        <h3 style="color: white">Haryana Complaint Management System</h3>
+      </div>
+      <div id="navRight">
+        <button onclick="logout()">Logout</button>
+      </div>
+    </nav>
+    <div id="main">
+      <div id="sidebar">
+        <div style="display: flex; justify-content: space-between">
+          <div>Home</div>
+          <div>Dashboard</div>
+        </div>
+        <div id="sideMenu">
+          <p>Manage Complaits</p>
+          <ul>
+            <li class="liText">
+              <a class="aTag" href="./complaints.html"
+                >Add/View District Wise</a
+              >
+            </li>
+            <li class="liText">
+              <a class="aTag" href="./complaints.html"
+                >Add/View High Priority</a
+              >
+            </li>
+            <li class="liText">
+              <a class="aTag" href="./complaints.html">Update/View Pending</a>
+            </li>
+            <li class="liText">
+              <a class="aTag" href="#">Add/View Officer Complaint</a>
+            </li>
+            <li class="liText">
+              <a class="aTag" href="#">View Special Complaints</a>
+            </li>
+          </ul>
+          <p>Manage Officers Data</p>
+          <ul>
+            <li class="liText">
+              <a class="aTag" href="./complaints.html">Add/View Officers</a>
+            </li>
+            <li class="liText">
+              <a class="aTag" href="./complaints.html">Add/View SHO</a>
+            </li>
+            <li class="liText">
+              <a class="aTag" href="./complaints.html">Add/View Districts</a>
+            </li>
+            <li class="liText"><a class="aTag" href="#">Add/View Areas</a></li>
+          </ul>
+          <p>Manage Dept.</p>
+          <p>Manage Category</p>
+          <p>Manage Users (SHO)</p>
+          <p>Manage Data</p>
+        </div>
+      </div>
+      <div
+        id="table"
+        style="width: 78%; margin: auto; height: 90vh; border: 1px solid cyan"
+      >
+        <table class="table">
+          <thead class="tableHead">
+            <tr class="trHead">
+              <th class="thHead thHead1">Tracking Id</th>
+              <th class="thHead thHead2">Category</th>
+              <th class="thHead thHead3">Complainant</th>
+              <th class="thHead thHead4">Issued Date</th>
+              <th class="thHead thHead5">Deadline</th>
+              <th class="thHead thHead6">Area</th>
+              <th class="thHead thHead7">Status</th>
+              <th class="thHead thHead8">Action</th>
+            </tr>
+          </thead>
+          <tbody class="tableBody">
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>
+
+<script>
+  const Data = [
+    {
+      id: 1,
+      trackingId: "#98765490",
+      category: "Abc",
+      complainant: "abc",
+      IssuedDate: "1-1-2023",
+      deadline: "10-1-2023",
+      area: "xyz",
+      status: "active",
+      priority:"high",
+      status:"pending"
+    },
+    {
+      id: 2,
+      trackingId: "#98765490",
+      category: "Abc",
+      complainant: "abc",
+      IssuedDate: "1-1-2023",
+      deadline: "10-1-2023",
+      area: "xyz",
+      status: "active",
+      priority:"low",
+      status:"closed"
+    },
+    {
+      id: 3,
+      trackingId: "#98765490",
+      category: "Abc",
+      complainant: "abc",
+      IssuedDate: "1-1-2023",
+      deadline: "10-1-2023",
+      area: "xyz",
+      status: "active",
+      priority:"high",
+      status:"overdue"
+    },
+    {
+      id: 4,
+      trackingId: "#98765490",
+      category: "Abc",
+      complainant: "abc",
+      IssuedDate: "1-1-2023",
+      deadline: "10-1-2023",
+      area: "xyz",
+      status: "active",
+      priority:"medium",
+      status:"rejected"
+    },
+    {
+      id: 5,
+      trackingId: "#98765490",
+      category: "Abc",
+      complainant: "abc",
+      IssuedDate: "1-1-2023",
+      deadline: "10-1-2023",
+      area: "xyz",
+      status: "active",
+      priority:"medium",
+      status:"progress"
+    },
+  ];
+  let container = document.querySelector(".tableBody");
+
+  Data.forEach((el) => {
+    console.log(el)
+    let tr = document.createElement("tr");
+    tr.setAttribute("class", "tableRow");
+    let td1 = document.createElement("td");
+    td1.setAttribute("class", "tablecol");
+    td1.setAttribute("class", "tablecol1");
+    td1.innerText=el.trackingId
+    let td2 = document.createElement("td");
+    td2.setAttribute("class", "tablecol");
+    td2.setAttribute("class", "tablecol2");
+    td2.innerText=el.category
+    let td3 = document.createElement("td");
+    td3.setAttribute("class", "tablecol");
+    td3.setAttribute("class", "tablecol3");
+    td3.innerText=el.complainant
+    let td4 = document.createElement("td");
+    td4.setAttribute("class", "tablecol");
+    td4.setAttribute("class", "tablecol4");
+    td4.innerText=el.IssuedDate
+    let td5 = document.createElement("td");
+    td5.setAttribute("class", "tablecol");
+    td5.setAttribute("class", "tablecol5");
+    td5.innerText=el.deadline
+    let td6 = document.createElement("td");
+    td6.setAttribute("class", "tablecol");
+    td6.setAttribute("class", "tablecol6");
+    td6.style.border="1px solid red"
+    td6.style.padding="10px"
+    let divarea=document.createElement("div")
+    let p6=document.createElement("p")
+    p6.innerText=el.area
+    p6.style.margin="10px 0px 10px 0px"
+    // p6.style.border="1px solid cyan"
+    divarea.style.borderRadius="2%"
+    divarea.append(p6)
+    td6.append(divarea)
+    let td7 = document.createElement("td");
+    td7.setAttribute("class", "tablecol");
+    td7.setAttribute("class", "tablecol7");
+    td7.innerText=el.status
+    if(el.priority==="high"){
+        divarea.style.border="1px solid green"
+        divarea.style.backgroundColor="green"
+        divarea.style.boxSizing="border-box"
+        divarea.style.alignSelf="center"
+        divarea.style.height="40px"
+        divarea.style.color="white"
+        
+    }
+
+    let td8=document.createElement("td")
+    td8.innerText="hi"
+    tr.append(td1,td2,td3,td4,td5,td6,td7,td8)
+    console.log(tr)
+    container.append(tr)
+
+  });
+
+  console.log(container)
+
+
+  //   <tr className="tableRow" key={el.id}>
+  //     <td className="tablecol1 tablecol">{el.trackingId}</td>
+  //     <td className="tablecol2 tablecol">{el.category}</td>
+  //     <td className="tablecol3 tablecol">{el.complainant}</td>
+  //     <td className="tablecol4 tablecol">{el.IssuedDate}</td>
+  //     <td className="tablecol5 tablecol">{el.deadline}</td>
+  //     <td className="tablecol6 tablecol">{el.area}</td>
+  //     <td className="tablecol7 tablecol">{el.status}</td>
+  //     <td className="tablecol8 tablecol">
+  //       <div className="tablecol8Action">
+  //         <ReceiptIcon />
+  //       </div>
+  //       <div className="tablecol8Delete">
+  //         <DeleteIcon />
+  //       </div>
+  //     </td>
+  //   </tr>;
+</script>

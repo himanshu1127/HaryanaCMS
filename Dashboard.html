@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Haryana CMS</title>
+    <style></style>
+    <link rel="stylesheet" href="./Dashboard.css" />
+  </head>
+  <body>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.2.1/dist/chart.umd.min.js"></script>
+    <nav id="navbar">
+      <div id="navLeft">
+        <h3 style="color: #f1e98c">Administrator</h3>
+        <h3 style="color: white">Haryana Complaint Management System</h3>
+      </div>
+      <div id="navRight">
+        <button onclick="logout()">Logout</button>
+      </div>
+    </nav>
+
+    <div id="main">
+      <div id="sidebar">
+        <div style="display: flex; justify-content: space-between">
+          <div>Home</div>
+          <div>Dashboard</div>
+        </div>
+        <div id="sideMenu">
+          <p>Manage Complaits</p>
+          <ul>
+            <li class="liText"><a class="aTag" href="./complaints.html">Add/View District Wise</a></li>
+            <li class="liText"><a class="aTag" href="./complaints.html">Add/View High Priority</a></li>
+            <li class="liText"><a class="aTag" href="./complaints.html">Update/View Pending</a></li>
+            <li class="liText"><a class="aTag" href="#">Add/View Officer Complaint</a></li>
+            <li class="liText"><a class="aTag" href="#">View Special Complaints</a></li>
+          </ul>
+          <p>Manage Officers Data</p>
+          <ul>
+            <li class="liText"><a class="aTag" href="./complaints.html">Add/View Officers</a></li>
+            <li class="liText"><a class="aTag" href="./complaints.html">Add/View SHO</a></li>
+            <li class="liText"><a class="aTag" href="./complaints.html">Add/View Districts</a></li>
+            <li class="liText"><a class="aTag" href="#">Add/View Areas</a></li>
+          </ul>
+          <p>Manage Dept.</p>
+          <p>Manage Category</p>
+          <p>Manage Users (SHO)</p>
+          <p>Manage Data</p>
+        </div>
+      </div>
+      <div
+        style="
+          /* border: 1px solid cyan; */
+          width: 78%;
+          margin: auto;
+          /* height: 90vh;
+          overflow-y: auto; */
+        "
+      >
+        <div
+          style="display: flex; justify-content: space-between; height: 70px"
+        >
+          <div style="width: 50%; align-self: center">
+            <h5>PROJECTS</h5>
+          </div>
+          <div
+            style="
+              display: flex;
+              /* border: 1px solid cyan; */
+              width: 50%;
+              /* margin-top: 20px; */
+              align-self: center;
+              /* text-align: right; */
+              justify-content: right;
+              gap: 20px;
+            "
+          >
+            <h5>Dashboard &nbsp; &nbsp; ></h5>
+            <h5 style="font-weight: 500">Projects</h5>
+          </div>
+        </div>
+        <div
+          style="
+            /* border: 1px solid red; */
+            height: 50vh;
+            display: flex;
+            justify-content: space-between;
+          "
+        >
+          <div style="width: 70%">
+            <div class="row">
+              <div class="">
+                <div class="cont">
+                  <h5 class="texth5" style="max-lines: 1">Active Complaints</h5>
+                </div>
+                <div class="second">
+                  <div class="secondint">
+                    <div class="">
+                      <p class=""></p>
+                    </div>
+                    <h5 class="" style="font-size: 18px">
+                      1456<i class=""></i>
+                    </h5>
+
+                    <div class="">
+                      <p
+                        class=""
+                        style="
+                          height: 25px;
+                          width: 50px;
+                          text-align: center;
+                          margin-right: 5px;
+                          color: #80e1d8;
+                          font-weight: bold;
+                          background-color: #bbf1e7;
+                          font-size: 18px;
+                        "
+                      >
+                        +11%
+                      </p>
+                    </div>
+                  </div>
+                  <div style="color: rgb(1, 163, 1); margin-top: 10px">
+                    View all
+                  </div>
+                </div>
+              </div>
+              <div class="">
+                <div class="cont">
+                  <h5 class="texth5" style="max-lines: 1">
+                    Pending Complaints
+                  </h5>
+                </div>
+                <div class="second">
+                  <div class="secondint">
+                    <div class="">
+                      <p class=""></p>
+                    </div>
+                    <h5 class="" style="font-size: 18px">
+                      832<i class=""></i>
+                    </h5>
+
+                    <div class="">
+                      <p
+                        class=""
+                        style="
+                          height: 25px;
+                          width: 50px;
+                          text-align: center;
+                          margin-right: 5px;
+                          color: #f7b599;
+                          font-weight: bold;
+                          background-color: #ffedee;
+                          font-size: 18px;
+                        "
+                      >
+                        -11%
+                      </p>
+                    </div>
+                  </div>
+                  <div style="color: rgb(1, 163, 1); margin-top: 10px">
+                    View all
+                  </div>
+                </div>
+              </div>
+              <div class="">
+                <div class="cont">
+                  <h5 class="texth5" style="max-lines: 1">
+                    Pending High Priority Complaints
+                  </h5>
+                </div>
+                <div class="second">
+                  <div class="secondint">
+                    <div class="">
+                      <p class=""></p>
+                    </div>
+                    <h5 class="" style="font-size: 18px">
+                      223<i class=""></i>
+                    </h5>
+
+                    <div class="">
+                      <p
+                        class=""
+                        style="
+                          height: 25px;
+                          width: 50px;
+                          text-align: center;
+                          margin-right: 5px;
+                          color: #80e1d8;
+                          font-weight: bold;
+                          background-color: #bbf1e7;
+                          font-size: 18px;
+                        "
+                      >
+                        +11%
+                      </p>
+                    </div>
+                  </div>
+                  <div style="color: rgb(1, 163, 1); margin-top: 10px">
+                    View all
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div
+                style="
+                  height: 300px;
+                  width: 100%;
+                  margin-top: 23px;
+                  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+                "
+              >
+                <canvas
+                  id="barchart"
+                  style="width: 100%; height: 100%"
+                ></canvas>
+              </div>
+            </div>
+          </div>
+          <div style="height: 100%; width: 28%">
+            <div style="height: 50%; width: 100%"></div>
+            <div></div>
+          </div>
+        </div>
+        <div style="display: flex; margin-top: 30px">
+          <div
+            style="
+              width: 58%;
+              /* border: 1px solid red; */
+              margin-top: 20px;
+              font-size: 14px;
+              text-align: center;
+              height: 40vh;
+              overflow-y: auto;
+              box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+            "
+          >
+            <div
+              style="
+                display: flex;
+                margin-top: 10px;
+                align-self: center;
+                justify-content: space-between;
+                position: sticky;
+                top: 0;
+              "
+            >
+              <p style="margin-left: 5%; margin-top: 10px">Active</p>
+              <button
+                style="
+                  margin-right: 5%;
+                  margin-top: 8px;
+                  color: #029aa7;
+                  background-color: #96dee4;
+                  border: none;
+                  border-radius: 2%;
+                  width: 120px;
+                  height: 30px;
+                "
+              >
+                Export Report
+              </button>
+            </div>
+            <table
+              style="
+                width: 100%;
+                border-top: 1px solid gray;
+                margin-top: 20px;
+                font-size: 14px;
+                text-align: center;
+                /* height: 20vh; */
+                /* height: 100%; */
+                overflow-y: auto;
+              "
+            >
+              <thead>
+                <tr>
+                  <th>Case Number</th>
+                  <th>Name of Complanint</th>
+                  <th>Phone Number</th>
+                  <th>Assignee</th>
+                  <th>Status</th>
+                  <th>Due Date</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr
+                  style="
+                    /* border: 1px solid cyan; */
+                    height: 50px;
+                    border-collapse: collapse;
+                  "
+                >
+                  <td style="color: lime">611/CM/200</td>
+                  <td>Jai Singh</td>
+                  <td>1234456</td>
+                  <td>Kernal</td>
+                  <td>
+                    <p style="background-color: #f1e98c; color: #908402">
+                      Pending
+                    </p>
+                  </td>
+                  <td>06 Nov 2021</td>
+                </tr>
+                <tr
+                  style="
+                    /* border: 1px solid cyan; */
+                    height: 50px;
+                    border-collapse: collapse;
+                  "
+                >
+                  <td style="color: lime">611/CM/200</td>
+                  <td>Jai Singh</td>
+                  <td>1234456</td>
+                  <td>Kernal</td>
+                  <td>
+                    <p style="background-color: #f1e98c; color: #908402">
+                      Pending
+                    </p>
+                  </td>
+                  <td>06 Nov 2021</td>
+                </tr>
+                <tr
+                  style="
+                    /* border: 1px solid cyan; */
+                    height: 50px;
+                    border-collapse: collapse;
+                  "
+                >
+                  <td style="color: lime">611/CM/200</td>
+                  <td>Jai Singh</td>
+                  <td>1234456</td>
+                  <td>Kernal</td>
+                  <td>
+                    <p style="background-color: #f1e98c; color: #908402">
+                      Pending
+                    </p>
+                  </td>
+                  <td>06 Nov 2021</td>
+                </tr>
+                <tr
+                  style="
+                    /* border: 1px solid cyan; */
+                    height: 50px;
+                    border-collapse: collapse;
+                  "
+                >
+                  <td style="color: lime">611/CM/200</td>
+                  <td>Jai Singh</td>
+                  <td>1234456</td>
+                  <td>Kernal</td>
+                  <td>
+                    <p style="background-color: #f1e98c; color: #908402">
+                      Pending
+                    </p>
+                  </td>
+                  <td>06 Nov 2021</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div
+            style="
+              width: 40%;
+              /* border: 1px solid red; */
+              margin: auto;
+              margin-top: 20px;
+              font-size: 14px;
+              text-align: center;
+              height: 40vh;
+              overflow-y: auto;
+              padding: 10px;
+              box-sizing: border-box;
+              box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+            "
+          >
+            <div
+              style="
+                display: flex;
+                margin-top: 10px;
+                align-self: center;
+                justify-content: space-between;
+              "
+            >
+              <p style="margin-left: 5%; margin-top: 10px">My Task</p>
+              <select
+                style="
+                  margin-right: 5%;
+                  margin-top: 8px;
+                  /* color: #029aa7; */
+                  /* background-color: #96dee4; */
+                  border: none;
+                  border-radius: 2%;
+                  width: 120px;
+                  height: 30px;
+                "
+              >
+                <option value="all">All Task</option>
+              </select>
+            </div>
+            <table
+              style="
+                width: 100%;
+                /* border: 1px solid red; */
+                margin-top: 20px;
+                font-size: 14px;
+                text-align: center;
+                height: 20vh;
+                overflow-y: auto;
+              "
+            >
+              <thead>
+                <tr>
+                  <th style="width: 40%">Name</th>
+                  <th>Deadline</th>
+                  <th>Status</th>
+                  <th>Assignee</th>
+                  <!-- <th>Status</th>
+                  <th>Due Date</th> -->
+                </tr>
+              </thead>
+              <tbody>
+                <tr
+                  style="
+                    /* border: 1px solid cyan; */
+                    height: 50px;
+                    border-collapse: collapse;
+                  "
+                >
+                  <td>
+                    <div style="display: flex">
+                      <input type="checkbox" />
+                      <p style="margin-left: 5px">create new admin temp</p>
+                    </div>
+                  </td>
+                  <td>03 Nov 2021</td>
+                  <td>
+                    <p style="background-color: #f1e98c; color: #908402">
+                      Pending
+                    </p>
+                  </td>
+                  <td>Kernal</td>
+                  <!-- <td>
+                  <p style="background-color: #f1e98c; color: #908402">
+                    Pending
+                  </p>
+                </td>
+                <td>06 Nov 2021</td> -->
+                </tr>
+                <tr
+                  style="
+                    /* border: 1px solid cyan; */
+                    height: 50px;
+                    border-collapse: collapse;
+                  "
+                >
+                  <td>
+                    <div style="display: flex">
+                      <input type="checkbox" />
+                      <p style="margin-left: 5px">create new admin temp</p>
+                    </div>
+                  </td>
+                  <td>03 Nov 2021</td>
+                  <td>
+                    <p style="background-color: #f1e98c; color: #908402">
+                      Pending
+                    </p>
+                  </td>
+                  <td>Kernal</td>
+                  <!-- <td>
+                <p style="background-color: #f1e98c; color: #908402">
+                  Pending
+                </p>
+              </td>
+              <td>06 Nov 2021</td> -->
+                </tr>
+                <tr
+                  style="
+                    /* border: 1px solid cyan; */
+                    height: 50px;
+                    border-collapse: collapse;
+                  "
+                >
+                  <td>
+                    <div style="display: flex">
+                      <input type="checkbox" />
+                      <p style="margin-left: 5px">create new admin temp</p>
+                    </div>
+                  </td>
+                  <td>03 Nov 2021</td>
+                  <td>
+                    <p style="background-color: #f1e98c; color: #908402">
+                      Pending
+                    </p>
+                  </td>
+                  <td>Kernal</td>
+                  <!-- <td>
+              <p style="background-color: #f1e98c; color: #908402">
+                Pending
+              </p>
+            </td>
+            <td>06 Nov 2021</td> -->
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div style="display: flex">
+          <div
+            style="
+              width: 55%;
+              box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+              margin-top: 30px;
+              margin-bottom: 30px;
+            "
+          >
+            <table
+              style="
+                width: 100%;
+                /* border: 1px solid red; */
+                margin-top: 20px;
+                font-size: 14px;
+                text-align: left;
+                height: 20vh;
+                overflow-y: auto;
+              "
+            >
+              <thead>
+                <tr style="background-color: #f3f7fa; height: 50px">
+                  <th style="width: 40%; margin-left: 5px">Member</th>
+                  <th>Hours</th>
+                  <th>Task</th>
+                  <th>Status</th>
+                  <!-- <th>Status</th>
+                  <th>Due Date</th> -->
+                </tr>
+              </thead>
+              <tbody>
+                <tr
+                  style="
+                    /* border: 1px solid cyan; */
+                    height: 50px;
+                    border-collapse: collapse;
+                  "
+                >
+                  <td>
+                    <div style="margin-left: 5px">
+                      <p>SHO Sadar</p>
+                      <p>24 case Pending</p>
+                    </div>
+                  </td>
+                  <td>03 Nov 2021</td>
+                  <td>
+                    <p
+                      style="
+                        text-align: center;
+                        background-color: #f1e98c;
+                        color: #908402;
+                      "
+                    >
+                      Pending
+                    </p>
+                  </td>
+                  <td style="text-align: center">Kernal</td>
+                  <!-- <td>
+                    <p style="background-color: #f1e98c; color: #908402">
+                      Pending
+                    </p>
+                  </td>
+                  <td>06 Nov 2021</td> -->
+                </tr>
+                <tr
+                  style="
+                    /* border: 1px solid cyan; */
+                    height: 50px;
+                    border-collapse: collapse;
+                  "
+                >
+                  <td>
+                    <div style="margin-left: 5px">
+                      <p>SHO Sadar</p>
+                      <p>24 case Pending</p>
+                    </div>
+                  </td>
+                  <td>03 Nov 2021</td>
+                  <td>
+                    <p
+                      style="
+                        text-align: center;
+                        background-color: #f1e98c;
+                        color: #908402;
+                      "
+                    >
+                      Pending
+                    </p>
+                  </td>
+                  <td style="text-align: center">Kernal</td>
+                  <!-- <td>
+                  <p style="background-color: #f1e98c; color: #908402">
+                    Pending
+                  </p>
+                </td>
+                <td>06 Nov 2021</td> -->
+                </tr>
+                <tr
+                  style="
+                    /* border: 1px solid cyan; */
+                    height: 50px;
+                    border-collapse: collapse;
+                  "
+                >
+                  <td>
+                    <div style="margin-left: 5px">
+                      <p>SHO Sadar</p>
+                      <p>24 case Pending</p>
+                    </div>
+                  </td>
+                  <td>03 Nov 2021</td>
+                  <td>
+                    <p
+                      style="
+                        text-align: center;
+                        background-color: #f1e98c;
+                        color: #908402;
+                      "
+                    >
+                      Pending
+                    </p>
+                  </td>
+                  <td style="text-align: center">Kernal</td>
+                  <!-- <td>
+                <p style="background-color: #f1e98c; color: #908402">
+                  Pending
+                </p>
+              </td>
+              <td>06 Nov 2021</td> -->
+                </tr>
+                <tr
+                  style="
+                    /* border: 1px solid cyan; */
+                    height: 50px;
+                    border-collapse: collapse;
+                  "
+                >
+                  <td>
+                    <div style="margin-left: 5px">
+                      <p>SHO Sadar</p>
+                      <p>24 case Pending</p>
+                    </div>
+                  </td>
+                  <td>03 Nov 2021</td>
+                  <td>
+                    <p
+                      style="
+                        text-align: center;
+                        background-color: #f1e98c;
+                        color: #908402;
+                      "
+                    >
+                      Pending
+                    </p>
+                  </td>
+                  <td style="text-align: center">Kernal</td>
+                  <!-- <td>
+              <p style="background-color: #f1e98c; color: #908402">
+                Pending
+              </p>
+            </td>
+            <td>06 Nov 2021</td> -->
+                </tr>
+                <tr
+                  style="
+                    /* border: 1px solid cyan; */
+                    height: 50px;
+                    border-collapse: collapse;
+                  "
+                >
+                  <td>
+                    <div style="margin-left: 5px">
+                      <p>SHO Sadar</p>
+                      <p>24 case Pending</p>
+                    </div>
+                  </td>
+                  <td>03 Nov 2021</td>
+                  <td>
+                    <p
+                      style="
+                        text-align: center;
+                        background-color: #f1e98c;
+                        color: #908402;
+                      "
+                    >
+                      Pending
+                    </p>
+                  </td>
+                  <td style="text-align: center">Kernal</td>
+                  <!-- <td>
+            <p style="background-color: #f1e98c; color: #908402">
+              Pending
+            </p>
+          </td>
+          <td>06 Nov 2021</td> -->
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div
+            style="
+              /* border: 1px solid red; */
+              width: 30%;
+              height: 39vh;
+              margin: auto;
+              margin-top: 30px;
+              box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+            "
+          >
+            <canvas id="donut" style="height: 100%; width: 100%"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
+<script>
+  const ctx = document.getElementById("barchart");
+
+  new Chart(ctx, {
+    type: "bar",
+    data: {
+      labels: [
+        "Jan",
+        "Feb",
+        "Mar",
+        "Apr",
+        "May",
+        "June",
+        "Jul",
+        "Aug",
+        "Sep",
+        "Oct",
+        "Nov",
+        "Dec",
+      ],
+      datasets: [
+        {
+          type: "bar",
+          label: "Active Complaints",
+          data: [10, 15, 25, 17, 10, 15, 25, 17, 10, 15, 25, 17],
+        },
+        {
+          type: "bar",
+          label: "High Priority",
+          data: [10, 13, 9, 29, 10, 13, 9, 29, 10, 13, 9, 29],
+        },
+        {
+          type: "line",
+          label: "High Priority",
+          data: [30, 20, 27, 50, 80, 56, 90, 40, 20, 44, 69, 40],
+        },
+      ],
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true,
+        },
+      },
+    },
+  });
+  const ctx1 = document.getElementById("donut");
+
+  new Chart(ctx1, {
+    type: "doughnut",
+    data: {
+      labels: ["Completed", "Yet to Start", "In Progress", "Cancelled"],
+      datasets: [
+        {
+          label: "# of Votes",
+          data: [12, 19, 3, 5],
+          borderWidth: 1,
+        },
+      ],
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true,
+        },
+      },
+    },
+  });
+
+  const logout = () => {
+    window.location.href = "index.html";
+  };
+  //   const complaintsData = [
+  //     {
+  //       id: 1,
+  //       text: "Active Complaints",
+  //       numberOfComplaints: "825",
+  //       accuracy: "5.2",
+  //       flowUp: false,
+  //     },
+  //     {
+  //       id: 2,
+  //       text: "Pending Complaints",
+  //       numberOfComplaints: "825",
+  //       accuracy: "5.2",
+  //       flowUp: false,
+  //     },
+  //     {
+  //       id: 3,
+  //       text: "Active Complaints",
+  //       numberOfComplaints: "825",
+  //       accuracy: "5.2",
+  //       flowUp: false,
+  //     },
+  //   ];
+</script>
