@@ -1,0 +1,203 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+/* body{
+    background: aliceblue;
+    font-family:sans-serif;
+} */
+
+#officerinfoinput {
+  width: 100%;
+  margin: auto;
+  margin-top: 40px;
+  /* margin-left: 100px; */
+  /* border: 1px solid red; */
+}
+
+#whole-form {
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  /* border: 1px solid red; */
+  margin: auto;
+  font-size: 18px;
+}
+#left-form {
+  width: 48%;
+  /* border: 1px solid red; */
+}
+#right-form {
+  width: 48%;
+  /* border: 1px solid cyan; */
+}
+
+#namediv {
+  margin-top: 10px;
+  height: 50px;
+  width: 100%;
+  display: flex;
+  /* justify-content: space-between; */
+  /* border: 1px solid red; */
+  align-content: center;
+}
+#nameinput {
+  /* width: 30%; */
+  align-self: center;
+  /* border: 1px solid red; */
+  position: relative;
+}
+#nameinputfields {
+  height: 100%;
+  width: 70%;
+  align-self: center;
+  /* border: 1px solid cyan; */
+  box-sizing: border-box;
+}
+#nameinputfields > input {
+  height: 80%;
+  padding-left: 5px;
+  width: 46%;
+  margin: auto;
+}
+#addressinp {
+  width: 100%;
+  display: flex;
+  /* border: 1px solid red; */
+  margin-top: 15px;
+  justify-content: space-between;
+  align-content: center;
+}
+/* #addressinp >div>div> label {
+  margin-right: 30%;
+  margin-bottom: 15px;
+} */
+#addressinp > div >div >div> input {
+  /* margin-bottom: 15px; */
+  /* border: 1px solid blue; */
+  align-self: center;
+  height: 25px;
+  width: 20%;
+}
+#designasion {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  /* border: 1px solid cyan; */
+  justify-content: space-between;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+
+/* form-right-css */
+#emailinput {
+  width: 100%;
+  display: flex;
+}
+#emailinput > label {
+  margin-right: 20%;
+}
+
+
+#addinfo{
+  height: 40px;
+  width: 90px;
+  border: none;
+  background-color: green;
+  color: white;
+  font-weight: 500;
+  border-radius: 3%;
+  margin: auto;
+  /* margin-top: 10px; */
+  /* justify-self: center; */
+  /* text-align: center; */
+  cursor: pointer;
+  
+}
+
+/* #nameandemail{
+    width:90%;
+    display: flex;
+    justify-content: center;
+    /* border: 1px solid red; 
+}
+#nameinput{
+    width: 60%;
+ display: flex;
+ justify-content: space-around;
+}
+#nameinput>div{
+width:70%;
+}
+#nameinput>div>input{
+width: 45%;
+}
+#nameinput>div{
+    display: flex;
+    justify-content: space-between;
+}
+
+#emailinput{
+    width: 40%;
+    display: flex;
+    justify-content: space-around;
+}
+
+#addressdiv{
+
+    width: 90%;
+    display: flex;
+    justify-content: space-evenly;
+    /* border: 1px solid red; 
+    margin: auto;
+   margin-top: 20px;
+}
+#addressinp{
+    width: 50%;
+    display: flex;
+    justify-content: space-around;
+}
+#addressinp>div{
+    width: 60%;
+}
+#addressinp>div>input{
+    margin-bottom: 10px;
+}
+#pnoneinp>div{
+margin-bottom: 10px;
+}
+
+#designasiondiv{
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+
+}
+#designasiondiv>div{
+    width: 50%;
+    display: flex;
+}
+#designasion{
+    justify-content: space-around;
+}
+#designasion>input{
+ width: 50%;
+}
+#district {
+    justify-content: space-around;
+
+}
+#district>div {
+width: 60%;
+} */
+#officerlist {
+  width: 90%;
+  margin: auto;
+  /* margin-top: 30px; */
+}
+#officerlist > table {
+  width: 100%;
+  margin: auto;
+}

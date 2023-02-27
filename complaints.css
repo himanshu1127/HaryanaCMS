@@ -1,7 +1,7 @@
 .table {
   border-collapse: collapse;
   font-size: 0.9em;
-  border: 1px solid cyan;
+  /* border: 1px solid cyan; */
   width: 100%;
 }
 .tableHead {
@@ -15,20 +15,20 @@
 .thHead {
   border: 1px solid rgb(87, 87, 87);
   height: 40px;
-  font-size: 16px;
+  font-size: 12px;
   /* // font-weight: lighter; */
   text-transform: uppercase;
 }
 .thHead1 {
-  width: 13%;
+  width: 9%;
   /* // font-size: 12px;
   // font-weight: 900; */
 }
 .thHead2 {
-  width: 16%;
+  width: 10%;
 }
 .thHead3 {
-  width: 16%;
+  width: 12%;
   overflow-x: scroll;
 }
 .thHead4 {
@@ -38,10 +38,13 @@
   width: 10%;
 }
 .thHead6 {
-  width: 16%;
+  width: 9%;
 }
 .thHead7 {
   width: 10%;
+}
+.thHead9{
+    width: 13%;
 }
 .tableBody {
   width: 100%;
@@ -64,9 +67,7 @@
   font-size: 12px;
   font-weight: 700;
 }
-.tablecol6{
-    border: 1px soldi red;
-}
+
 .tablecol8 {
   /* // border: 1px solid red; */
   justify-content: space-around;
@@ -78,4 +79,15 @@
   padding: 10% 20% 0% 20%;
   justify-content: space-around;
   box-sizing: border-box;
+}
+.buttonsAction{
+  /* border: 1px solid cyan; */
+  height: 30px;
+  border-radius: 3%;
+  border: none;
+  cursor: pointer;
+}
+.buttonsAction:hover{
+  color: white;
+  background-color: lime;
 }
