@@ -27,26 +27,28 @@
       <div id="sidebar">
         <div style="display: flex; justify-content: space-between">
           <div>Home</div>
-          <div>Dashboard</div>
+          <div><a href="./Dashboard.html">Dashboard</a></div>
         </div>
         <div id="sideMenu">
           <p>Manage Complaits</p>
           <ul>
             <li class="liText">
               <a class="aTag" href="./complaints.html"
-                >Add/View District Wise</a
+                >Add/View/Update Complaint</a
               >
             </li>
             <li class="liText">
               <a class="aTag" href="./HighPriority.html"
-                >Add/View High Priority</a
+                >Add/View/Update High Priority</a
               >
             </li>
             <li class="liText">
               <a class="aTag" href="./complaints.html">Update/View Pending</a>
             </li>
             <li class="liText">
-              <a class="aTag" href="./OfficerComplaints.html">Add/View Officer Complaint</a>
+              <a class="aTag" href="./OfficerComplaints.html"
+                >Add/View/Update Officer Complaint</a
+              >
             </li>
             <li class="liText">
               <a class="aTag" href="#">View Special Complaints</a>
@@ -55,33 +57,65 @@
           <p>Manage Officers Data</p>
           <ul>
             <li class="liText">
-              <a class="aTag" href="./addorviewofficers.html">
-                Add/View Officers
-              </a>
+              <a class="aTag" href="./addorviewSP.html"> Add/View/Update SP </a>
             </li>
             <li class="liText">
-              <a class="aTag" href="./AddViewSho.html">Add/View SHO</a>
+              <a class="aTag" href="./addorviewDSP.html">Add/View/Update DSP</a>
             </li>
             <li class="liText">
-              <a class="aTag" href="./addorviewDist.html">Add/View Districts</a>
+              <a class="aTag" href="./addorviewASP.html">Add/View/Update ASP</a>
             </li>
             <li class="liText">
-              <a class="aTag" href="./AddorViewAreas.html">Add/View Areas</a>
+              <a class="aTag" href="./AddViewSho.html">Add/View/Update SHO</a>
             </li>
             <li class="liText">
-              <a class="aTag" href="./category.html">Add/View Category</a>
+              <a class="aTag" href="./addorviewIO.html">Add/View/Update IO</a>
             </li>
           </ul>
-          <p>Manage Dept.</p>
           <p>Manage Category</p>
-          <p>Manage Users (SHO)</p>
-          <p>Manage Data</p>
+          <ul>
+            <li class="liText">
+              <a class="aTag" href="./category.html"
+                >Add/View/Update Category</a
+              >
+            </li>
+            <li class="liText">
+              <a class="aTag" href="./addorviewACT.html">Add/View/Update ACT</a>
+            </li>
+          </ul>
+          <p>Manage Areas</p>
+          <ul>
+            <li class="liText">
+              <a class="aTag" href="./addorviewDist.html"
+                >Add/View/Update Districts</a
+              >
+            </li>
+            <li class="liText">
+              <a class="aTag" href="./addorviewRange.html"
+                >Add/View/Update Range</a
+              >
+            </li>
+            <li class="liText">
+              <a class="aTag" href="./addorviewPoliceStation.html"
+                >Add/View/Update Police Station</a
+              >
+            </li>
+            <li class="liText">
+              <a class="aTag" href="./AddorViewAreas.html"
+                >Add/View/Update Village</a
+              >
+            </li>
+          </ul>
+          <!-- <p>Manage Dept.</p>
+              <p>Manage Category</p>
+              <p>Manage Users (SHO)</p>
+              <p>Manage Data</p> -->
         </div>
       </div>
       <div
         style="
           /* border: 1px solid red; */
-          width: 78%;
+          width: 75%;
           margin: auto;
           height: 90vh;
           padding: 20px;
@@ -94,7 +128,7 @@
         <div id="officerinfoinput">
           <form action="">
             <div id="whole-form">
-              <div id="left-form" style="width: 100%;">
+              <div id="left-form" style="width: 100%">
                 <!-- Name -->
 
                 <div
@@ -106,11 +140,17 @@
                   "
                 >
                   <label for="designasion"> Village Name : </label>
-                  <input type="text" style="
-                  width: 70%;
-                  box-sizing: border-box;
-                  padding-left: 5px;
-                " placeholder="Village name" name="" id="">
+                  <input
+                    type="text"
+                    style="
+                      width: 70%;
+                      box-sizing: border-box;
+                      padding-left: 5px;
+                    "
+                    placeholder="Village name"
+                    name=""
+                    id=""
+                  />
                 </div>
 
                 <div
@@ -143,7 +183,7 @@
                   "
                 >
                   <label for="designasion"> District : </label>
-                  <select name="" id="dist">
+                  <select name="" id="dist" style="width: 70%">
                     <option value="select">Select District</option>
                     <option value="rewari">Rewari</option>
                     <option value="gurugram">Gurugram</option>
@@ -151,13 +191,13 @@
                     <option value="bhiwani">Bhiwani</option>
                     <option value="sonipat">Sonipat</option>
                   </select>
-                  <select name="" id="sub-dist">
+                  <!-- <select name="" id="sub-dist">
                     <option value="select">Select Range</option>
                     <option value="bawal">Bawal</option>
                     <option value="dahina">Dahina</option>
                     <option value="dharuhera">Dharuhera</option>
                     <option value="kosli">Kosli</option>
-                  </select>
+                  </select> -->
                 </div>
               </div>
             </div>
@@ -170,110 +210,3 @@
     </div>
   </body>
 </html>
-
-<script>
-  const data = [
-    {
-      id: 1,
-      name: "Jaswinder Kaur",
-      rank: "L/SI",
-      designation: "I/C PP",
-      posting: "Sudar Bazar",
-      officeTelNo: "087-78798979",
-      MobileNo: "9890879879",
-    },
-    {
-      id: 2,
-      name: "Jaswinder Kaur",
-      rank: "L/SI",
-      designation: "I/C PP",
-      posting: "Sudar Bazar",
-      officeTelNo: "087-78798979",
-      MobileNo: "9890879879",
-    },
-    {
-      id: 3,
-      name: "Jaswinder Kaur",
-      rank: "L/SI",
-      designation: "I/C PP",
-      posting: "Sudar Bazar",
-      officeTelNo: "087-78798979",
-      MobileNo: "9890879879",
-    },
-    {
-      id: 4,
-      name: "Jaswinder Kaur",
-      rank: "L/SI",
-      designation: "I/C PP",
-      posting: "Sudar Bazar",
-      officeTelNo: "087-78798979",
-      MobileNo: "9890879879",
-    },
-    {
-      id: 5,
-      name: "Jaswinder Kaur",
-      rank: "L/SI",
-      designation: "I/C PP",
-      posting: "Sudar Bazar",
-      officeTelNo: "087-78798979",
-      MobileNo: "9890879879",
-    },
-    {
-      id: 6,
-      name: "Jaswinder Kaur",
-      rank: "L/SI",
-      designation: "I/C PP",
-      posting: "Sudar Bazar",
-      officeTelNo: "087-78798979",
-      MobileNo: "9890879879",
-    },
-    {
-      id: 7,
-      name: "Jaswinder Kaur",
-      rank: "L/SI",
-      designation: "I/C PP",
-      posting: "Sudar Bazar",
-      officeTelNo: "087-78798979",
-      MobileNo: "9890879879",
-    },
-    {
-      id: 8,
-      name: "Jaswinder Kaur",
-      rank: "L/SI",
-      designation: "I/C PP",
-      posting: "Sudar Bazar",
-      officeTelNo: "087-78798979",
-      MobileNo: "9890879879",
-    },
-    {
-      id: 9,
-      name: "Jaswinder Kaur",
-      rank: "L/SI",
-      designation: "I/C PP",
-      posting: "Sudar Bazar",
-      officeTelNo: "087-78798979",
-      MobileNo: "9890879879",
-    },
-  ];
-
-  let container = document.getElementById("tbody");
-  let i = 0;
-  data.map((el) => {
-    i++;
-    let tr = document.createElement("tr");
-    let td1 = document.createElement("td");
-    td1.innerText = i;
-    let td2 = document.createElement("td");
-    td2.innerText = `${el.rank} ${el.name}`;
-    let td3 = document.createElement("td");
-    td3.innerText = `${el.designation} ${el.posting}`;
-    let td4 = document.createElement("td");
-    td4.innerText = el.officeTelNo;
-    let td5 = document.createElement("td");
-    td5.innerText = el.MobileNo;
-
-    tr.append(td1, td2, td3, td4, td5);
-
-    container.append(tr);
-  });
-</script>

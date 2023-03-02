@@ -12,8 +12,12 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.2.1/dist/chart.umd.min.js"></script>
     <nav id="navbar">
       <div id="navLeft">
-        <h3 style="color: #f1e98c; cursor: pointer;" onclick=navigate()>Administrator</h3>
-        <h3 style="color: white; cursor: pointer;" onclick=navigate()>Haryana Complaint Management System</h3>
+        <h3 style="color: #f1e98c; cursor: pointer" onclick="navigate()">
+          Administrator
+        </h3>
+        <h3 style="color: white; cursor: pointer" onclick="navigate()">
+          Haryana Complaint Management System
+        </h3>
       </div>
       <div id="navRight">
         <button onclick="logout()">Logout</button>
@@ -24,35 +28,95 @@
       <div id="sidebar">
         <div style="display: flex; justify-content: space-between">
           <div>Home</div>
-          <div>Dashboard</div>
+          <div><a href="./Dashboard.html">Dashboard</a></div>
         </div>
         <div id="sideMenu">
-          <p>Manage Complaits</p>
+          <p>Manage Complaints</p>
           <ul>
-            <li class="liText"><a class="aTag" href="./complaints.html">Add/View District Wise</a></li>
-            <li class="liText"><a class="aTag" href="./HighPriority.html">Add/View High Priority</a></li>
-            <li class="liText"><a class="aTag" href="./complaints.html">Update/View Pending</a></li>
-            <li class="liText"><a class="aTag" href="./OfficerComplaints.html">Add/View Officer Complaint</a></li>
-            <li class="liText"><a class="aTag" href="#">View Special Complaints</a></li>
+            <li class="liText">
+              <a class="aTag" href="./complaints.html"
+                >Add/View/Update Complaint</a
+              >
+            </li>
+            <li class="liText">
+              <a class="aTag" href="./HighPriority.html"
+                >Add/View/Update High Priority</a
+              >
+            </li>
+            <li class="liText">
+              <a class="aTag" href="./complaints.html">Update/View Pending</a>
+            </li>
+            <li class="liText">
+              <a class="aTag" href="./OfficerComplaints.html"
+                >Add/View/Update Officer Complaint</a
+              >
+            </li>
+            <li class="liText">
+              <a class="aTag" href="#">View Special Complaints</a>
+            </li>
           </ul>
           <p>Manage Officers Data</p>
           <ul>
-            <li class="liText"><a class="aTag" href="./addorviewofficers.html">Add/View Officers</a></li>
-            <li class="liText"><a class="aTag" href="./addorviewofficers.html">Add/View SHO</a></li>
-            <li class="liText"><a class="aTag" href="./addorviewDist.html">Add/View Districts</a></li>
-            <li class="liText"><a class="aTag" href="./AddorViewAreas.html">Add/View Areas</a></li>
-            <li class="liText"><a class="aTag" href="./category.html">Add/View Category</a></li>
+            <li class="liText">
+              <a class="aTag" href="./addorviewSP.html"> Add/View/Update SP </a>
+            </li>
+            <li class="liText">
+              <a class="aTag" href="./addorviewDSP.html">Add/View/Update DSP</a>
+            </li>
+            <li class="liText">
+              <a class="aTag" href="./addorviewASP.html">Add/View/Update ASP</a>
+            </li>
+            <li class="liText">
+              <a class="aTag" href="./AddViewSho.html">Add/View/Update SHO</a>
+            </li>
+            <li class="liText">
+              <a class="aTag" href="./addorviewIO.html">Add/View/Update IO</a>
+            </li>
           </ul>
-          <p>Manage Dept.</p>
+          <p>Manage Category</p>
+          <ul>
+            <li class="liText">
+              <a class="aTag" href="./category.html"
+                >Add/View/Update Category</a
+              >
+            </li>
+            <li class="liText">
+              <a class="aTag" href="./addorviewACT.html">Add/View/Update ACT</a>
+            </li>
+          </ul>
+          <p>Manage Areas</p>
+          <ul>
+            <li class="liText">
+              <a class="aTag" href="./addorviewDist.html"
+                >Add/View/Update Districts</a
+              >
+            </li>
+            <li class="liText">
+              <a class="aTag" href="./addorviewRange.html"
+                >Add/View/Update Range</a
+              >
+            </li>
+            <li class="liText">
+              <a class="aTag" href="./addorviewPoliceStation.html"
+                >Add/View/Update Police Station</a
+              >
+            </li>
+            <li class="liText">
+              <a class="aTag" href="./AddorViewAreas.html"
+                >Add/View/Update Village</a
+              >
+            </li>
+          </ul>
+          <!-- <p>Manage Dept.</p>
           <p>Manage Category</p>
           <p>Manage Users (SHO)</p>
-          <p>Manage Data</p>
+          <p>Manage Data</p> -->
         </div>
       </div>
       <div
         style="
           /* border: 1px solid cyan; */
-          width: 78%;
+          width: 75%;
           margin: auto;
           /* height: 90vh;
           overflow-y: auto; */
@@ -61,9 +125,9 @@
         <div
           style="display: flex; justify-content: space-between; height: 70px"
         >
-          <div style="width: 50%; align-self: center">
-            <h5>PROJECTS</h5>
-          </div>
+          <!-- <div style="width: 50%; align-self: center">
+            <h5></h5>
+          </div> -->
           <div
             style="
               display: flex;
@@ -76,8 +140,8 @@
               gap: 20px;
             "
           >
-            <h5>Dashboard &nbsp; &nbsp; ></h5>
-            <h5 style="font-weight: 500">Projects</h5>
+            <h5 style="font-size: 22px; color: orange;">Admin Dashboard &nbsp; &nbsp; </h5>
+            <!-- <h5 style="font-weight: 500">Projects</h5> -->
           </div>
         </div>
         <div
@@ -793,7 +857,6 @@
     },
   });
 
-  
   //   const complaintsData = [
   //     {
   //       id: 1,

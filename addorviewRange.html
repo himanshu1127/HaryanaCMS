@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="./Dashboard.css" />
     <script src="./function.js"></script>
   </head>
-  <body style="height: fit-content">
+  <body>
     <nav id="navbar">
       <div id="navLeft">
         <h3 style="color: #f1e98c; cursor: pointer" onclick="navigate()">
@@ -107,9 +107,9 @@
             </li>
           </ul>
           <!-- <p>Manage Dept.</p>
-          <p>Manage Category</p>
-          <p>Manage Users (SHO)</p>
-          <p>Manage Data</p> -->
+              <p>Manage Category</p>
+              <p>Manage Users (SHO)</p>
+              <p>Manage Data</p> -->
         </div>
       </div>
       <div
@@ -123,30 +123,37 @@
         "
       >
         <h3 style="text-transform: uppercase; margin-top: 20px">
-          Add SHO for System
+          Add Range for System
         </h3>
         <div id="officerinfoinput">
           <form action="">
             <div id="whole-form">
-              <div id="left-form">
+              <div id="left-form" style="width: 100%">
                 <!-- Name -->
-                <div id="namediv">
-                  <div
-                    style="
-                      display: flex;
-                      padding: 10px;
-                      justify-content: space-between;
-                      width: 100%;
-                    "
-                  >
-                    <div id="nameinput">
-                      <label for="Name">Name of SHO :</label>
-                    </div>
-                    <div id="nameinputfields">
-                      <input type="text" placeholder="First Name" />
-                      <input type="text" placeholder="Last Name" />
-                    </div>
-                  </div>
+
+                <div
+                  id="designasion"
+                  style="
+                    /* border: 1px solid red; */
+                    justify-content: space-between;
+                    width: 100%;
+                  "
+                >
+                  <!-- <label for="designasion"> Range : </label>
+                   <select name="" id="dist">
+                    <option value="select">Select District</option>
+                    <option value="rewari">Rewari</option>
+                    <option value="gurugram">Gurugram</option>
+                    <option value="karnal">Karnal</option>
+                    <option value="bhiwani">Bhiwani</option>
+                    <option value="sonipat">Sonipat</option>
+                  </select>
+                  <select name="" id="sub-dist" style="width: 70%;">
+                    <option value="select">Select Range</option>
+                    <option value="rewari">Karnal</option>
+                    <option value="gurugram">Hisar</option>
+                    <option value="karnal">Ambala</option>
+                  </select> -->
                 </div>
 
                 <!-- address -->
@@ -260,99 +267,54 @@
                   </div>
                 </div> -->
 
+                <div
+                  id="designasion"
+                  style="
+                    /* border: 1px solid red; */
+                    margin-top: 20px;
+                    justify-content: space-between;
+                    width: 100%;
+                    margin-bottom: 20px;
+                  "
+                >
+                  <label for="">Range Name :</label>
+                  <input
+                    type="text"
+                    style="
+                      width: 70%;
+                      box-sizing: border-box;
+                      padding-left: 5px;
+                    "
+                    placeholder="Enter Range Name"
+                  />
+                </div>
+
                 <!-- designasion -->
 
-                <!-- <div id="designasion">
-                  <label for="designasion"> Designasion : </label>
-                  <input
-                    type="text"
-                    style="width: 69%; height: 80%"
-                    placeholder="Designation"
-                  />
-                </div> -->
-                <div id="designasion">
-                  <label for="designasion"> Police Range : </label>
-                  <input
-                    type="text"
-                    style="width: 69%; height: 80%"
-                    placeholder="Police Range"
-                  />
-                </div>
-                <div id="designasion">
-                  <label for="designasion"> Range SHO : </label>
-                  <select name="" id="dist" style="width: 70%">
-                    <option value="select">Select Range</option>
-                    <option value="rewari">Karnal</option>
-                    <option value="gurugram">Hisar</option>
-                    <option value="karnal">Ambala</option>
-                    <!-- <option value="bhiwani">Bhiwani</option>
-                    <option value="sonipat">Sonipat</option> -->
-                  </select>
-                </div>
-                <div id="designasion">
-                  <label for="designasion"> Username : </label>
-                  <input
-                    type="text"
-                    style="width: 69%; height: 80%"
-                    placeholder="Username"
-                  />
-                </div>
-              </div>
-
-              <div id="right-form">
-                <!-- email -->
-                <div id="designasion">
-                  <label for="designasion"> Mobile No. : </label>
-                  <input
-                    type="text"
-                    style="width: 60%; height: 80%"
-                    placeholder="Mobile No."
-                  />
-                </div>
-                <div id="designasion" style="margin-top: 15px">
-                  <label for="designasion"> Alternate Mobile No.: </label>
-                  <input
-                    type="text"
-                    style="width: 60%; height: 80%"
-                    placeholder="Reader Mobile No."
-                  />
-                </div>
-
-                <!-- phone -->
-
-                <!-- <div id="designasion">
-                  <label for="designasion"> Police Range : </label>
-                  <input
-                    type="text"
-                    style="width: 69%; height: 80%"
-                    placeholder="Police Range"
-                  />
-                </div> -->
-                <div id="designasion">
-                  <label for="designasion">District : </label>
-                  <select name="" id="sub-dist" style="width: 61%">
+                <!-- <div
+                id="designasion"
+                  style="
+                    border: 1px solid red;
+                    justify-content: space-between;
+                    width: 100%;
+                  "
+                >
+                  <label for="designasion"> District : </label>
+                  <select name="" id="dist">
                     <option value="select">Select District</option>
-                    <option value="rew">Rewari</option>
-                    <option value="ggn">Gurugram</option>
-                    <option value="ppt">Panipat</option>
-                    <option value="spt">Sonipat</option>
+                    <option value="rewari">Rewari</option>
+                    <option value="gurugram">Gurugram</option>
+                    <option value="karnal">Karnal</option>
+                    <option value="bhiwani">Bhiwani</option>
+                    <option value="sonipat">Sonipat</option>
                   </select>
-                </div>
-                <div id="designasion">
-                  <label for="designasion"> Password : </label>
-                  <input
-                    type="text"
-                    style="width: 60%; height: 80%"
-                    placeholder="Password"
-                  />
-                </div>
-
-                <!-- <div id="district">
-                  <label for="district">District :</label>
-                  <div>
-                    <input type="text" />
-                    <input type="text" />
-                  </div>
+                  <select name="" id="sub-dist">
+                    <option value="select">Select Range</option>
+                    <option value="bawal">Bawal</option>
+                    <option value="dahina">Dahina</option>
+                    <option value="dharuhera">Dharuhera</option>
+                    <option value="kosli">Kosli</option>
+                  </select>
                 </div> -->
               </div>
             </div>
@@ -362,7 +324,7 @@
           </div>
         </div>
 
-        <div
+        <!--  <div
           style="
             /* border: 1px solid cyan; */
             width: 100%;
@@ -372,146 +334,31 @@
             margin-top: 20px;
           "
         >
-          <div id="officerlist">
-            <table
-              border="1"
-              style="
-                text-align: center;
-                border-collapse: collapse;
-                border-radius: 3%;
-              "
-            >
+          <div
+            style="
+              width: 100%;
+              padding: 10px;
+              box-sizing: border-box;
+              box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px; ;
+            "
+            id="officerlist"
+          >
+            <table>
               <thead>
-                <tr
-                  style="
-                    text-align: center;
-                    height: 40px;
-                    border: 1px solid green;
-                  "
-                >
-                  <th style="width: 7%">S No.</th>
-                  <th>Posting</th>
-                  <th>Name (S/Shri)</th>
+                <tr>
+                  <th>S.No</th>
+                  <th>Name & Rank</th>
+                  <th>Designation</th>
+                  <th>Office Tel. No.</th>
+                  <th>Mobile No.</th>
                 </tr>
               </thead>
-              <tbody id="tbody"></tbody>
+              
+              <tbody style="text-align: center" id="tbody"></tbody>
             </table>
-          </div>
-        </div>
+          </div> 
+        </div> -->
       </div>
     </div>
   </body>
 </html>
-
-<script>
-  const data = [
-    {
-      id: 1,
-      name: "Jaswinder Kaur",
-      rank: "L/SI",
-      designation: "I/C PP",
-      posting: "Sudar Bazar",
-      officeTelNo: "087-78798979",
-      MobileNo: "9890879879",
-    },
-    {
-      id: 2,
-      name: "Jaswinder Kaur",
-      rank: "L/SI",
-      designation: "I/C PP",
-      posting: "Sudar Bazar",
-      officeTelNo: "087-78798979",
-      MobileNo: "9890879879",
-    },
-    {
-      id: 3,
-      name: "Jaswinder Kaur",
-      rank: "L/SI",
-      designation: "I/C PP",
-      posting: "Sudar Bazar",
-      officeTelNo: "087-78798979",
-      MobileNo: "9890879879",
-    },
-    {
-      id: 4,
-      name: "Jaswinder Kaur",
-      rank: "L/SI",
-      designation: "I/C PP",
-      posting: "Sudar Bazar",
-      officeTelNo: "087-78798979",
-      MobileNo: "9890879879",
-    },
-    {
-      id: 5,
-      name: "Jaswinder Kaur",
-      rank: "L/SI",
-      designation: "I/C PP",
-      posting: "Sudar Bazar",
-      officeTelNo: "087-78798979",
-      MobileNo: "9890879879",
-    },
-    {
-      id: 6,
-      name: "Jaswinder Kaur",
-      rank: "L/SI",
-      designation: "I/C PP",
-      posting: "Sudar Bazar",
-      officeTelNo: "087-78798979",
-      MobileNo: "9890879879",
-    },
-    {
-      id: 7,
-      name: "Jaswinder Kaur",
-      rank: "L/SI",
-      designation: "I/C PP",
-      posting: "Sudar Bazar",
-      officeTelNo: "087-78798979",
-      MobileNo: "9890879879",
-    },
-    {
-      id: 8,
-      name: "Jaswinder Kaur",
-      rank: "L/SI",
-      designation: "I/C PP",
-      posting: "Sudar Bazar",
-      officeTelNo: "087-78798979",
-      MobileNo: "9890879879",
-    },
-    {
-      id: 9,
-      name: "Jaswinder Kaur",
-      rank: "L/SI",
-      designation: "I/C PP",
-      posting: "Sudar Bazar",
-      officeTelNo: "087-78798979",
-      MobileNo: "9890879879",
-    },
-  ];
-
-  let container = document.getElementById("tbody");
-  let i = 0;
-  data.map((el) => {
-    i++;
-
-    let tr = document.createElement("tr");
-    tr.style.height = "40px";
-    tr.style.border = "1px solid green";
-    let td1 = document.createElement("td");
-    td1.innerText = i;
-    td1.style.borderRadius = "3%";
-    let td2 = document.createElement("td");
-    td2.innerText = `${el.rank} ${el.name}`;
-    let td3 = document.createElement("td");
-    td3.innerText = `${el.designation} ${el.posting}`;
-    // let td4 = document.createElement("td");
-    // td4.innerText = el.officeTelNo;
-    // let td5 = document.createElement("td");
-    // td5.innerText = el.MobileNo;
-    if (i % 2 === 0) {
-      tr.style.backgroundColor = "gray";
-    }
-    tr.append(td1, td2, td3);
-
-    container.append(tr);
-  });
-</script>

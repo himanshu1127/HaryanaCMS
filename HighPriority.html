@@ -23,7 +23,23 @@
           Haryana Complaint Management System
         </h3>
       </div>
-      <div style="height: 100%;"><button style="align-self: center; margin-top: 10%; color: white; background-color: green; border: none; border-radius: 3%; cursor: pointer; height: 60%; width: 150px;">Add Complaint</button></div>
+      <div style="height: 100%">
+        <button
+          style="
+            align-self: center;
+            margin-top: 10%;
+            color: white;
+            background-color: green;
+            border: none;
+            border-radius: 3%;
+            cursor: pointer;
+            height: 60%;
+            width: 150px;
+          "
+        >
+          Add Complaint
+        </button>
+      </div>
       <div id="navRight">
         <button onclick="logout()">Logout</button>
       </div>
@@ -32,26 +48,28 @@
       <div id="sidebar">
         <div style="display: flex; justify-content: space-between">
           <div>Home</div>
-          <div>Dashboard</div>
+          <div><a href="./Dashboard.html">Dashboard</a></div>
         </div>
         <div id="sideMenu">
           <p>Manage Complaits</p>
           <ul>
             <li class="liText">
               <a class="aTag" href="./complaints.html"
-                >Add/View District Wise</a
+                >Add/View/Update Complaint</a
               >
             </li>
             <li class="liText">
               <a class="aTag" href="./HighPriority.html"
-                >Add/View High Priority</a
+                >Add/View/Update High Priority</a
               >
             </li>
             <li class="liText">
               <a class="aTag" href="./complaints.html">Update/View Pending</a>
             </li>
             <li class="liText">
-              <a class="aTag" href="./OfficerComplaints.html">Add/View Officer Complaint</a>
+              <a class="aTag" href="./OfficerComplaints.html"
+                >Add/View/Update Officer Complaint</a
+              >
             </li>
             <li class="liText">
               <a class="aTag" href="#">View Special Complaints</a>
@@ -60,30 +78,62 @@
           <p>Manage Officers Data</p>
           <ul>
             <li class="liText">
-              <a class="aTag" href="./addorviewofficers.html"
-                >Add/View Officers</a
+              <a class="aTag" href="./addorviewSP.html"> Add/View/Update SP </a>
+            </li>
+            <li class="liText">
+              <a class="aTag" href="./addorviewDSP.html">Add/View/Update DSP</a>
+            </li>
+            <li class="liText">
+              <a class="aTag" href="./addorviewASP.html">Add/View/Update ASP</a>
+            </li>
+            <li class="liText">
+              <a class="aTag" href="./AddViewSho.html">Add/View/Update SHO</a>
+            </li>
+            <li class="liText">
+              <a class="aTag" href="./addorviewIO.html">Add/View/Update IO</a>
+            </li>
+          </ul>
+          <p>Manage Category</p>
+          <ul>
+            <li class="liText">
+              <a class="aTag" href="./category.html"
+                >Add/View/Update Category</a
               >
             </li>
             <li class="liText">
-              <a class="aTag" href="./addorviewofficers.html">Add/View SHO</a>
-            </li>
-            <li class="liText">
-              <a class="aTag" href="./addorviewDist.html">Add/View Districts</a>
-            </li>
-            <li class="liText">
-              <a class="aTag" href="./AddorViewAreas.html">Add/View Areas</a>
-            </li>
-            <li class="liText">
-              <a class="aTag" href="./category.html">Add/View Category</a>
+              <a class="aTag" href="./addorviewACT.html">Add/View/Update ACT</a>
             </li>
           </ul>
-          <p>Manage Dept.</p>
-          <p>Manage Category</p>
-          <p>Manage Users (SHO)</p>
-          <p>Manage Data</p>
+          <p>Manage Areas</p>
+          <ul>
+            <li class="liText">
+              <a class="aTag" href="./addorviewDist.html"
+                >Add/View/Update Districts</a
+              >
+            </li>
+            <li class="liText">
+              <a class="aTag" href="./addorviewRange.html"
+                >Add/View/Update Range</a
+              >
+            </li>
+            <li class="liText">
+              <a class="aTag" href="./addorviewPoliceStation.html"
+                >Add/View/Update Police Station</a
+              >
+            </li>
+            <li class="liText">
+              <a class="aTag" href="./AddorViewAreas.html"
+                >Add/View/Update Village</a
+              >
+            </li>
+          </ul>
+          <!-- <p>Manage Dept.</p>
+              <p>Manage Category</p>
+              <p>Manage Users (SHO)</p>
+              <p>Manage Data</p> -->
         </div>
       </div>
-      <div id="table" style="width: 78%; margin: auto; height: 90vh">
+      <div id="table" style="width: 75%; margin: auto; height: 90vh">
         <div
           style="
             height: 80px;
@@ -106,20 +156,29 @@
             <div>District Wise >> <span>Priority</span></div>
             <div>
               <select name="" id="" style="border: none; outline: none">
-                <option value="select">Select District</option>
-                <option value="high">Kernal</option>
-                <option value="pending">Bhiwani</option>
-                <option value="caw">Rewari</option>
-                <option value="closed">Gurugram</option>
+                <option value="select">Select Range</option>
+                <option value="kar">Karnal</option>
+                <option value="his">Hisar</option>
+                <option value="amb">Ambala</option>
+                <!-- <option value="closed">Gurugram</option> -->
               </select>
             </div>
             <div>
               <select name="" id="" style="border: none; outline: none">
-                <option value="select">Filter</option>
-                <option value="high">High Priority</option>
-                <option value="pending">Pending</option>
-                <option value="caw">CAW</option>
-                <option value="closed">Closed</option>
+                <option value="select">Select District</option>
+                <option value="roh">Rohtak</option>
+                <option value="rew">Rewari</option>
+                <option value="ggn">Gurugram</option>
+                <option value="ppt">Panipat</option>
+              </select>
+            </div>
+            <div>
+              <select name="" id="" style="border: none; outline: none">
+                <option value="select">Select Station</option>
+                <option value="agr">Agroha</option>
+                <option value="alip">Alipur</option>
+                <option value="aryn">Arya Nagar</option>
+                <option value="badh">Badhawar</option>
               </select>
             </div>
             <div style="display: flex">
@@ -145,7 +204,7 @@
             <tr class="trHead">
               <th class="thHead thHead1">Tracking Id</th>
               <th class="thHead thHead2">Category</th>
-              <th class="thHead thHead3">Complainant</th>
+              <th class="thHead thHead3">Complaint</th>
               <th class="thHead thHead9">Complaint Type</th>
               <th class="thHead thHead4">Issued Date</th>
               <th class="thHead thHead5">Deadline</th>

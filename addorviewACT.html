@@ -30,7 +30,7 @@
           <div><a href="./Dashboard.html">Dashboard</a></div>
         </div>
         <div id="sideMenu">
-          <p>Manage Complaits</p>
+          <p>Manage Complaints</p>
           <ul>
             <li class="liText">
               <a class="aTag" href="./complaints.html"
@@ -123,7 +123,7 @@
         "
       >
         <h3 style="text-transform: uppercase; margin-top: 20px">
-          Add District for System
+          Add ACT for System
         </h3>
         <div id="officerinfoinput">
           <form action="">
@@ -139,135 +139,21 @@
                     width: 100%;
                   "
                 >
-                  <label for="designasion"> Range : </label>
-                  <!-- <select name="" id="dist">
-                    <option value="select">Select District</option>
-                    <option value="rewari">Rewari</option>
-                    <option value="gurugram">Gurugram</option>
-                    <option value="karnal">Karnal</option>
-                    <option value="bhiwani">Bhiwani</option>
-                    <option value="sonipat">Sonipat</option>
-                  </select> -->
-                  <select name="" id="sub-dist" style="width: 70%">
-                    <option value="select">Select Range</option>
-                    <option value="rewari">Karnal</option>
-                    <option value="gurugram">Hisar</option>
-                    <option value="karnal">Ambala</option>
-                  </select>
-                </div>
-
-                <!-- address -->
-
-                <!-- <div id="addressinp">
-                  <div style="margin-top: 10px">
-                    <label for="address">Address :</label>
-                  </div>
-                  <div style="border: 1px solid red; width: 70%">
-                    <div style="border: 1px solid red">
-                      <div><input type="text" /></div>
-                      <div>
-                        <label
-                          style="margin-top: 15px; border: 1px solid red"
-                          for="address"
-                          >Street Address</label
-                        >
-                      </div>
-                    </div>
-                    <div>
-                      <div><input type="text" /></div>
-                      <div>
-                        <label style="margin-bottom: 15px" for="address"
-                          >Street Address Line 2</label
-                        >
-                      </div>
-                    </div>
-                  </div>
-                </div> -->
-                <!-- <div
-                  style="
-                    display: flex;
-                    padding: 10px;
-                    height: 160px;
-                    width: 100%;
-                    justify-content: space-between;
-                    box-sizing: border-box;
-                    align-content: center;
-                    /* border: 1px solid violet; */
-                  "
-                >
-                  <div style="margin-top: 10px">
-                    <p>Address :</p>
-                  </div>
-                  <div
+                  <label for="designasion"> ACT Name : </label>
+                  <input
+                    type="text"
                     style="
                       width: 70%;
-                      /* border: 1px solid red; */
-                      align-content: center;
-                      height: 130px;
+                      box-sizing: border-box;
+                      padding-left: 5px;
                     "
-                  >
-                    <div
-                      style="
-                        width: 100%;
-                        /* border: 1px solid cyan; */
-                        padding: 3px;
-                        box-sizing: border-box;
-                        height: 50%;
-                      "
-                    >
-                      <div style="width: 100%; height: 50%">
-                        <input
-                          type="text"
-                          style="
-                            width: 100%;
-                            height: 80%;
-                            padding-left: 5px;
-                            box-sizing: border-box;
-                          "
-                          placeholder="Street address Line 1"
-                        />
-                      </div>
-                      <div>
-                        <p
-                          style="font-size: 12px; color: gray; margin-top: 5px"
-                        >
-                          Street address Line 1
-                        </p>
-                      </div>
-                    </div>
-                    <div
-                      style="
-                        width: 100%;
-                        /* border: 1px solid cyan; */
-                        padding: 3px;
-                        box-sizing: border-box;
-                        height: 50%;
-                      "
-                    >
-                      <div style="width: 100%; height: 50%">
-                        <input
-                          type="text"
-                          style="
-                            width: 100%;
-                            height: 80%;
-                            padding-left: 5px;
-                            box-sizing: border-box;
-                          "
-                          placeholder="Street address Line 2"
-                        />
-                      </div>
-                      <div>
-                        <p
-                          style="font-size: 12px; color: gray; margin-top: 5px"
-                        >
-                          Street address Line 2
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div> -->
+                    placeholder="ACT name"
+                    name=""
+                    id=""
+                  />
+                </div>
 
-                <div
+                <!-- <div
                   id="designasion"
                   style="
                     /* border: 1px solid red; */
@@ -277,7 +163,7 @@
                     margin-bottom: 20px;
                   "
                 >
-                  <label for="">District Name :</label>
+                  <label for="">Full Form Of Category :</label>
                   <input
                     type="text"
                     style="
@@ -285,16 +171,13 @@
                       box-sizing: border-box;
                       padding-left: 5px;
                     "
-                    placeholder="Enter District Name"
+                    placeholder="Police Station Name"
                   />
-                </div>
-
-                <!-- designasion -->
-
+                </div> -->
                 <!-- <div
-                id="designasion"
+                  id="designasion"
                   style="
-                    border: 1px solid red;
+                    /* border: 1px solid red; */
                     justify-content: space-between;
                     width: 100%;
                   "
@@ -323,41 +206,6 @@
             <button onclick="addOfficer()" id="addinfo">Add</button>
           </div>
         </div>
-
-        <!--  <div
-          style="
-            /* border: 1px solid cyan; */
-            width: 100%;
-            margin: auto;
-            /* height: 90vh;
-        overflow-y: auto; */
-            margin-top: 20px;
-          "
-        >
-          <div
-            style="
-              width: 100%;
-              padding: 10px;
-              box-sizing: border-box;
-              box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px; ;
-            "
-            id="officerlist"
-          >
-            <table>
-              <thead>
-                <tr>
-                  <th>S.No</th>
-                  <th>Name & Rank</th>
-                  <th>Designation</th>
-                  <th>Office Tel. No.</th>
-                  <th>Mobile No.</th>
-                </tr>
-              </thead>
-              
-              <tbody style="text-align: center" id="tbody"></tbody>
-            </table>
-          </div> 
-        </div> -->
       </div>
     </div>
   </body>

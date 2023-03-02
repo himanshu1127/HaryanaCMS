@@ -88,6 +88,6 @@
   cursor: pointer;
 }
 .buttonsAction:hover{
-  color: white;
-  background-color: lime;
+  color: black;
+  background-color: orange;
 }
