@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Haryana CMS | Login</title>
+    <title>Haryana Complain Management System | Admin</title>
     <style>
       * {
         margin: 0;
@@ -12,6 +12,9 @@
         font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
           Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
           sans-serif;
+      }
+      button{
+        cursor: pointer;
       }
       #main {
         /* border: 1px solid red; */
@@ -138,11 +141,11 @@
         <div id="dataInput">
           <div>
             <p for="username">Username</p>
-            <input class="input" type="text" placeholder="Username" />
+            <input id="username" class="input" type="text" placeholder="Username" />
           </div>
           <div>
             <p for="password">Password</p>
-            <input class="input" type="password" placeholder="Password" />
+            <input id="password" class="input" type="password" placeholder="Password" />
           </div>
           <div style="display: flex; justify-content: space-between">
             <div style="width: 50%">
@@ -185,8 +188,36 @@
   </body>
 </html>
 <script>
-  const submit = () => {
+  const url = "https://haryanacms.onrender.com/user/admin"
+  const submit = async () => {
     event.preventDefault();
-    window.location.href = "./Dashboard.html";
+    let obj ={
+      email:document.getElementById("username").value,
+      password:document.getElementById("password").value
+    }
+    obj = JSON.stringify(obj)
+    console.log(obj)
+    let res = await fetch (url,{
+      method:"POST",
+      body:obj,
+      headers:{
+        "Content-Type": "application/json"
+      }
+    })
+
+    
+    res= await res.json()
+    console.log(res)
+    if(res.status===200){
+      localStorage.setItem("userID",JSON.stringify(res.userId))
+      alert("Login Successful!")
+      window.location.href="./Dashboard.html"
+    }else if(res.status===401){
+      alert("Wrong Password")
+    }
+    else{
+      alert("Not an Admin")
+    }
+    // window.location.href = "./Dashboard.html";
   };
 </script>

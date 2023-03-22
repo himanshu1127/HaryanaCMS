@@ -1,0 +1,11 @@
+.buttonsAction{
+    /* border: 1px solid cyan; */
+    height: 30px;
+    border-radius: 3%;
+    border: none;
+    cursor: pointer;
+  }
+  .buttonsAction:hover{
+    color: black;
+    background-color: orange;
+  }

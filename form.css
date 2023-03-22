@@ -1,0 +1,91 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  #whole-form {
+    display: flex;
+    margin: 0.75rem;
+    justify-content: space-between;
+    width: 95%;
+    margin-top: 30px;
+    padding: 0.5rem;
+    /* border: 1px solid red; */
+  }
+  
+  .formSide {
+    width: 47%;
+    /* border: 1px solid red; */
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+  }
+  
+  .contentDivInputAndLabel {
+    display: flex;
+    padding: 10px;
+    justify-content: space-between;
+    width: 100%;
+    /* border: 1px solid cyan; */
+    height: 50px;
+    /* align-self: center; */
+    align-items: center;
+  }
+  
+  .contentDivInputAndLabel label {
+    font-size: 16px;
+    margin-right: 10px;
+    width: 30%;
+    /* border: 1px solid red; */
+  }
+  .labelDiv {
+    /* align-self: center; */
+    width: 44%;
+    /* border: 1px solid red; */
+  }
+  .inputDiv {
+    /* align-self: center; */
+    /* border: 1px solid red; */
+    width: 55%;
+    display: flex;
+    gap: 15px;
+    height: 100%;
+  }
+  .inputDiv input {
+    border: 1px solid gray;
+    border-radius: 4px;
+    height: 100%;
+    width: 100%;
+    padding-left: 5px;
+  }
+  .inputDiv select {
+    /* border: 1px solid red; */
+    height: 100%;
+    width: 100%;
+    border-radius: 4px;
+    padding-left: 5px;
+  }
+  
+  @media only screen and (max-width: 1100px) {
+    #whole-form {
+      flex-direction: column;
+      gap: 15px;
+    }
+    .formSide {
+      width: 100%;
+    }
+    .contentDivInputAndLabel {
+      flex-direction: column;
+      gap: 15px;
+      /* border: 1px solid blue; */
+      height: 100px;
+    }
+    .labelDiv {
+      width: 100%;
+      height: 100%;
+    }
+    .inputDiv {
+      width: 100%;
+    }
+  }
+  

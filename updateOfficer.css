@@ -1,0 +1,66 @@
+.updateOfficer {
+  display: none;
+  border: 1px solid red;
+  position: absolute;
+  height: 50%;
+  width: 80%;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #e2e8f0;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 5px;
+}
+
+.updateHeader {
+  text-align: center;
+  padding: 0.75rem;
+  border: 1px solid red;
+  position: relative;
+}
+.closeIconUpdate {
+  position: absolute;
+  right: 40px;
+  top: 50%;
+  cursor: pointer;
+}
+.activeUpdateOfficer{
+  display: block;
+}
+.closeIconUpdate div {
+  border: 1px solid black;
+  width: 20px;
+  font-weight: 900;
+}
+.line1 {
+  transform: rotate(45deg);
+}
+.line2 {
+  transform: rotate(-45deg);
+}
+.buttonDiv {
+  display: flex;
+  height: 70px;
+  width: 100%;
+  /* border: 1px solid cyan; */
+  margin: 1.25rem;
+  justify-content: space-between;
+}
+.updateButton {
+  height: 70%;
+  width: 100px;
+  padding: 0.75rem;
+  border: 2px solid #34d399;
+  transition-duration: 0.3s;
+  transition-property: all;
+  border-radius: 0.375rem;
+  font-weight: bold;
+  color: #34d399;
+}
+.updateButton:hover {
+  border-color: #10b981; /* Equivalent to hover:border-green-600 */
+  background-color: #10b981; /* Equivalent to hover:bg-green-600 */
+  color: #fff;
+}

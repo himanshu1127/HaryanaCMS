@@ -5,32 +5,60 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="addorviewofficers.css" />
-    <title>Document</title>
+    <title>Add/View ASP</title>
     <link rel="stylesheet" href="./Dashboard.css" />
-    <script src="./function.js"></script>
+    <link rel="stylesheet" href="buttonActions.css">
+    <link rel="stylesheet" href="./form.css">
+    <script
+      src="https://kit.fontawesome.com/ffe2b9fea9.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body style="height: fit-content">
     <nav id="navbar">
       <div id="navLeft">
-        <h3 style="color: #f1e98c; cursor: pointer" onclick="navigate()">
-          Administrator
-        </h3>
-        <h3 style="color: white; cursor: pointer" onclick="navigate()">
-          Haryana Complaint Management System
-        </h3>
+        <div class="hemIcon">
+          <i id="hemb" class="fa-solid fa-bars"></i>
+        </div>
+        <div class="navbarLeftText">
+          <h3 style="color: #f1e98c; cursor: pointer" onclick="navigate()">
+            Administrator
+          </h3>
+          <h3 style="color: white; cursor: pointer" onclick="navigate()">
+            Haryana Complaint Management System
+          </h3>
+        </div>
+      </div>
+      <div class="navMid">
+        <h3 class="h3Mid">Admin panel</h3>
       </div>
       <div id="navRight">
-        <button onclick="logout()">Logout</button>
+        <!-- <button onclick="logout()">Logout</button> -->
+        <div class="profileMainDiv">
+          <div class="profileImageDiv">
+            <img
+              src="data:image/jpeg;base64,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"
+              alt="Profile"
+            />
+          </div>
+          <div class="profileOptionDiv">
+            <ul>
+              <li>Profile</li>
+              <li>Setting</li>
+              <li onclick="logout()">Logout</li>
+            </ul>
+          </div>
+        </div>
       </div>
     </nav>
     <div id="main">
-      <div id="sidebar">
+      <div class="sidebar">
         <div style="display: flex; justify-content: space-between">
           <div>Home</div>
           <div><a href="./Dashboard.html">Dashboard</a></div>
         </div>
         <div id="sideMenu">
-          <p>Manage Complaits</p>
+          <p>Manage Complaints</p>
           <ul>
             <li class="liText">
               <a class="aTag" href="./complaints.html"
@@ -100,11 +128,7 @@
                 >Add/View/Update Police Station</a
               >
             </li>
-            <li class="liText">
-              <a class="aTag" href="./AddorViewAreas.html"
-                >Add/View/Update Village</a
-              >
-            </li>
+            
           </ul>
           <!-- <p>Manage Dept.</p>
           <p>Manage Category</p>
@@ -120,247 +144,142 @@
           height: 90vh;
           padding: 20px;
           box-sizing: border-box;
+          overflow-y: scroll;
         "
       >
         <h3 style="text-transform: uppercase; margin-top: 20px">
-          Add ASP for System
+          Add Asst. Superintendent of Police 
         </h3>
         <div id="officerinfoinput">
           <form action="">
             <div id="whole-form">
-              <div id="left-form">
+              <div class="formSide">
                 <!-- Name -->
-                <div id="namediv">
-                  <div
-                    style="
-                      display: flex;
-                      padding: 10px;
-                      justify-content: space-between;
-                      width: 100%;
-                    "
-                  >
-                    <div id="nameinput">
-                      <label for="Name">Name of ASP :</label>
-                    </div>
-                    <div id="nameinputfields">
-                      <input type="text" placeholder="First Name" />
-                      <input type="text" placeholder="Last Name" />
-                    </div>
+                <div class="contentDivInputAndLabel">
+                  <div class="labelDiv">
+                    <label for="name">Name of ASP :</label>
+                  </div>
+                  <div class="inputDiv">
+                    <input
+                      type="text"
+                      id="fname"
+                      name="name"
+                      placeholder="First Name"
+                    />
+                    <input type="text" id="lname" placeholder="Last Name" />
                   </div>
                 </div>
 
-                <!-- address -->
-
-                <!-- <div id="addressinp">
-                  <div style="margin-top: 10px">
-                    <label for="address">Address :</label>
+                <div class="contentDivInputAndLabel">
+                  <div class="labelDiv">
+                    <label for="district">District :</label>
                   </div>
-                  <div style="border: 1px solid red; width: 70%">
-                    <div style="border: 1px solid red">
-                      <div><input type="text" /></div>
-                      <div>
-                        <label
-                          style="margin-top: 15px; border: 1px solid red"
-                          for="address"
-                          >Street Address</label
-                        >
-                      </div>
-                    </div>
-                    <div>
-                      <div><input type="text" /></div>
-                      <div>
-                        <label style="margin-bottom: 15px" for="address"
-                          >Street Address Line 2</label
-                        >
-                      </div>
-                    </div>
+                  <div class="inputDiv">
+                    <select name="range" id="districtASP">
+                      <option value="select">Select District</option>
+                      <!-- <option value="REWARI">REWARI</option>
+                      <option value="GURUGRAM">GURUGRAM</option>
+                      <option value="PANIPAT">PANIPAT</option>
+                      <option value="BHIWANI">BHIWANI</option>
+                      <option value="SONIPAT">SONIPAT</option> -->
+                    </select>
                   </div>
-                </div> -->
-                <!-- <div
-                  style="
-                    display: flex;
-                    padding: 10px;
-                    height: 160px;
-                    width: 100%;
-                    justify-content: space-between;
-                    box-sizing: border-box;
-                    align-content: center;
-                    /* border: 1px solid violet; */
-                  "
-                >
-                  <div style="margin-top: 10px">
-                    <p>Address :</p>
-                  </div>
-                  <div
-                    style="
-                      width: 70%;
-                      /* border: 1px solid red; */
-                      align-content: center;
-                      height: 130px;
-                    "
-                  >
-                    <div
-                      style="
-                        width: 100%;
-                        /* border: 1px solid cyan; */
-                        padding: 3px;
-                        box-sizing: border-box;
-                        height: 50%;
-                      "
-                    >
-                      <div style="width: 100%; height: 50%">
-                        <input
-                          type="text"
-                          style="
-                            width: 100%;
-                            height: 80%;
-                            padding-left: 5px;
-                            box-sizing: border-box;
-                          "
-                          placeholder="Street address Line 1"
-                        />
-                      </div>
-                      <div>
-                        <p
-                          style="font-size: 12px; color: gray; margin-top: 5px"
-                        >
-                          Street address Line 1
-                        </p>
-                      </div>
-                    </div>
-                    <div
-                      style="
-                        width: 100%;
-                        /* border: 1px solid cyan; */
-                        padding: 3px;
-                        box-sizing: border-box;
-                        height: 50%;
-                      "
-                    >
-                      <div style="width: 100%; height: 50%">
-                        <input
-                          type="text"
-                          style="
-                            width: 100%;
-                            height: 80%;
-                            padding-left: 5px;
-                            box-sizing: border-box;
-                          "
-                          placeholder="Street address Line 2"
-                        />
-                      </div>
-                      <div>
-                        <p
-                          style="font-size: 12px; color: gray; margin-top: 5px"
-                        >
-                          Street address Line 2
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div> -->
-
-                <!-- designasion -->
-
-                <!-- <div id="designasion">
-                  <label for="designasion"> Designasion : </label>
-                  <input
-                    type="text"
-                    style="width: 69%; height: 80%"
-                    placeholder="Designation"
-                  />
-                </div> -->
-                <!-- <div id="designasion">
-                  <label for="designasion"> Police Range : </label>
-                  <input
-                    type="text"
-                    style="width: 69%; height: 80%"
-                    placeholder="Police Range"
-                  />
-                </div> -->
-                <div id="designasion">
-                  <label for="designasion"> Range SP : </label>
-                  <select name="" id="dist" style="width: 70%">
-                    <option value="select">Select Range</option>
-                    <option value="rewari">Karnal</option>
-                    <option value="gurugram">Hisar</option>
-                    <option value="karnal">Ambala</option>
-                    <!-- <option value="bhiwani">Bhiwani</option>
-                    <option value="sonipat">Sonipat</option> -->
-                  </select>
                 </div>
-                <div id="designasion">
-                  <label for="designasion"> Username : </label>
-                  <input
-                    type="text"
-                    style="width: 69%; height: 80%"
-                    placeholder="Username"
-                  />
+                <div class="contentDivInputAndLabel">
+                  <div class="labelDiv">
+                    <label for="range">Range :</label>
+                  </div>
+                  <div class="inputDiv">
+                    <select name="range" id="rangeASP">
+                      <option value="select">Select Range</option>
+                      <!-- <option value="KARNAL">KARNAL</option>
+                      <option value="HISAR">HISAR</option>
+                      <option value="AMBALA">AMBALA</option> -->
+                      <!-- <option value="bhiwani">Bhiwani</option>
+                      <option value="sonipat">Sonipat</option> -->
+                    </select>
+                  </div>
+                </div>
+                <div class="contentDivInputAndLabel">
+                  <div class="labelDiv">
+                    <label for="username">Username :</label>
+                  </div>
+                  <div class="inputDiv">
+                    <input
+                      type="text"
+                      name="username"
+                      id="username"
+                      placeholder="Username"
+                    />
+                    <!-- <input type="text" placeholder="Last Name" /> -->
+                  </div>
                 </div>
               </div>
 
-              <div id="right-form">
-                <div id="designasion" style="margin-top: 15px">
-                  <label for="designasion"> Name Of SP : </label>
-                  <select name="" id="sub-dist" style="width: 61%">
-                    <option value="select">Select SP</option>
-                    <option value="rew">Arjun</option>
-                    <option value="ggn">Rampal</option>
-                    <option value="ppt">Ram Singh</option>
-                    <option value="spt">Harjeet</option>
-                  </select>
-                </div>
-                <!-- email -->
-                <div id="designasion">
-                  <label for="designasion"> Mobile No. : </label>
-                  <input
-                    type="text"
-                    style="width: 60%; height: 80%"
-                    placeholder="Mobile No."
-                  />
+              <div class="formSide">
+                <!-- Name -->
+                <div class="contentDivInputAndLabel">
+                  <div class="labelDiv">
+                    <label for="mobile">Mobile No. :</label>
+                  </div>
+                  <div class="inputDiv">
+                    <input
+                      type="text"
+                      name="mobile"
+                      id="mobile"
+                      placeholder="Mobile No"
+                    />
+                  </div>
                 </div>
 
-                <!-- phone -->
-
-                <!-- <div id="designasion">
-                  <label for="designasion"> Police Range : </label>
-                  <input
-                    type="text"
-                    style="width: 69%; height: 80%"
-                    placeholder="Police Range"
-                  />
-                </div> -->
-                <div id="designasion">
-                  <label for="designasion">District : </label>
-                  <select name="" id="sub-dist" style="width: 61%">
-                    <option value="select">Select District</option>
-                    <option value="rew">Rewari</option>
-                    <option value="ggn">Gurugram</option>
-                    <option value="ppt">Panipat</option>
-                    <option value="spt">Sonipat</option>
-                  </select>
-                </div>
-                <div id="designasion">
-                  <label for="designasion"> Password : </label>
-                  <input
-                    type="text"
-                    style="width: 60%; height: 80%"
-                    placeholder="Password"
-                  />
-                </div>
-
-                <!-- <div id="district">
-                  <label for="district">District :</label>
-                  <div>
-                    <input type="text" />
-                    <input type="text" />
+                <!-- <div class="contentDivInputAndLabel">
+                  <div class="labelDiv">
+                    <label for="alternateNumber">Alternate Number :</label>
+                  </div>
+                  <div class="inputDiv">
+                    <input
+                      type="text"
+                      name="alternateNumber"
+                      id="alternateNo"
+                      placeholder="Alternate Number"
+                    />
                   </div>
                 </div> -->
+                <div class="contentDivInputAndLabel">
+                  <div class="labelDiv">
+                    <label for="policeRange">Police Station :</label>
+                  </div>
+                  <div class="inputDiv">
+                    <select name="range" id="policeStationASP">
+                      <option value="select">Select Station</option>
+                      <!-- <option value="KHARKHARA">KHARKHARA</option>
+                      <option value="KANINA">KANINA</option>
+                      <option value="PATAUDI">PATAUDI</option> -->
+                      <!-- <option value="bhiwani">Bhiwani</option>
+                      <option value="sonipat">Sonipat</option> -->
+                    </select>
+                  </div>
+                </div>
+
+                <div class="contentDivInputAndLabel">
+                  <div class="labelDiv">
+                    <label for="password">Password :</label>
+                  </div>
+                  <div class="inputDiv">
+                    <input
+                      type="password"
+                      name="password"
+                      id="password"
+                      placeholder="Password"
+                    />
+                    <!-- <input type="text" placeholder="Last Name" /> -->
+                  </div>
+                </div>
               </div>
             </div>
           </form>
           <div style="margin-top: 20px; text-align: center">
-            <button onclick="addOfficer()" id="addinfo">Add</button>
+            <button onclick="addASP()" id="addinfo">Add</button>
           </div>
         </div>
 
@@ -394,6 +313,7 @@
                   <th style="width: 7%">S No.</th>
                   <th>Posting</th>
                   <th>Name (S/Shri)</th>
+                  <th>Actions</th>
                 </tr>
               </thead>
               <tbody id="tbody"></tbody>
@@ -403,117 +323,171 @@
       </div>
     </div>
   </body>
+  <script src="./function.js"></script>
 </html>
-
 <script>
-  const data = [
-    {
-      id: 1,
-      name: "Jaswinder Kaur",
-      rank: "L/SI",
-      designation: "I/C PP",
-      posting: "Sudar Bazar",
-      officeTelNo: "087-78798979",
-      MobileNo: "9890879879",
-    },
-    {
-      id: 2,
-      name: "Jaswinder Kaur",
-      rank: "L/SI",
-      designation: "I/C PP",
-      posting: "Sudar Bazar",
-      officeTelNo: "087-78798979",
-      MobileNo: "9890879879",
-    },
-    {
-      id: 3,
-      name: "Jaswinder Kaur",
-      rank: "L/SI",
-      designation: "I/C PP",
-      posting: "Sudar Bazar",
-      officeTelNo: "087-78798979",
-      MobileNo: "9890879879",
-    },
-    {
-      id: 4,
-      name: "Jaswinder Kaur",
-      rank: "L/SI",
-      designation: "I/C PP",
-      posting: "Sudar Bazar",
-      officeTelNo: "087-78798979",
-      MobileNo: "9890879879",
-    },
-    {
-      id: 5,
-      name: "Jaswinder Kaur",
-      rank: "L/SI",
-      designation: "I/C PP",
-      posting: "Sudar Bazar",
-      officeTelNo: "087-78798979",
-      MobileNo: "9890879879",
-    },
-    {
-      id: 6,
-      name: "Jaswinder Kaur",
-      rank: "L/SI",
-      designation: "I/C PP",
-      posting: "Sudar Bazar",
-      officeTelNo: "087-78798979",
-      MobileNo: "9890879879",
-    },
-    {
-      id: 7,
-      name: "Jaswinder Kaur",
-      rank: "L/SI",
-      designation: "I/C PP",
-      posting: "Sudar Bazar",
-      officeTelNo: "087-78798979",
-      MobileNo: "9890879879",
-    },
-    {
-      id: 8,
-      name: "Jaswinder Kaur",
-      rank: "L/SI",
-      designation: "I/C PP",
-      posting: "Sudar Bazar",
-      officeTelNo: "087-78798979",
-      MobileNo: "9890879879",
-    },
-    {
-      id: 9,
-      name: "Jaswinder Kaur",
-      rank: "L/SI",
-      designation: "I/C PP",
-      posting: "Sudar Bazar",
-      officeTelNo: "087-78798979",
-      MobileNo: "9890879879",
-    },
-  ];
+  const getRangeASP = async () => {
+    let res = await fetch(`https://haryanacms.onrender.com/range/getRange`);
+    res = await res.json();
+    console.log(res);
+    appendRangeASP(res);
+  };
+  const getDistrictASP = async () => {
+    let res = await fetch(`https://haryanacms.onrender.com/district/getDistrict`);
+    res = await res.json();
+    console.log(res);
+    appendDistrictASP(res);
+  };
+  const getStationASP = async () => {
+    let res = await fetch(`https://haryanacms.onrender.com/policestation/getPolicestation`);
+    res = await res.json();
+    console.log(res);
+    appendStationSho(res);
+  };
 
+  const appendRangeASP = (data) => {
+    let rangeASP = document.getElementById("rangeASP")
+    data.map((el) => {
+      let option = document.createElement("option");
+      option.innerText = el.rangeName;
+      option.value = el.rangeName;
+
+      rangeASP.append(option)
+    });
+  };
+  const appendDistrictASP = (data) => {
+    let districtASP = document.getElementById("districtASP")
+    data.map((el) => {
+      let option = document.createElement("option");
+      option.innerText = el.rangeDistrictName;
+      option.value = el.rangeDistrictName;
+
+      districtASP.append(option)
+    });
+  };
+  const appendStationSho = (data) => {
+    let policeStationASP = document.getElementById("policeStationASP")
+    data.map((el) => {
+      let option = document.createElement("option");
+      option.innerText = el.policeStationName;
+      option.value = el.policeStationName;
+
+      policeStationASP.append(option)
+    });
+  };
+
+  getRangeASP();
+  getDistrictASP()
+  getStationASP()
+</script>
+<script>
+  const urlGet = `https://haryanacms.onrender.com/user/allasp`;
+  const urlAdd = `https://haryanacms.onrender.com/user/signup`;
+  let getData = async () => {
+    try {
+      let res = await fetch(urlGet);
+      res = await res.json();
+      console.log(res);
+      append(res);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+  let get = (id) => {
+    return document.getElementById(id);
+  };
+  let addASP = async () => {
+    let obj = {
+      fname: get("fname").value,
+      lname: get("lname").value,
+      mobile: get("mobile").value,
+      alternatemobile: "",
+      policerange: get("rangeASP").value,
+      districtofc: get("districtASP").value,
+      spname: "",
+      designation: "ASP",
+      policestation: get("policeStationASP").value,
+      email: get("username").value,
+      password: get("password").value,
+    };
+    obj = JSON.stringify(obj);
+    // console.log(obj);
+    try {
+      let res = await fetch(urlAdd, {
+        method: "POST",
+        body: obj,
+        headers: {
+          "Content-type": "application/json",
+        },
+      });
+      res = await res.json();
+
+      getData();
+      console.log(res);
+      get("fname").value = "";
+      get("lname").value = "";
+      get("mobile").value = "";
+      // get("alternateNo").value = "";
+      get("policeStationASP").value = "select";
+      get("rangeASP").value = "select";
+      get("districtASP").value = "select";
+      get("username").value = "";
+      get("password").value = "";
+    } catch (err) {}
+  };
   let container = document.getElementById("tbody");
   let i = 0;
-  data.map((el) => {
-    i++;
+  const append = (data) => {
+    container.innerHTML = null;
+    data.map((el) => {
+      i++;
 
-    let tr = document.createElement("tr");
-    tr.style.height = "40px";
-    tr.style.border = "1px solid green";
-    let td1 = document.createElement("td");
-    td1.innerText = i;
-    td1.style.borderRadius = "3%";
-    let td2 = document.createElement("td");
-    td2.innerText = `${el.rank} ${el.name}`;
-    let td3 = document.createElement("td");
-    td3.innerText = `${el.designation} ${el.posting}`;
-    // let td4 = document.createElement("td");
-    // td4.innerText = el.officeTelNo;
-    // let td5 = document.createElement("td");
-    // td5.innerText = el.MobileNo;
-    if (i % 2 === 0) {
-      tr.style.backgroundColor = "gray";
-    }
-    tr.append(td1, td2, td3);
+      let tr = document.createElement("tr");
+      tr.style.height = "40px";
+      tr.style.border = "1px solid green";
+      let td1 = document.createElement("td");
+      td1.innerText = i;
+      td1.style.borderRadius = "3%";
+      let td2 = document.createElement("td");
+      td2.innerText = `${el.designation} ${el.policerange}`;
+      let td3 = document.createElement("td");
+      td3.innerText = `${el.fname} ${el.lname}`;
 
-    container.append(tr);
-  });
+      let td8 = document.createElement("td");
+      let divtd8 = document.createElement("div");
+      divtd8.style.display = "inline";
+      // divtd8.style.gap="5px"
+      let updateIcon = document.createElement("button");
+
+      let viewIcon = document.createElement("button");
+      // let commentsIcon = document.createElement("button");
+      updateIcon.setAttribute("class", "buttonsAction");
+      viewIcon.setAttribute("class", "buttonsAction");
+      // commentsIcon.setAttribute("class", "buttonsAction");
+      updateIcon.innerText = "Update";
+      updateIcon.style.width = "30%";
+
+      viewIcon.innerText = "View";
+      viewIcon.style.margin = "5px";
+      viewIcon.style.width = "20%";
+
+      // commentsIcon.innerText = "Delete";
+      // commentsIcon.style.width = "40%";
+      // commentsIcon.style.margin="5px"
+
+      // td8.innerText = "hi";
+      // updateIcon.innerHTML('<i class="fa-light fa-pen"></i>')
+
+      divtd8.append(updateIcon, viewIcon);
+      td8.append(divtd8);
+      // if (i % 2 === 0) {
+      //   tr.style.backgroundColor = "gray";
+      // }
+      tr.append(td1, td2, td3, divtd8);
+
+      container.append(tr);
+    });
+    i = 0;
+  };
+  getData();
 </script>
