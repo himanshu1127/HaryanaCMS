@@ -283,8 +283,8 @@ const getRange1 = async () => {
   console.log(res);
   appendRange1(res);
 };
-const getAllSp1 =async()=>{
-  let res = await fetch(`https://haryanacms.onrender.com/user/allsp`);
+const getDistrict1 =async()=>{
+  let res = await fetch(`https://haryanacms.onrender.com/district/getDistrict`);
   res = await res.json();
   console.log(res);
   appendSp1(res);
@@ -321,7 +321,7 @@ const updateData = async (el) => {
   a=el
   console.log(el);
   getRange1()
-  getAllSp1()
+  getDistrict1()
   get("complainantNameUpdate").value = el.ComplainantName;
   get("fatherNameUpdate").value = el.FatherName;
   get("complainantEmailUpdate").value = el.Email;

@@ -74,7 +74,42 @@ let appendtable = (data) => {
     td2.innerHTML=el.rangeDistrictName
     td3.innerText=el.rangeName
 
-    tr.append(td1,td2,td3)
+    let td4 = document.createElement("td");
+    let divtd4=document.createElement("div")
+    let updateIcon = document.createElement("button");
+      updateIcon.addEventListener("click", () => {
+        updateDataForm(el);
+      });
+
+      let viewIcon = document.createElement("button");
+      let deleteIcon = document.createElement("button");
+      updateIcon.setAttribute("class", "buttonsAction");
+      viewIcon.setAttribute("class", "buttonsAction");
+      viewIcon.addEventListener("click", () => {
+        viewOfficer(el);
+      });
+      deleteIcon.setAttribute("class", "buttonsAction");
+      updateIcon.innerText = "Update";
+      updateIcon.style.width = "30%";
+
+      viewIcon.innerText = "View";
+      viewIcon.style.margin = "5px";
+      viewIcon.style.width = "20%";
+
+      deleteIcon.innerText = "Delete";
+      deleteIcon.style.width = "40%";
+      deleteIcon.style.margin = "5px";
+      deleteIcon.addEventListener("click", () => {
+        deleteASP(el);
+      });
+
+      // td8.innerText = "hi";
+      // updateIcon.innerHTML('<i class="fa-light fa-pen"></i>')
+
+      divtd4.append(updateIcon, viewIcon, deleteIcon);
+      td4.append(divtd4)
+
+    tr.append(td1,td2,td3,td4)
 
     container.append(tr)
 

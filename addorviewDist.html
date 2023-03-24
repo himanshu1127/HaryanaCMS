@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="addorviewofficers.css" />
+    <link rel="stylesheet" href="./complaints.css" />
     <title>Add/View District</title>
     <link rel="stylesheet" href="./Dashboard.css" />
     <script
@@ -25,6 +26,9 @@
       }
       #tableRange td {
         padding: 1rem;
+      }
+      #tableAction {
+        width: 30%;
       }
     </style>
   </head>
@@ -199,7 +203,6 @@
                     "
                     id="DistrictInput"
                     placeholder="Enter District Name"
-                    
                   />
                 </div>
               </div>
@@ -216,12 +219,43 @@
               <th>S.No</th>
               <th>District</th>
               <th>Range</th>
+              <th id="tableAction">Actions</th>
             </thead>
             <tbody id="tbody"></tbody>
           </table>
         </div>
       </div>
     </div>
+    <!-- <div class="updateArea">
+      <div>
+        <div class="updateHeader">
+          <h3 class="h3AddComp">Update DSP</h3>
+          <div class="closeIconUpdate">
+            <div class="line1"></div>
+            <div class="line2"></div>
+          </div>
+        </div>
+        <div>
+          <form action="">
+            <div class="topArea">
+              <label for="range">Range :</label>
+              <div><select name="" id="">
+                <option value=""></option>
+              </select></div>
+            </div>
+          </form>
+          <div class="buttonDiv">
+            <button
+              onclick="updateComplain()"
+              type="submit"
+              class="updateButton my-5 p-3 border-2 border-green-400 hover:border-green-600 hover:bg-green-600 transition-all rounded font-bold hover:text-white"
+            >
+              Update
+            </button>
+          </div>
+        </div>
+      </div>
+    </div> -->
   </body>
 </html>
 <script src="./AddDistrict.js"></script>

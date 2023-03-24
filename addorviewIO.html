@@ -7,8 +7,9 @@
     <link rel="stylesheet" href="addorviewofficers.css" />
     <title>Add/View IO</title>
     <link rel="stylesheet" href="./Dashboard.css" />
-    <link rel="stylesheet" href="./buttonActions.css">
+    <link rel="stylesheet" href="./buttonActions.css" />
     <link rel="stylesheet" href="./form.css" />
+    <link rel="stylesheet" href="./updateOfficer.css" />
     <script
       src="https://kit.fontawesome.com/ffe2b9fea9.js"
       crossorigin="anonymous"
@@ -128,7 +129,6 @@
                 >Add/View/Update Police Station</a
               >
             </li>
-            
           </ul>
           <!-- <p>Manage Dept.</p>
           <p>Manage Category</p>
@@ -322,35 +322,288 @@
         </div>
       </div>
     </div>
+    <div class="updateOfficer">
+      <div>
+        <div class="updateHeader">
+          <h3 class="h3AddComp">Update IO</h3>
+          <div class="closeIconUpdate">
+            <div class="line1"></div>
+            <div class="line2"></div>
+          </div>
+        </div>
+        <div>
+          <form action="">
+            <div id="whole-form">
+              <div class="formSide">
+                <div class="contentDivInputAndLabel">
+                  <div class="labelDiv">
+                    <label for="name">Name of IO :</label>
+                  </div>
+                  <div class="inputDiv">
+                    <input
+                      type="text"
+                      id="updateFname"
+                      name="name"
+                      placeholder="First Name"
+                    />
+                    <input
+                      type="text"
+                      id="updateLname"
+                      placeholder="Last Name"
+                    />
+                  </div>
+                </div>
+
+                <div class="contentDivInputAndLabel">
+                  <div class="labelDiv">
+                    <label for="range">Range :</label>
+                  </div>
+                  <div class="inputDiv">
+                    <select name="range" id="UpdateRanges">
+                      <!-- <option value="">Select Range</option> -->
+                    </select>
+                  </div>
+                </div>
+                <div class="contentDivInputAndLabel">
+                  <div class="labelDiv">
+                    <label for="station">Police Station :</label>
+                  </div>
+                  <div class="inputDiv">
+                    <select name="station" id="UpdateStation">
+                      <!-- <option value="">Select Station</option> -->
+                    </select>
+                  </div>
+                </div>
+                <div class="contentDivInputAndLabel">
+                  <div class="labelDiv">
+                    <label for="username">Username :</label>
+                  </div>
+                  <div class="inputDiv">
+                    <input
+                      type="text"
+                      name="designation"
+                      id="updateUsername"
+                      placeholder="Username"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div class="formSide">
+                <div class="contentDivInputAndLabel">
+                  <div class="labelDiv">
+                    <label for="mobile">Mobile No. :</label>
+                  </div>
+                  <div class="inputDiv">
+                    <input
+                      type="text"
+                      name="mobile"
+                      id="updateMobile"
+                      placeholder="Mobile No"
+                    />
+                  </div>
+                </div>
+
+                <div class="contentDivInputAndLabel">
+                  <div class="labelDiv">
+                    <label for="district">District :</label>
+                  </div>
+                  <div class="inputDiv">
+                    <select name="districts" id="updateDistrict">
+                      <!-- <option value="">Select District</option> -->
+                    </select>
+                  </div>
+                </div>
+                <div class="contentDivInputAndLabel">
+                  <div class="labelDiv">
+                    <label for="password">Password :</label>
+                  </div>
+                  <div class="inputDiv">
+                    <input
+                      type="password"
+                      name="password"
+                      id="updatePassword"
+                      placeholder="Password"
+                    />
+                    <!-- <input type="text" placeholder="Last Name" /> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+          <div class="buttonDiv">
+            <button
+              onclick="updateComplain()"
+              type="submit"
+              class="updateButton my-5 p-3 border-2 border-green-400 hover:border-green-600 hover:bg-green-600 transition-all rounded font-bold hover:text-white"
+            >
+              Update
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="viewOfficer">
+      <div>
+        <div class="viewHeader">
+          <h3 class="h3AddComp">view IO</h3>
+          <div class="closeIconview">
+            <div class="line1"></div>
+            <div class="line2"></div>
+          </div>
+        </div>
+        <div>
+          <form action="">
+            <div id="whole-form">
+              <div class="formSide">
+                <div class="contentDivInputAndLabel">
+                  <div class="labelDiv">
+                    <label for="name">Name of IO :</label>
+                  </div>
+                  <div class="inputDiv">
+                    <input
+                      type="text"
+                      id="viewFname"
+                      name="name"
+                      placeholder="First Name"
+                      disabled
+                    />
+                    <input
+                      type="text"
+                      id="viewLname"
+                      placeholder="Last Name"
+                      disabled
+                    />
+                  </div>
+                </div>
+
+                <div class="contentDivInputAndLabel">
+                  <div class="labelDiv">
+                    <label for="range">Range :</label>
+                  </div>
+                  <div class="inputDiv">
+                    <select name="range" id="viewRanges" disabled>
+                      <!-- <option value="">Select Range</option> -->
+                    </select>
+                  </div>
+                </div>
+                <div class="contentDivInputAndLabel">
+                  <div class="labelDiv">
+                    <label for="station">Police Station :</label>
+                  </div>
+                  <div class="inputDiv">
+                    <select name="station" id="viewStation" disabled>
+                      <!-- <option value="">Select Station</option> -->
+                    </select>
+                  </div>
+                </div>
+                <div class="contentDivInputAndLabel">
+                  <div class="labelDiv">
+                    <label for="username">Username :</label>
+                  </div>
+                  <div class="inputDiv">
+                    <input
+                      type="text"
+                      name="designation"
+                      id="viewUsername"
+                      placeholder="Username"
+                      disabled
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div class="formSide">
+                <div class="contentDivInputAndLabel">
+                  <div class="labelDiv">
+                    <label for="mobile">Mobile No. :</label>
+                  </div>
+                  <div class="inputDiv">
+                    <input
+                      type="text"
+                      name="mobile"
+                      id="viewMobile"
+                      placeholder="Mobile No"
+                      disabled
+                    />
+                  </div>
+                </div>
+
+                <div class="contentDivInputAndLabel">
+                  <div class="labelDiv">
+                    <label for="district">District :</label>
+                  </div>
+                  <div class="inputDiv">
+                    <select name="districts" id="viewDistrict" disabled>
+                      <!-- <option value="">Select District</option> -->
+                    </select>
+                  </div>
+                </div>
+                <div class="contentDivInputAndLabel">
+                  <div class="labelDiv">
+                    <label for="password">Password :</label>
+                  </div>
+                  <div class="inputDiv">
+                    <input
+                      type="password"
+                      name="password"
+                      id="viewPassword"
+                      placeholder="Password"
+                      disabled
+                    />
+                    <!-- <input type="text" placeholder="Last Name" /> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+          <!-- <div class="buttonDiv">
+            <button
+              onclick="viewComplain()"
+              type="submit"
+              class="viewButton my-5 p-3 border-2 border-green-400 hover:border-green-600 hover:bg-green-600 transition-all rounded font-bold hover:text-white"
+            >
+              view
+            </button>
+          </div> -->
+        </div>
+      </div>
+    </div>
   </body>
   <script src="./function.js"></script>
 </html>
 
 <script>
-  const getRangeASP = async () => {
+  const getRangeIO = async () => {
     let res = await fetch(`https://haryanacms.onrender.com/range/getRange`);
     res = await res.json();
     console.log(res);
-    appendRangeASP(res);
+    appendRangeIO(res);
+    appendUpdateRanges(res);
+    appendviewRanges(res);
   };
-  const getDistrictASP = async () => {
+  const getDistrictIO = async () => {
     let res = await fetch(
       `https://haryanacms.onrender.com/district/getDistrict`
     );
     res = await res.json();
     console.log(res);
-    appendDistrictASP(res);
+    appendDistrictIO(res);
+    appendupdateDistrict(res);
+    appendviewDistrict(res);
   };
-  const getStationASP = async () => {
+  const getStationIO = async () => {
     let res = await fetch(
       `https://haryanacms.onrender.com/policestation/getPolicestation`
     );
     res = await res.json();
     console.log(res);
-    appendStationSho(res);
+    appendStationIO(res);
+    appendUpdateStation(res);
+    appendviewStation(res);
   };
 
-  const appendRangeASP = (data) => {
+  const appendRangeIO = (data) => {
     let rangeIO = document.getElementById("rangeIO");
     data.map((el) => {
       let option = document.createElement("option");
@@ -360,7 +613,7 @@
       rangeIO.append(option);
     });
   };
-  const appendDistrictASP = (data) => {
+  const appendDistrictIO = (data) => {
     let districtIO = document.getElementById("districtIO");
     data.map((el) => {
       let option = document.createElement("option");
@@ -370,7 +623,7 @@
       districtIO.append(option);
     });
   };
-  const appendStationSho = (data) => {
+  const appendStationIO = (data) => {
     let policeStationIO = document.getElementById("policeStationIO");
     data.map((el) => {
       let option = document.createElement("option");
@@ -381,9 +634,73 @@
     });
   };
 
-  getRangeASP();
-  getDistrictASP();
-  getStationASP();
+  getRangeIO();
+  getDistrictIO();
+  getStationIO();
+
+  // Update
+
+  const appendUpdateRanges = (data) => {
+    let UpdateRanges = document.getElementById("UpdateRanges");
+    data.map((el) => {
+      let option = document.createElement("option");
+      option.innerText = el.rangeName;
+      option.value = el.rangeName;
+
+      UpdateRanges.append(option);
+    });
+  };
+  const appendupdateDistrict = (data) => {
+    let updateDistrict = document.getElementById("updateDistrict");
+    data.map((el) => {
+      let option = document.createElement("option");
+      option.innerText = el.rangeDistrictName;
+      option.value = el.rangeDistrictName;
+
+      updateDistrict.append(option);
+    });
+  };
+  const appendUpdateStation = (data) => {
+    let UpdateStation = document.getElementById("UpdateStation");
+    data.map((el) => {
+      let option = document.createElement("option");
+      option.innerText = el.policeStationName;
+      option.value = el.policeStationName;
+
+      UpdateStation.append(option);
+    });
+  };
+  // View
+  const appendviewRanges = (data) => {
+    let viewRanges = document.getElementById("viewRanges");
+    data.map((el) => {
+      let option = document.createElement("option");
+      option.innerText = el.rangeName;
+      option.value = el.rangeName;
+
+      viewRanges.append(option);
+    });
+  };
+  const appendviewDistrict = (data) => {
+    let viewDistrict = document.getElementById("viewDistrict");
+    data.map((el) => {
+      let option = document.createElement("option");
+      option.innerText = el.rangeDistrictName;
+      option.value = el.rangeDistrictName;
+
+      viewDistrict.append(option);
+    });
+  };
+  const appendviewStation = (data) => {
+    let viewStation = document.getElementById("viewStation");
+    data.map((el) => {
+      let option = document.createElement("option");
+      option.innerText = el.policeStationName;
+      option.value = el.policeStationName;
+
+      viewStation.append(option);
+    });
+  };
 </script>
 
 <script>
@@ -455,7 +772,7 @@
       td1.innerText = i;
       td1.style.borderRadius = "3%";
       let td2 = document.createElement("td");
-      td2.innerText = `${el.designation} ${el.policerange}`;
+      td2.innerText = `${el.designation} ${el.policestation}`;
       let td3 = document.createElement("td");
       td3.innerText = `${el.fname} ${el.lname}`;
 
@@ -466,10 +783,16 @@
       let updateIcon = document.createElement("button");
 
       let viewIcon = document.createElement("button");
-      let commentsIcon = document.createElement("button");
+      let deleteIcon = document.createElement("button");
       updateIcon.setAttribute("class", "buttonsAction");
+      updateIcon.addEventListener("click", () => {
+        updateDataForm(el);
+      });
       viewIcon.setAttribute("class", "buttonsAction");
-      commentsIcon.setAttribute("class", "buttonsAction");
+      viewIcon.addEventListener("click", () => {
+        viewOfficer(el);
+      });
+      deleteIcon.setAttribute("class", "buttonsAction");
       updateIcon.innerText = "Update";
       updateIcon.style.width = "30%";
 
@@ -477,14 +800,17 @@
       viewIcon.style.margin = "5px";
       viewIcon.style.width = "20%";
 
-      commentsIcon.innerText = "Delete";
-      commentsIcon.style.width = "40%";
-      commentsIcon.style.margin="5px"
+      deleteIcon.innerText = "Delete";
+      deleteIcon.style.width = "40%";
+      deleteIcon.style.margin = "5px";
+      deleteIcon.addEventListener("click", () => {
+        deleteIO(el);
+      });
 
       // td8.innerText = "hi";
       // updateIcon.innerHTML('<i class="fa-light fa-pen"></i>')
 
-      divtd8.append(updateIcon, viewIcon,commentsIcon);
+      divtd8.append(updateIcon, viewIcon, deleteIcon);
       td8.append(divtd8);
       // if (i % 2 === 0) {
       //   tr.style.backgroundColor = "gray";
@@ -494,6 +820,94 @@
       container.append(tr);
     });
     i = 0;
+  };
+  let a = {};
+  const updateDataForm = (el) => {
+    let updateOfficer = document.querySelector(".updateOfficer");
+    updateOfficer.classList.toggle("activeUpdateOfficer");
+    a = el;
+    get("updateFname").value = el.fname;
+    get("updateLname").value = el.lname;
+    get("UpdateRanges").value = el.policerange;
+    get("updateUsername").value = el.email;
+    get("updateMobile").value = el.mobile;
+    get("updateDistrict").value = el.districtofc;
+    get("UpdateStation").value = el.policestation;
+    get("updatePassword").value = "";
+    get("updatePassword").placeholder = "Write New Password";
+    return a;
+  };
+  let updateComp = document.querySelector(".closeIconUpdate");
+  updateComp.onclick = function () {
+    let compUpdate = document.querySelector(".updateOfficer");
+    compUpdate.classList.toggle("activeUpdateOfficer");
+  };
+  const updateComplain = async () => {
+    let obj = {
+      fname: get("updateFname").value,
+      lname: get("updateLname").value,
+      mobile: get("updateMobile").value,
+      alternatemobile: "",
+      policerange: get("UpdateRanges").value,
+      districtofc: get("updateDistrict").value,
+      spname: "",
+      designation: "IO",
+      policestation: get("UpdateStation").value,
+      email: get("updateUsername").value,
+      password: get("updatePassword").value,
+    };
+    obj = JSON.stringify(obj);
+    console.log(`https://haryanacms.onrender.com/user/update/${a._id}`);
+    let res = await fetch(
+      `https://haryanacms.onrender.com/user/update/${a._id}`,
+      {
+        method: "PUT",
+        body: obj,
+        headers: {
+          "Content-type": "application/json",
+        },
+      }
+    );
+    res = await res.json();
+    alert("Update");
+    let compUpdate = document.querySelector(".updateOfficer");
+    compUpdate.classList.toggle("activeUpdateOfficer");
+    getData();
+  };
+
+  // View
+  const viewOfficer = (el) => {
+    // console.log(el);
+    let viewOfficer = document.querySelector(".viewOfficer");
+    viewOfficer.classList.toggle("activeviewOfficer");
+    a = el;
+    get("viewFname").value = el.fname;
+    get("viewLname").value = el.lname;
+    get("viewRanges").value = el.policerange;
+    get("viewUsername").value = el.email;
+    get("viewMobile").value = el.mobile;
+    get("viewDistrict").value = el.districtofc;
+    get("viewPassword").value = "";
+    get("viewStation").value = el.policestation;
+    get("viewPassword").placeholder = "Write New Password";
+    return a;
+  };
+  let viewComp = document.querySelector(".closeIconview");
+  viewComp.onclick = function () {
+    let compview = document.querySelector(".viewOfficer");
+    compview.classList.toggle("activeviewOfficer");
+  };
+  // Delete
+  const deleteIO = async (el) => {
+    a = el;
+    // console.log(a);
+    let url = `https://haryanacms.onrender.com/user/delete/${a._id}`;
+    let res = await fetch(url, {
+      method: "DELETE",
+    });
+    res = await res.json();
+    // console.log(res);
+    getData();
   };
   getData();
 </script>

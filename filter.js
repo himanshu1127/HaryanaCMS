@@ -49,6 +49,7 @@ const appendRange = (data) => {
 };
 const appendDistrict = (data) => {
   let container = document.getElementById("districtFilter");
+  let district = document.getElementById("district")
 
   data.map((el) => {
     let option = document.createElement("option");
@@ -56,6 +57,7 @@ const appendDistrict = (data) => {
     option.value = el.rangeDistrictName;
     // console.log(option)
     container.append(option);
+    district.append(option)
   });
 };
 

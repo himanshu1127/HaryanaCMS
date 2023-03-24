@@ -157,7 +157,7 @@
                 <!-- Name -->
                 <div class="contentDivInputAndLabel">
                   <div class="labelDiv">
-                    <label for="name">Name of SP :</label>
+                    <label for="name">Name of DSP :</label>
                   </div>
                   <div class="inputDiv">
                     <input
@@ -176,7 +176,7 @@
                   </div>
                   <div class="inputDiv">
                     <select name="range" id="districtDSP">
-                      <option value="select">Select District</option>
+                      <!-- <option value="select">Select District</option> -->
                       <!-- <option value="REWARI">REWARI</option>
                       <option value="GURUGRAM">GURUGRAM</option>
                       <option value="PANIPAT">PANIPAT</option>
@@ -191,7 +191,7 @@
                   </div>
                   <div class="inputDiv">
                     <select name="range" id="rangeDSP">
-                      <option value="select">Select Range</option>
+                      <!-- <option value="select">Select Range</option> -->
                       <!-- <option value="KARNAL">KARNAL</option>
                       <option value="HISAR">HISAR</option>
                       <option value="AMBALA">AMBALA</option> -->
@@ -251,7 +251,7 @@
                   </div>
                   <div class="inputDiv">
                     <select name="range" id="policeStationDSP">
-                      <option value="select">Select Station</option>
+                      <!-- <option value="select">Select Station</option> -->
                       <!-- <option value="KHARKHARA">KHARKHARA</option>
                       <option value="KANINA">KANINA</option>
                       <option value="PATAUDI">PATAUDI</option> -->
@@ -325,7 +325,7 @@
     <div class="updateOfficer">
       <div>
         <div class="updateHeader">
-          <h3 class="h3AddComp">Update SHO</h3>
+          <h3 class="h3AddComp">Update DSP</h3>
           <div class="closeIconUpdate">
             <div class="line1"></div>
             <div class="line2"></div>
@@ -337,7 +337,7 @@
               <div class="formSide">
                 <div class="contentDivInputAndLabel">
                   <div class="labelDiv">
-                    <label for="name">Name of SP :</label>
+                    <label for="name">Name of DSP :</label>
                   </div>
                   <div class="inputDiv">
                     <input
@@ -360,7 +360,17 @@
                   </div>
                   <div class="inputDiv">
                     <select name="range" id="UpdateRanges">
-                      <option value="">Select Range</option>
+                      <!-- <option value="">Select Range</option> -->
+                    </select>
+                  </div>
+                </div>
+                <div class="contentDivInputAndLabel">
+                  <div class="labelDiv">
+                    <label for="station">Police Station :</label>
+                  </div>
+                  <div class="inputDiv">
+                    <select name="station" id="UpdateStation">
+                      <!-- <option value="">Select Station</option> -->
                     </select>
                   </div>
                 </div>
@@ -400,7 +410,7 @@
                   </div>
                   <div class="inputDiv">
                     <select name="districts" id="updateDistrict">
-                      <option value="">Select District</option>
+                      <!-- <option value="">Select District</option> -->
                     </select>
                   </div>
                 </div>
@@ -433,36 +443,168 @@
         </div>
       </div>
     </div>
+    <div class="viewOfficer">
+      <div>
+        <div class="viewHeader">
+          <h3 class="h3AddComp">View DSP</h3>
+          <div class="closeIconview">
+            <div class="line1"></div>
+            <div class="line2"></div>
+          </div>
+        </div>
+        <div>
+          <form action="">
+            <div id="whole-form">
+              <div class="formSide">
+                <div class="contentDivInputAndLabel">
+                  <div class="labelDiv">
+                    <label for="name">Name of DSP :</label>
+                  </div>
+                  <div class="inputDiv">
+                    <input
+                      type="text"
+                      id="viewFname"
+                      name="name"
+                      placeholder="First Name"
+                      disabled
+                    />
+                    <input
+                      type="text"
+                      id="viewLname"
+                      placeholder="Last Name"
+                      disabled
+                    />
+                  </div>
+                </div>
+
+                <div class="contentDivInputAndLabel">
+                  <div class="labelDiv">
+                    <label for="range">Range :</label>
+                  </div>
+                  <div class="inputDiv">
+                    <select name="range" id="viewRanges" disabled>
+                      <!-- <option value="">Select Range</option> -->
+                    </select>
+                  </div>
+                </div>
+                <div class="contentDivInputAndLabel">
+                  <div class="labelDiv">
+                    <label for="station">Police Station :</label>
+                  </div>
+                  <div class="inputDiv">
+                    <select name="station" id="viewStation" disabled>
+                      <!-- <option value="">Select Station</option> -->
+                    </select>
+                  </div>
+                </div>
+                <div class="contentDivInputAndLabel">
+                  <div class="labelDiv">
+                    <label for="username">Username :</label>
+                  </div>
+                  <div class="inputDiv">
+                    <input
+                      type="text"
+                      name="designation"
+                      id="viewUsername"
+                      placeholder="Username"
+                      disabled
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div class="formSide">
+                <div class="contentDivInputAndLabel">
+                  <div class="labelDiv">
+                    <label for="mobile">Mobile No. :</label>
+                  </div>
+                  <div class="inputDiv">
+                    <input
+                      type="text"
+                      name="mobile"
+                      id="viewMobile"
+                      placeholder="Mobile No"
+                      disabled
+                    />
+                  </div>
+                </div>
+
+                <div class="contentDivInputAndLabel">
+                  <div class="labelDiv">
+                    <label for="district">District :</label>
+                  </div>
+                  <div class="inputDiv">
+                    <select name="districts" id="viewDistrict" disabled>
+                      <!-- <option value="">Select District</option> -->
+                    </select>
+                  </div>
+                </div>
+                <div class="contentDivInputAndLabel">
+                  <div class="labelDiv">
+                    <label for="password">Password :</label>
+                  </div>
+                  <div class="inputDiv">
+                    <input
+                      type="password"
+                      name="password"
+                      id="viewPassword"
+                      placeholder="Password"
+                      disabled
+                    />
+                    <!-- <input type="text" placeholder="Last Name" /> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+          <!-- <div class="buttonDiv">
+            <button
+              onclick="viewComplain()"
+              type="submit"
+              class="viewButton my-5 p-3 border-2 border-green-400 hover:border-green-600 hover:bg-green-600 transition-all rounded font-bold hover:text-white"
+            >
+              view
+            </button>
+          </div> -->
+        </div>
+      </div>
+    </div>
   </body>
 
   <script src="./function.js"></script>
 </html>
 
 <script>
-  const getRangeASP = async () => {
+  const getRangeDSP = async () => {
     let res = await fetch(`https://haryanacms.onrender.com/range/getRange`);
     res = await res.json();
     console.log(res);
-    appendRangeASP(res);
+    appendRangeDSP(res);
+    appendUpdateRanges(res);
+    appendviewRanges(res);
   };
-  const getDistrictASP = async () => {
+  const getDistrictDSP = async () => {
     let res = await fetch(
       `https://haryanacms.onrender.com/district/getDistrict`
     );
     res = await res.json();
     console.log(res);
-    appendDistrictASP(res);
+    appendDistrictDSP(res);
+    appendupdateDistrict(res);
+    appendviewDistrict(res);
   };
-  const getStationASP = async () => {
+  const getStationDSP = async () => {
     let res = await fetch(
       `https://haryanacms.onrender.com/policestation/getPolicestation`
     );
     res = await res.json();
     console.log(res);
-    appendStationSho(res);
+    appendStationDSP(res);
+    appendUpdateStation(res);
+    appendviewStation(res);
   };
 
-  const appendRangeASP = (data) => {
+  const appendRangeDSP = (data) => {
     let rangeDSP = document.getElementById("rangeDSP");
     data.map((el) => {
       let option = document.createElement("option");
@@ -472,7 +614,7 @@
       rangeDSP.append(option);
     });
   };
-  const appendDistrictASP = (data) => {
+  const appendDistrictDSP = (data) => {
     let districtDSP = document.getElementById("districtDSP");
     data.map((el) => {
       let option = document.createElement("option");
@@ -482,7 +624,7 @@
       districtDSP.append(option);
     });
   };
-  const appendStationSho = (data) => {
+  const appendStationDSP = (data) => {
     let policeStationDSP = document.getElementById("policeStationDSP");
     data.map((el) => {
       let option = document.createElement("option");
@@ -493,9 +635,73 @@
     });
   };
 
-  getRangeASP();
-  getDistrictASP();
-  getStationASP();
+  getRangeDSP();
+  getDistrictDSP();
+  getStationDSP();
+
+  // Update
+
+  const appendUpdateRanges = (data) => {
+    let UpdateRanges = document.getElementById("UpdateRanges");
+    data.map((el) => {
+      let option = document.createElement("option");
+      option.innerText = el.rangeName;
+      option.value = el.rangeName;
+
+      UpdateRanges.append(option);
+    });
+  };
+  const appendupdateDistrict = (data) => {
+    let updateDistrict = document.getElementById("updateDistrict");
+    data.map((el) => {
+      let option = document.createElement("option");
+      option.innerText = el.rangeDistrictName;
+      option.value = el.rangeDistrictName;
+
+      updateDistrict.append(option);
+    });
+  };
+  const appendUpdateStation = (data) => {
+    let UpdateStation = document.getElementById("UpdateStation");
+    data.map((el) => {
+      let option = document.createElement("option");
+      option.innerText = el.policeStationName;
+      option.value = el.policeStationName;
+
+      UpdateStation.append(option);
+    });
+  };
+  // View
+  const appendviewRanges = (data) => {
+    let viewRanges = document.getElementById("viewRanges");
+    data.map((el) => {
+      let option = document.createElement("option");
+      option.innerText = el.rangeName;
+      option.value = el.rangeName;
+
+      viewRanges.append(option);
+    });
+  };
+  const appendviewDistrict = (data) => {
+    let viewDistrict = document.getElementById("viewDistrict");
+    data.map((el) => {
+      let option = document.createElement("option");
+      option.innerText = el.rangeDistrictName;
+      option.value = el.rangeDistrictName;
+
+      viewDistrict.append(option);
+    });
+  };
+  const appendviewStation = (data) => {
+    let viewStation = document.getElementById("viewStation");
+    data.map((el) => {
+      let option = document.createElement("option");
+      option.innerText = el.policeStationName;
+      option.value = el.policeStationName;
+
+      viewStation.append(option);
+    });
+  };
 </script>
 
 <script>
@@ -582,25 +788,31 @@
       });
 
       let viewIcon = document.createElement("button");
-      // let commentsIcon = document.createElement("button");
+      let deleteIcon = document.createElement("button");
       updateIcon.setAttribute("class", "buttonsAction");
       viewIcon.setAttribute("class", "buttonsAction");
-      // commentsIcon.setAttribute("class", "buttonsAction");
+      deleteIcon.setAttribute("class", "buttonsAction");
       updateIcon.innerText = "Update";
       updateIcon.style.width = "30%";
+      viewIcon.addEventListener("click", () => {
+        viewOfficer(el);
+      });
 
       viewIcon.innerText = "View";
       viewIcon.style.margin = "5px";
       viewIcon.style.width = "20%";
 
-      // commentsIcon.innerText = "Delete";
-      // commentsIcon.style.width = "40%";
-      // commentsIcon.style.margin="5px"
+      deleteIcon.innerText = "Delete";
+      deleteIcon.style.width = "40%";
+      deleteIcon.style.margin = "5px";
+      deleteIcon.addEventListener("click", () => {
+        deleteDSP(el);
+      });
 
       // td8.innerText = "hi";
       // updateIcon.innerHTML('<i class="fa-light fa-pen"></i>')
 
-      divtd8.append(updateIcon, viewIcon);
+      divtd8.append(updateIcon, viewIcon, deleteIcon);
       td8.append(divtd8);
       // if (i % 2 === 0) {
       //   tr.style.backgroundColor = "gray";
@@ -623,6 +835,7 @@
     get("updateMobile").value = el.mobile;
     get("updateDistrict").value = el.districtofc;
     get("updatePassword").value = "";
+    get("UpdateStation").value=el.policestation
     get("updatePassword").placeholder = "Write New Password";
     return a;
   };
@@ -640,12 +853,13 @@
       policerange: get("UpdateRanges").value,
       districtofc: get("updateDistrict").value,
       spname: "",
-      designation: "SP",
-      policestation: "",
+      designation: "DSP",
+      policestation: get("UpdateStation").value,
       email: get("updateUsername").value,
       password: get("updatePassword").value,
     };
     obj = JSON.stringify(obj);
+    console.log(`https://haryanacms.onrender.com/user/update/${a._id}`);
     let res = await fetch(
       `https://haryanacms.onrender.com/user/update/${a._id}`,
       {
@@ -660,6 +874,41 @@
     alert("Update");
     let compUpdate = document.querySelector(".updateOfficer");
     compUpdate.classList.toggle("activeUpdateOfficer");
+    getData();
+  };
+
+  // View
+  const viewOfficer = (el) => {
+    // console.log(el);
+    let viewOfficer = document.querySelector(".viewOfficer");
+    viewOfficer.classList.toggle("activeviewOfficer");
+    a = el;
+    get("viewFname").value = el.fname;
+    get("viewLname").value = el.lname;
+    get("viewRanges").value = el.policerange;
+    get("viewUsername").value = el.email;
+    get("viewMobile").value = el.mobile;
+    get("viewDistrict").value = el.districtofc;
+    get("viewPassword").value = "";
+    get("UpdateStation").value=el.policestation
+    get("viewPassword").placeholder = "Write New Password";
+    return a;
+  };
+  let viewComp = document.querySelector(".closeIconview");
+  viewComp.onclick = function () {
+    let compview = document.querySelector(".viewOfficer");
+    compview.classList.toggle("activeviewOfficer");
+  };
+  // Delete
+  const deleteDSP = async (el) => {
+    a = el;
+    // console.log(a);
+    let url = `https://haryanacms.onrender.com/user/delete/${a._id}`;
+    let res = await fetch(url, {
+      method: "DELETE",
+    });
+    res = await res.json();
+    // console.log(res);
     getData();
   };
   getData();
