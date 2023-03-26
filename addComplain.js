@@ -1,7 +1,7 @@
 let userId = JSON.parse(localStorage.getItem("userID"));
 
 const getComp = async () => {
-  const url = `https://haryanacms.onrender.com/complain/allcomplain`;
+  const url = `https://hrycms.onrender.com/complain/allcomplain`;
   let res = await fetch(url);
   let data = await res.json();
   // console.log(data);
@@ -15,9 +15,7 @@ const getUser = async () => {
   };
   obj = JSON.stringify(obj);
   try {
-    let res = await fetch(
-      `https://haryanacms.onrender.com/user/user/${userId}`
-    );
+    let res = await fetch(`https://hrycms.onrender.com/user/user/${userId}`);
     res = await res.json();
     // console.log(res);
   } catch (err) {
@@ -26,7 +24,7 @@ const getUser = async () => {
 };
 getUser();
 // console.log(userId);
-let url = `https://haryanacms.onrender.com/complain/create`;
+let url = `https://hrycms.onrender.com/complain/create`;
 const addComplain = async () => {
   let initialDate = document.getElementById("dateOfSub").value;
   let obj = {
@@ -69,9 +67,9 @@ const addComplain = async () => {
     });
     res = await res.json();
     console.log(res);
-    let displayAddComp1=document.querySelector(".displayAddComp")
+    let displayAddComp1 = document.querySelector(".displayAddComp");
     displayAddComp1.classList.toggle("activeAddComp");
-    alert("Complain Added Successfuly!")
+    alert("Complain Added Successfuly!");
     getComp();
   } catch (err) {
     console.log(err);
@@ -80,10 +78,10 @@ const addComplain = async () => {
 
 let container = document.querySelector(".tableBody");
 
-let convertDate=(id)=>{
+let convertDate = (id) => {
   let myDate = new Date(id);
-  return myDate.toLocaleDateString()
-}
+  return myDate.toLocaleDateString();
+};
 const append = (data) => {
   document.getElementById("totalComplaints").innerText = data.length;
   container.innerHTML = null;
@@ -218,9 +216,9 @@ const append = (data) => {
     let updateIcon = document.createElement("button");
 
     let viewIcon = document.createElement("button");
-    viewIcon.addEventListener("click",()=>{
-      viewData(el)
-    })
+    viewIcon.addEventListener("click", () => {
+      viewData(el);
+    });
     let commentsIcon = document.createElement("button");
     updateIcon.setAttribute("class", "buttonsAction");
     updateIcon.setAttribute("id", "updateComp");
@@ -273,37 +271,37 @@ const append = (data) => {
 getComp();
 
 // Update Complain
-let a ={};
+let a = {};
 const get = (id) => {
   return document.getElementById(id);
 };
 const getRange1 = async () => {
-  let res = await fetch(`https://haryanacms.onrender.com/range/getRange`);
+  let res = await fetch(`https://hrycms.onrender.com/range/getRange`);
   res = await res.json();
   console.log(res);
   appendRange1(res);
 };
-const getDistrict1 =async()=>{
-  let res = await fetch(`https://haryanacms.onrender.com/district/getDistrict`);
+const getDistrict1 = async () => {
+  let res = await fetch(`https://hrycms.onrender.com/district/getDistrict`);
   res = await res.json();
   console.log(res);
   appendSp1(res);
-}
+};
 
-let appendRange1=(data)=>{
-  let rangeInputUpdate1 = document.getElementById("rangeInputUpdate1")
+let appendRange1 = (data) => {
+  let rangeInputUpdate1 = document.getElementById("rangeInputUpdate1");
   data.map((el) => {
     let option = document.createElement("option");
     option.innerText = el.rangeName;
     option.value = el.rangeName;
     // console.log(option)
     // container.append(option);
-    rangeInputUpdate1.append(option)
+    rangeInputUpdate1.append(option);
     // rangeInput.append(option)
     // console.log(rangeInputUpdate1)
     // console.log(rangeInput)
   });
-}
+};
 const appendSp1 = (data) => {
   let SPNameUpdate1 = document.getElementById("SPNameUpdate1");
 
@@ -318,10 +316,10 @@ const appendSp1 = (data) => {
 const updateData = async (el) => {
   let displayUpdateComp = document.querySelector(".displayUpdateComp");
   displayUpdateComp.classList.toggle("activeUpdateComp");
-  a=el
+  a = el;
   console.log(el);
-  getRange1()
-  getDistrict1()
+  getRange1();
+  getDistrict1();
   get("complainantNameUpdate").value = el.ComplainantName;
   get("fatherNameUpdate").value = el.FatherName;
   get("complainantEmailUpdate").value = el.Email;
@@ -335,10 +333,9 @@ const updateData = async (el) => {
   get("complainStatusUpdate").value = el.Status;
   get("shortDescriptionUpdate").value = el.ComplaintShortDescription;
   get("complainCategoryUpdate").value = el.ComplaintCategory;
-  get("complainantNumberView").value=el.trackingId
+  get("complainantNumberView").value = el.trackingId;
   // get("sectionsUpdate").value=el.
   // get("highPriorityUpdate").value=el.
-
 
   return a;
 };
@@ -347,7 +344,7 @@ updateComp.onclick = function () {
   let compUpdate = document.querySelector(".displayUpdateComp");
   compUpdate.classList.toggle("activeUpdateComp");
 };
-const viewData =(el)=>{
+const viewData = (el) => {
   let displayViewComp = document.querySelector(".displayViewComp");
   displayViewComp.classList.toggle("activeUpdateComp");
   get("complainantNameView").value = el.ComplainantName;
@@ -363,11 +360,10 @@ const viewData =(el)=>{
   get("complainStatusView").value = el.Status;
   get("shortDescriptionView").value = el.ComplaintShortDescription;
   get("complainCategoryView").value = el.ComplaintCategory;
-  get("complainantNumberView").value=el.trackingId
+  get("complainantNumberView").value = el.trackingId;
   get("dateOfSubView").value = convertDate(el.createdAt);
-}
+};
 // console.log(displayUpdateComp)
-
 
 let ViewComp = document.querySelector(".closeIconView");
 ViewComp.onclick = function () {
@@ -375,7 +371,7 @@ ViewComp.onclick = function () {
   compUpdate.classList.toggle("activeUpdateComp");
 };
 const updateComplain = async () => {
-  // console.log(`https://haryanacms.onrender.com/complain/update/${a._id}`)
+  // console.log(`https://hrycms.onrender.com/complain/update/${a._id}`)
   let obj = {
     ComplainantName: document.getElementById("complainantNameUpdate").value,
     Email: document.getElementById("complainantEmailUpdate").value,
@@ -394,27 +390,30 @@ const updateComplain = async () => {
     State: document.getElementById("stateInputUpdate").value,
     City: document.getElementById("cityInputUpdate").value,
     ComplaintCategory: document.getElementById("complainCategoryUpdate").value,
-    ComplaintShortDescription:
-      document.getElementById("shortDescriptionUpdate").value,
+    ComplaintShortDescription: document.getElementById("shortDescriptionUpdate")
+      .value,
     SectionsofComplaint: "",
     Range: document.getElementById("rangeInputUpdate1").value,
     SPName: document.getElementById("SPNameUpdate1").value,
     Status: document.getElementById("complainStatusUpdate").value,
     Markto: document.getElementById("SPNameUpdate1").value,
   };
-  obj = JSON.stringify(obj)
-  console.log(obj)
+  obj = JSON.stringify(obj);
+  console.log(obj);
 
-  let res = await fetch (`https://haryanacms.onrender.com/complain/update/${a._id}`,{
-    method:"PUT",
-    body:obj,
-    headers:{
-      "Content-Type": "application/json"
+  let res = await fetch(
+    `https://hrycms.onrender.com/complain/update/${a._id}`,
+    {
+      method: "PUT",
+      body: obj,
+      headers: {
+        "Content-Type": "application/json",
+      },
     }
-  })
-  res = await res.json()
-  console.log(res)
-  getComp()
+  );
+  res = await res.json();
+  console.log(res);
+  getComp();
   // alert("Update");
   // let compUpdate = document.querySelector(".displayUpdateComp");
   // compUpdate.classList.toggle("activeUpdateComp");

@@ -1,4 +1,4 @@
-const url = `https://haryanacms.onrender.com`;
+const url = `https://hrycms.onrender.com`;
 
 const getRange = async () => {
   let res = await fetch(`${url}/range/getRange`);
@@ -48,10 +48,10 @@ const addPoliceStation = async () => {
   let stationInput = document.getElementById("policeStationInput").value;
   stationInput = stationInput.toUpperCase();
   let status = false;
-  if(document.getElementById("status").value==="ON"){
-    status=true
-  }else{
-    status=false
+  if (document.getElementById("status").value === "ON") {
+    status = true;
+  } else {
+    status = false;
   }
   let obj = {
     policeStationName: stationInput,
@@ -82,9 +82,9 @@ const addPoliceStation = async () => {
     document.getElementById("ranges").value = "";
     document.getElementById("districts").value = "";
     document.getElementById("policeStationInput").value = "";
-    document.getElementById("phoneInput").value=""
-    email: document.getElementById("emailInput").value=""
-    status: document.getElementById("status").value="OFF"
+    document.getElementById("phoneInput").value = "";
+    email: document.getElementById("emailInput").value = "";
+    status: document.getElementById("status").value = "OFF";
     getPoliceStation();
   } catch (err) {
     console.log(err);

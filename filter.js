@@ -1,5 +1,4 @@
-
-const url1 = `https://haryanacms.onrender.com`;
+const url1 = `https://hrycms.onrender.com`;
 
 // Get data
 
@@ -23,33 +22,33 @@ const getStation = async () => {
   appendStation(res);
 };
 
-const getAllSp =async()=>{
+const getAllSp = async () => {
   let res = await fetch(`${url1}/user/allsp`);
   res = await res.json();
   // console.log(res);
   appendSp(res);
-}
+};
 // End Get Data
 
 // Append Data
 const appendRange = (data) => {
   let container = document.getElementById("rangesFilter");
-  let rangeInput = document.getElementById("rangeInput")
-  
+  let rangeInput = document.getElementById("rangeInput");
+
   data.map((el) => {
     let option = document.createElement("option");
     option.innerText = el.rangeName;
     option.value = el.rangeName;
     // console.log(option)
     container.append(option);
-    rangeInput.append(option)
+    rangeInput.append(option);
     // console.log(rangeInputUpdate1)
     // console.log(rangeInput)
   });
 };
 const appendDistrict = (data) => {
   let container = document.getElementById("districtFilter");
-  let district = document.getElementById("district")
+  let district = document.getElementById("district");
 
   data.map((el) => {
     let option = document.createElement("option");
@@ -57,7 +56,7 @@ const appendDistrict = (data) => {
     option.value = el.rangeDistrictName;
     // console.log(option)
     container.append(option);
-    district.append(option)
+    district.append(option);
   });
 };
 
@@ -86,6 +85,6 @@ const appendSp = (data) => {
 // Function Calls
 
 getRange();
-getDistrict()
-getStation()
-getAllSp()
+getDistrict();
+getStation();
+getAllSp();

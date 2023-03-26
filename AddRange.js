@@ -1,4 +1,4 @@
-const url = `https://haryanacms.onrender.com`;
+const url = `https://hrycms.onrender.com`;
 
 const getRange = async () => {
   let res = await fetch(`${url}/range//getRange`);
@@ -38,10 +38,10 @@ const addRange = async () => {
 
 let appendtable = (data) => {
   let container = document.getElementById("tbody");
-  container.innerHTML=null
-  let i=0
+  container.innerHTML = null;
+  let i = 0;
   data.map((el) => {
-    i++
+    i++;
     console.log(el);
 
     let tr = document.createElement("tr");
@@ -49,14 +49,12 @@ let appendtable = (data) => {
     let td1 = document.createElement("td");
     let td2 = document.createElement("td");
     let td3 = document.createElement("td");
-    td1.innerText=i
-    td2.innerHTML=el.rangeName
-    td3.innerText=el.State
+    td1.innerText = i;
+    td2.innerHTML = el.rangeName;
+    td3.innerText = el.State;
 
-    tr.append(td1,td2,td3)
+    tr.append(td1, td2, td3);
 
-    container.append(tr)
-
-
+    container.append(tr);
   });
 };

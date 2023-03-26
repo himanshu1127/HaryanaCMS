@@ -1,11 +1,11 @@
-const url1 = `https://haryanacms.onrender.com`;
+const url1 = `https://hrycms.onrender.com`;
 
 // Get data
 
 const getRange = async () => {
   let res = await fetch(`${url1}/range/getRange`);
   res = await res.json();
-//   console.log(res);
+  //   console.log(res);
   appendRange(res);
 };
 
@@ -13,7 +13,7 @@ const getRange = async () => {
 const getDistrict = async () => {
   let res = await fetch(`${url1}/district/getDistrict`);
   res = await res.json();
-//   console.log(res);
+  //   console.log(res);
   appendDistrict(res);
 };
 
@@ -21,7 +21,7 @@ const getDistrict = async () => {
 
 const appendRange = (data) => {
   let container = document.getElementById("ranges");
-  let UpdateCont = document.getElementById("UpdateRanges")
+  let UpdateCont = document.getElementById("UpdateRanges");
 
   data.map((el) => {
     let option = document.createElement("option");
@@ -29,13 +29,13 @@ const appendRange = (data) => {
     option.value = el.rangeName;
     // console.log(option)
     container.append(option);
-    UpdateCont.append(option)
+    UpdateCont.append(option);
   });
 };
 
 const appendDistrict = (data) => {
   let container = document.getElementById("district");
-  let updateCont = document.getElementById("updateDistrict")
+  let updateCont = document.getElementById("updateDistrict");
 
   data.map((el) => {
     let option = document.createElement("option");
@@ -43,7 +43,7 @@ const appendDistrict = (data) => {
     option.value = el.rangeDistrictName;
     // console.log(option)
     container.append(option);
-    updateCont.append(option)
+    updateCont.append(option);
   });
 };
 

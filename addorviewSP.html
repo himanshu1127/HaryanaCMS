@@ -259,7 +259,12 @@
             </div>
             <div style="margin-top: 20px; text-align: center">
               <!-- <button onclick="addSP()" id="addinfo">Add</button> -->
-              <input onclick="addSP()" id="addinfo" type="submit" value="Add SP" />
+              <input
+                onclick="addSP()"
+                id="addinfo"
+                type="submit"
+                value="Add SP"
+              />
             </div>
           </form>
         </div>
@@ -536,16 +541,14 @@
 <!-- <script src="./getRange.js"></script> -->
 <script>
   const getRangeSP = async () => {
-    let res = await fetch(`https://haryanacms.onrender.com/range/getRange`);
+    let res = await fetch(`https://hrycms.onrender.com/range/getRange`);
     res = await res.json();
     // console.log(res);
     appendRangeSP(res);
     appendviewRangesSP(res);
   };
   const getDistrictSP = async () => {
-    let res = await fetch(
-      `https://haryanacms.onrender.com/district/getDistrict`
-    );
+    let res = await fetch(`https://hrycms.onrender.com/district/getDistrict`);
     res = await res.json();
     // console.log(res);
     appendDistrictSP(res);
@@ -553,7 +556,7 @@
   };
   const getStationSP = async () => {
     let res = await fetch(
-      `https://haryanacms.onrender.com/policestation/getPolicestation`
+      `https://hrycms.onrender.com/policestation/getPolicestation`
     );
     res = await res.json();
     // console.log(res);
@@ -601,22 +604,20 @@
   // Update
 
   const getRangeSPUpdate = async () => {
-    let res = await fetch(`https://haryanacms.onrender.com/range/getRange`);
+    let res = await fetch(`https://hrycms.onrender.com/range/getRange`);
     res = await res.json();
     // console.log(res);
     appendRangeSPUpdate(res);
   };
   const getDistrictSPUpdate = async () => {
-    let res = await fetch(
-      `https://haryanacms.onrender.com/district/getDistrict`
-    );
+    let res = await fetch(`https://hrycms.onrender.com/district/getDistrict`);
     res = await res.json();
     // console.log(res);
     appendDistrictSPUpdate(res);
   };
   const getStationSPUpdate = async () => {
     let res = await fetch(
-      `https://haryanacms.onrender.com/policestation/getPolicestation`
+      `https://hrycms.onrender.com/policestation/getPolicestation`
     );
     res = await res.json();
     // console.log(res);
@@ -689,8 +690,8 @@
   };
 </script>
 <script>
-  const urlGet = `https://haryanacms.onrender.com/user/allsp`;
-  const urlAdd = `https://haryanacms.onrender.com/user/signup`;
+  const urlGet = `https://hrycms.onrender.com/user/allsp`;
+  const urlAdd = `https://hrycms.onrender.com/user/signup`;
   const userId = JSON.parse(localStorage.getItem("userID"));
   let getData = async () => {
     try {
@@ -850,16 +851,13 @@
       password: get("updatePassword").value,
     };
     obj = JSON.stringify(obj);
-    let res = await fetch(
-      `https://haryanacms.onrender.com/user/update/${a._id}`,
-      {
-        method: "PUT",
-        body: obj,
-        headers: {
-          "Content-type": "application/json",
-        },
-      }
-    );
+    let res = await fetch(`https://hrycms.onrender.com/user/update/${a._id}`, {
+      method: "PUT",
+      body: obj,
+      headers: {
+        "Content-type": "application/json",
+      },
+    });
     res = await res.json();
     alert("Update");
     let compUpdate = document.querySelector(".updateOfficer");
@@ -893,7 +891,7 @@
   const deleteSP = async (el) => {
     a = el;
     // console.log(a);
-    let url = `https://haryanacms.onrender.com/user/delete/${a._id}`;
+    let url = `https://hrycms.onrender.com/user/delete/${a._id}`;
     let res = await fetch(url, {
       method: "DELETE",
     });
