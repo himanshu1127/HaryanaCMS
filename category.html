@@ -71,11 +71,7 @@
             <li class="liText">
               <a class="aTag" href="./complaints.html">Update/View Pending</a>
             </li>
-            <li class="liText">
-              <a class="aTag" href="./OfficerComplaints.html"
-                >Add/View/Update Officer Complaint</a
-              >
-            </li>
+
             <li class="liText">
               <a class="aTag" href="#">View Special Complaints</a>
             </li>
@@ -126,7 +122,6 @@
                 >Add/View/Update Police Station</a
               >
             </li>
-            
           </ul>
           <!-- <p>Manage Dept.</p>
           <p>Manage Category</p>
@@ -163,7 +158,7 @@
                   "
                 >
                   <label for="designasion"> Category Name : </label>
-                  <textarea
+                  <input
                     type="text"
                     style="
                       width: 70%;
@@ -174,7 +169,7 @@
                     placeholder="Category name"
                     name=""
                     id=""
-                  ></textarea>
+                  />
                 </div>
 
                 <div
@@ -230,6 +225,16 @@
             <button onclick="addOfficer()" id="addinfo">Add</button>
           </div>
         </div>
+        <table border="1" style="border-collapse: collapse; width: 100%">
+          <thead>
+            <tr>
+              <th>S.No</th>
+              <th>Category</th>
+              <th>Full Form</th>
+            </tr>
+          </thead>
+          <tbody id="tbody"></tbody>
+        </table>
       </div>
     </div>
   </body>
@@ -239,91 +244,91 @@
 </html>
 
 <script>
-  const data = [
-    {
-      id: 1,
-      name: "Jaswinder Kaur",
-      rank: "L/SI",
-      designation: "I/C PP",
-      posting: "Sudar Bazar",
-      officeTelNo: "087-78798979",
-      MobileNo: "9890879879",
-    },
-    {
-      id: 2,
-      name: "Jaswinder Kaur",
-      rank: "L/SI",
-      designation: "I/C PP",
-      posting: "Sudar Bazar",
-      officeTelNo: "087-78798979",
-      MobileNo: "9890879879",
-    },
-    {
-      id: 3,
-      name: "Jaswinder Kaur",
-      rank: "L/SI",
-      designation: "I/C PP",
-      posting: "Sudar Bazar",
-      officeTelNo: "087-78798979",
-      MobileNo: "9890879879",
-    },
-    {
-      id: 4,
-      name: "Jaswinder Kaur",
-      rank: "L/SI",
-      designation: "I/C PP",
-      posting: "Sudar Bazar",
-      officeTelNo: "087-78798979",
-      MobileNo: "9890879879",
-    },
-    {
-      id: 5,
-      name: "Jaswinder Kaur",
-      rank: "L/SI",
-      designation: "I/C PP",
-      posting: "Sudar Bazar",
-      officeTelNo: "087-78798979",
-      MobileNo: "9890879879",
-    },
-    {
-      id: 6,
-      name: "Jaswinder Kaur",
-      rank: "L/SI",
-      designation: "I/C PP",
-      posting: "Sudar Bazar",
-      officeTelNo: "087-78798979",
-      MobileNo: "9890879879",
-    },
-    {
-      id: 7,
-      name: "Jaswinder Kaur",
-      rank: "L/SI",
-      designation: "I/C PP",
-      posting: "Sudar Bazar",
-      officeTelNo: "087-78798979",
-      MobileNo: "9890879879",
-    },
-    {
-      id: 8,
-      name: "Jaswinder Kaur",
-      rank: "L/SI",
-      designation: "I/C PP",
-      posting: "Sudar Bazar",
-      officeTelNo: "087-78798979",
-      MobileNo: "9890879879",
-    },
-    {
-      id: 9,
-      name: "Jaswinder Kaur",
-      rank: "L/SI",
-      designation: "I/C PP",
-      posting: "Sudar Bazar",
-      officeTelNo: "087-78798979",
-      MobileNo: "9890879879",
-    },
-  ];
+  // const data = [
+  //   {
+  //     id: 1,
+  //     name: "Jaswinder Kaur",
+  //     rank: "L/SI",
+  //     designation: "I/C PP",
+  //     posting: "Sudar Bazar",
+  //     officeTelNo: "087-78798979",
+  //     MobileNo: "9890879879",
+  //   },
+  //   {
+  //     id: 2,
+  //     name: "Jaswinder Kaur",
+  //     rank: "L/SI",
+  //     designation: "I/C PP",
+  //     posting: "Sudar Bazar",
+  //     officeTelNo: "087-78798979",
+  //     MobileNo: "9890879879",
+  //   },
+  //   {
+  //     id: 3,
+  //     name: "Jaswinder Kaur",
+  //     rank: "L/SI",
+  //     designation: "I/C PP",
+  //     posting: "Sudar Bazar",
+  //     officeTelNo: "087-78798979",
+  //     MobileNo: "9890879879",
+  //   },
+  //   {
+  //     id: 4,
+  //     name: "Jaswinder Kaur",
+  //     rank: "L/SI",
+  //     designation: "I/C PP",
+  //     posting: "Sudar Bazar",
+  //     officeTelNo: "087-78798979",
+  //     MobileNo: "9890879879",
+  //   },
+  //   {
+  //     id: 5,
+  //     name: "Jaswinder Kaur",
+  //     rank: "L/SI",
+  //     designation: "I/C PP",
+  //     posting: "Sudar Bazar",
+  //     officeTelNo: "087-78798979",
+  //     MobileNo: "9890879879",
+  //   },
+  //   {
+  //     id: 6,
+  //     name: "Jaswinder Kaur",
+  //     rank: "L/SI",
+  //     designation: "I/C PP",
+  //     posting: "Sudar Bazar",
+  //     officeTelNo: "087-78798979",
+  //     MobileNo: "9890879879",
+  //   },
+  //   {
+  //     id: 7,
+  //     name: "Jaswinder Kaur",
+  //     rank: "L/SI",
+  //     designation: "I/C PP",
+  //     posting: "Sudar Bazar",
+  //     officeTelNo: "087-78798979",
+  //     MobileNo: "9890879879",
+  //   },
+  //   {
+  //     id: 8,
+  //     name: "Jaswinder Kaur",
+  //     rank: "L/SI",
+  //     designation: "I/C PP",
+  //     posting: "Sudar Bazar",
+  //     officeTelNo: "087-78798979",
+  //     MobileNo: "9890879879",
+  //   },
+  //   {
+  //     id: 9,
+  //     name: "Jaswinder Kaur",
+  //     rank: "L/SI",
+  //     designation: "I/C PP",
+  //     posting: "Sudar Bazar",
+  //     officeTelNo: "087-78798979",
+  //     MobileNo: "9890879879",
+  //   },
+  // ];
 
-  let container = document.getElementById("tbody");
+  let container1 = document.getElementById("tbody");
   let i = 0;
   data.map((el) => {
     i++;
@@ -334,13 +339,13 @@
     td2.innerText = `${el.rank} ${el.name}`;
     let td3 = document.createElement("td");
     td3.innerText = `${el.designation} ${el.posting}`;
-    let td4 = document.createElement("td");
-    td4.innerText = el.officeTelNo;
-    let td5 = document.createElement("td");
-    td5.innerText = el.MobileNo;
+    // let td4 = document.createElement("td");
+    // td4.innerText = el.officeTelNo;
+    // let td5 = document.createElement("td");
+    // td5.innerText = el.MobileNo;
 
-    tr.append(td1, td2, td3, td4, td5);
+    tr.append(td1, td2, td3);
 
-    // container.append(tr);
+    container1.append(tr);
   });
 </script>
