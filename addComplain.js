@@ -3,7 +3,7 @@ let currentUser = {};
 let commentArr = [];
 
 const getComp = async () => {
-  const url = `https://haryanacms.onrender.com/complain/allcomplain`;
+  const url = `https://hrycms.onrender.com/complain/allcomplain`;
   let res = await fetch(url);
   let data = await res.json();
   // console.log(data);
@@ -17,9 +17,7 @@ const getUser = async () => {
   };
   obj = JSON.stringify(obj);
   try {
-    let res = await fetch(
-      `https://haryanacms.onrender.com/user/user/${userId}`
-    );
+    let res = await fetch(`https://hrycms.onrender.com/user/user/${userId}`);
     res = await res.json();
     // console.log(res);
   } catch (err) {
@@ -28,7 +26,7 @@ const getUser = async () => {
 };
 getUser();
 // console.log(userId);
-let url = `https://haryanacms.onrender.com/complain/create`;
+let url = `https://hrycms.onrender.com/complain/create`;
 const addComplain = async () => {
   let initialDate = document.getElementById("dateOfSub").value;
   let obj = {
@@ -283,13 +281,13 @@ const get = (id) => {
   return document.getElementById(id);
 };
 // const getRange1 = async () => {
-//   let res = await fetch(`https://haryanacms.onrender.com/range/getRange`);
+//   let res = await fetch(`https://hrycms.onrender.com/range/getRange`);
 //   res = await res.json();
 //   console.log(res);
 //   appendRange1(res);
 // };
 // const getSp1 = async () => {
-//   let res = await fetch(`https://haryanacms.onrender.com/district/getdistrict`);
+//   let res = await fetch(`https://hrycms.onrender.com/district/getdistrict`);
 //   res = await res.json();
 //   console.log(res);
 //   // appendDistrict(res);
@@ -380,7 +378,7 @@ ViewComp.onclick = function () {
   compUpdate.classList.toggle("activeUpdateComp");
 };
 const updateComplain = async () => {
-  // console.log(`https://haryanacms.onrender.com/complain/update/${complainID._id}`)
+  // console.log(`https://hrycms.onrender.com/complain/update/${complainID._id}`)
   let obj = {
     ComplainantName: document.getElementById("complainantNameUpdate").value,
     Email: document.getElementById("complainantEmailUpdate").value,
@@ -411,7 +409,7 @@ const updateComplain = async () => {
   console.log(obj);
 
   let res = await fetch(
-    `https://haryanacms.onrender.com/complain/update/${complainID._id}`,
+    `https://hrycms.onrender.com/complain/update/${complainID._id}`,
     {
       method: "PUT",
       body: obj,
@@ -457,16 +455,13 @@ let addComm = async (event) => {
   obj = JSON.stringify(obj);
   console.log(obj);
   try {
-    let res = await fetch(
-      `https://haryanacms.onrender.com/comment/addcomment`,
-      {
-        method: "POST",
-        body: obj,
-        headers: {
-          "Content-type": "application/json",
-        },
-      }
-    );
+    let res = await fetch(`https://haryanacms.onrender.com/comment/addcomment`, {
+      method: "POST",
+      body: obj,
+      headers: {
+        "Content-type": "application/json",
+      },
+    });
     res = await res.json();
     alert("Comment Posted");
     // commentDiv.classList.toggle("activecommentDiv");
@@ -501,7 +496,7 @@ let appendComment = (data) => {
       div.append(h4, p);
       contan.append(div);
     });
-  }else{
-    contan.innerHTML="<h3>No Comments</h3>"
+  } else {
+    contan.innerHTML = "<h3>No Comments</h3>";
   }
 };

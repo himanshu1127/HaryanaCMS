@@ -430,7 +430,7 @@
     console.log(obj);
     try {
       let res = await fetch(
-        `https://haryanacms.onrender.com/category/update/${currCat._id}`,
+        `https://hrycms.onrender.com/category/update/${currCat._id}`,
         {
           method: "PUT",
           body: obj,
@@ -454,7 +454,7 @@
   let deleteCat = async (el) => {
     // console.log(el)
     let res = await fetch(
-      `https://haryanacms.onrender.com/category/delete/${el._id}`,
+      `https://hrycms.onrender.com/category/delete/${el._id}`,
       {
         method: "DELETE",
       }

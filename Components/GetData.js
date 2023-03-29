@@ -1,4 +1,4 @@
-const url = `https://haryanacms.onrender.com`;
+const url = `https://hrycms.onrender.com`;
 
 let dataArr = [];
 const userID = JSON.parse(localStorage.getItem("userID"));

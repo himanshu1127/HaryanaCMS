@@ -573,7 +573,7 @@
 
 <script>
   const getRangeShO = async () => {
-    let res = await fetch(`https://haryanacms.onrender.com/range/getRange`);
+    let res = await fetch(`https://hrycms.onrender.com/range/getRange`);
     res = await res.json();
     console.log(res);
     appendRangeSho(res);
@@ -581,9 +581,7 @@
     appendviewRanges(res);
   };
   const getDistrictShO = async () => {
-    let res = await fetch(
-      `https://haryanacms.onrender.com/district/getDistrict`
-    );
+    let res = await fetch(`https://hrycms.onrender.com/district/getDistrict`);
     res = await res.json();
     console.log(res);
     appendDistrictSho(res);
@@ -592,7 +590,7 @@
   };
   const getStationShO = async () => {
     let res = await fetch(
-      `https://haryanacms.onrender.com/policestation/getPolicestation`
+      `https://hrycms.onrender.com/policestation/getPolicestation`
     );
     res = await res.json();
     console.log(res);
@@ -701,7 +699,7 @@
   };
 </script>
 <script>
-  const urlGet = `https://haryanacms.onrender.com/user/allsho`;
+  const urlGet = `https://hrycms.onrender.com/user/allsho`;
   const urlAdd = `https://localho/user/signup`;
   let getData = async () => {
     try {
@@ -854,17 +852,14 @@
       password: get("updatePassword").value,
     };
     obj = JSON.stringify(obj);
-    console.log(`https://haryanacms.onrender.com/user/update/${a._id}`);
-    let res = await fetch(
-      `https://haryanacms.onrender.com/user/update/${a._id}`,
-      {
-        method: "PUT",
-        body: obj,
-        headers: {
-          "Content-type": "application/json",
-        },
-      }
-    );
+    console.log(`https://hrycms.onrender.com/user/update/${a._id}`);
+    let res = await fetch(`https://hrycms.onrender.com/user/update/${a._id}`, {
+      method: "PUT",
+      body: obj,
+      headers: {
+        "Content-type": "application/json",
+      },
+    });
     res = await res.json();
     alert("Update");
     let compUpdate = document.querySelector(".updateOfficer");
@@ -898,7 +893,7 @@
   const deleteDSP = async (el) => {
     a = el;
     // console.log(a);
-    let url = `https://haryanacms.onrender.com/user/delete/${a._id}`;
+    let url = `https://hrycms.onrender.com/user/delete/${a._id}`;
     let res = await fetch(url, {
       method: "DELETE",
     });
