@@ -73,11 +73,13 @@
               >
             </li>
             <li class="liText">
-              <a class="aTag" href="./complaints.html">Update/View Pending</a>
+              <a class="aTag" href="./pending.html">Update/View Pending</a>
             </li>
 
             <li class="liText">
-              <a class="aTag" href="#">View Special Complaints</a>
+              <a class="aTag" href="./addOrViewVisitor.html"
+                >Add/Update/View Visitor Complaints</a
+              >
             </li>
           </ul>
           <p>Manage Officers Data</p>
@@ -425,12 +427,12 @@
     updateIcon.setAttribute("class", "buttonsAction");
     viewIcon.setAttribute("class", "buttonsAction");
     commentsIcon.setAttribute("class", "buttonsAction");
-    updateIcon.innerText = "Update";
-    updateIcon.style.width = "30%";
+    updateIcon.innerHTML = '<i class="fa-solid fa-pen"></i>';
+    updateIcon.style.width = "25%";
 
-    viewIcon.innerText = "View";
+    viewIcon.innerHTML = '<i class="fa-solid fa-eye"></i>';
     viewIcon.style.margin = "5px";
-    viewIcon.style.width = "20%";
+    viewIcon.style.width = "25%";
 
     commentsIcon.innerText = "Comment";
     commentsIcon.style.width = "40%";

@@ -1,4 +1,4 @@
-const url = `https://hrycms.onrender.com`;
+const url = `https://haryanacms.onrender.com`;
 
 const getRange = async () => {
   let res = await fetch(`${url}/range/getRange`);
@@ -89,15 +89,15 @@ let appendtable = (data) => {
       viewOfficer(el);
     });
     deleteIcon.setAttribute("class", "buttonsAction");
-    updateIcon.innerText = "Update";
-    updateIcon.style.width = "30%";
+    updateIcon.innerHTML = '<i class="fa-solid fa-pen"></i>';
+    updateIcon.style.width = "25%";
 
-    viewIcon.innerText = "View";
+    viewIcon.innerHTML = '<i class="fa-solid fa-eye"></i>';
     viewIcon.style.margin = "5px";
-    viewIcon.style.width = "20%";
+    viewIcon.style.width = "25%";
 
-    deleteIcon.innerText = "Delete";
-    deleteIcon.style.width = "40%";
+    deleteIcon.innerHTML = `<i class="fa-solid fa-trash"></i>`;
+    deleteIcon.style.width = "25%";
     deleteIcon.style.margin = "5px";
     deleteIcon.addEventListener("click", () => {
       deleteASP(el);

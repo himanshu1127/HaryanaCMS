@@ -1,7 +1,9 @@
 let userId = JSON.parse(localStorage.getItem("userID"));
+let currentUser = {};
+let commentArr = [];
 
 const getComp = async () => {
-  const url = `https://hrycms.onrender.com/complain/allcomplain`;
+  const url = `https://haryanacms.onrender.com/complain/allcomplain`;
   let res = await fetch(url);
   let data = await res.json();
   // console.log(data);
@@ -15,7 +17,9 @@ const getUser = async () => {
   };
   obj = JSON.stringify(obj);
   try {
-    let res = await fetch(`https://hrycms.onrender.com/user/user/${userId}`);
+    let res = await fetch(
+      `https://haryanacms.onrender.com/user/user/${userId}`
+    );
     res = await res.json();
     // console.log(res);
   } catch (err) {
@@ -24,7 +28,7 @@ const getUser = async () => {
 };
 getUser();
 // console.log(userId);
-let url = `https://hrycms.onrender.com/complain/create`;
+let url = `https://haryanacms.onrender.com/complain/create`;
 const addComplain = async () => {
   let initialDate = document.getElementById("dateOfSub").value;
   let obj = {
@@ -135,7 +139,7 @@ const append = (data) => {
 
     let td9 = document.createElement("td");
     td9.style.padding = "10px";
-    divtd9 = document.createElement("div");
+    let divtd9 = document.createElement("div");
     // divtd9.style.border="1px solid cyan"
     divtd9.style.height = "40px";
     let p9 = document.createElement("p");
@@ -224,18 +228,21 @@ const append = (data) => {
     updateIcon.setAttribute("id", "updateComp");
     viewIcon.setAttribute("class", "buttonsAction");
     commentsIcon.setAttribute("class", "buttonsAction");
-    updateIcon.innerText = "Update";
+    updateIcon.innerHTML = '<i class="fa-solid fa-pen"></i>';
     updateIcon.addEventListener("click", () => {
       updateData(el);
     });
-    updateIcon.style.width = "30%";
+    updateIcon.style.width = "25%";
 
-    viewIcon.innerText = "View";
+    viewIcon.innerHTML = '<i class="fa-solid fa-eye"></i>';
     viewIcon.style.margin = "5px";
-    viewIcon.style.width = "20%";
+    viewIcon.style.width = "25%";
 
-    commentsIcon.innerText = "Comment";
+    commentsIcon.innerHTML = '<i class="fa-solid fa-comment"></i>';
     commentsIcon.style.width = "40%";
+    commentsIcon.addEventListener("click", () => {
+      complainComment(el);
+    });
     // commentsIcon.style.margin="5px"
 
     // td8.innerText = "hi";
@@ -271,55 +278,57 @@ const append = (data) => {
 getComp();
 
 // Update Complain
-let a = {};
+let complainID = {};
 const get = (id) => {
   return document.getElementById(id);
 };
-const getRange1 = async () => {
-  let res = await fetch(`https://hrycms.onrender.com/range/getRange`);
-  res = await res.json();
-  console.log(res);
-  appendRange1(res);
-};
-const getDistrict1 = async () => {
-  let res = await fetch(`https://hrycms.onrender.com/district/getDistrict`);
-  res = await res.json();
-  console.log(res);
-  appendSp1(res);
-};
+// const getRange1 = async () => {
+//   let res = await fetch(`https://haryanacms.onrender.com/range/getRange`);
+//   res = await res.json();
+//   console.log(res);
+//   appendRange1(res);
+// };
+// const getSp1 = async () => {
+//   let res = await fetch(`https://haryanacms.onrender.com/district/getdistrict`);
+//   res = await res.json();
+//   console.log(res);
+//   // appendDistrict(res);
+// };
 
-let appendRange1 = (data) => {
-  let rangeInputUpdate1 = document.getElementById("rangeInputUpdate1");
-  data.map((el) => {
-    let option = document.createElement("option");
-    option.innerText = el.rangeName;
-    option.value = el.rangeName;
-    // console.log(option)
-    // container.append(option);
-    rangeInputUpdate1.append(option);
-    // rangeInput.append(option)
-    // console.log(rangeInputUpdate1)
-    // console.log(rangeInput)
-  });
-};
-const appendSp1 = (data) => {
-  let SPNameUpdate1 = document.getElementById("SPNameUpdate1");
+// let appendRange1 = (data) => {
+//   let rangeInputUpdate1 = document.getElementById("rangeInputUpdate1");
+//   data.map((el) => {
+//     let option = document.createElement("option");
+//     option.innerText = el.rangeName;
+//     option.value = el.rangeName;
+//     // console.log(option)
+//     // container.append(option);
+//     rangeInputUpdate1.append(option);
+//     // rangeInput.append(option)
+//     // console.log(rangeInputUpdate1)
+//     // console.log(rangeInput)
+//   });
+// };
+// // const appendDistrict = (data) => {
+// //   let SPNameUpdate1 = document.getElementById("DistrictUpdate1");
+// //   SPNameUpdate1.innerHTML = null;
 
-  data.map((el) => {
-    let option = document.createElement("option");
-    option.innerText = `${el.fname} ${el.lname}`;
-    option.value = el.email;
-    // console.log(option)
-    SPNameUpdate1.append(option);
-  });
-};
+// //   data.map((el) => {
+// //     // console.log(el)
+// //     let option = document.createElement("option");
+// //     option.innerText = `${el.fname} ${el.lname}`;
+// //     option.value = el.email;
+// //     // console.log(option)
+// //     SPNameUpdate1.append(option);
+// //   });
+// // };
+// getRange1();
+// getSp1();
 const updateData = async (el) => {
   let displayUpdateComp = document.querySelector(".displayUpdateComp");
   displayUpdateComp.classList.toggle("activeUpdateComp");
-  a = el;
+  complainID = el;
   console.log(el);
-  getRange1();
-  getDistrict1();
   get("complainantNameUpdate").value = el.ComplainantName;
   get("fatherNameUpdate").value = el.FatherName;
   get("complainantEmailUpdate").value = el.Email;
@@ -329,15 +338,15 @@ const updateData = async (el) => {
   get("alternateNumberUpdate").value = el.alternateNumber;
   get("cityInputUpdate").value = el.City;
   get("rangeInputUpdate1").value = el.policerange;
-  get("SPNameUpdate1").value = el.SPName;
+  get("DistrictUpdate1").value = el.rangeDistrictName;
   get("complainStatusUpdate").value = el.Status;
   get("shortDescriptionUpdate").value = el.ComplaintShortDescription;
   get("complainCategoryUpdate").value = el.ComplaintCategory;
-  get("complainantNumberView").value = el.trackingId;
+  get("complainantNumberUpdate").value = el.trackingId;
   // get("sectionsUpdate").value=el.
   // get("highPriorityUpdate").value=el.
 
-  return a;
+  return complainID;
 };
 let updateComp = document.querySelector(".closeIconUpdate");
 updateComp.onclick = function () {
@@ -356,7 +365,7 @@ const viewData = (el) => {
   get("alternateNumberView").value = el.alternateNumber;
   get("cityInputView").value = el.City;
   get("rangeInputView1").value = el.policerange;
-  get("SPNameView1").value = el.SPName;
+  get("DistrictView1").value = el.rangeDistrictName;
   get("complainStatusView").value = el.Status;
   get("shortDescriptionView").value = el.ComplaintShortDescription;
   get("complainCategoryView").value = el.ComplaintCategory;
@@ -371,7 +380,7 @@ ViewComp.onclick = function () {
   compUpdate.classList.toggle("activeUpdateComp");
 };
 const updateComplain = async () => {
-  // console.log(`https://hrycms.onrender.com/complain/update/${a._id}`)
+  // console.log(`https://haryanacms.onrender.com/complain/update/${complainID._id}`)
   let obj = {
     ComplainantName: document.getElementById("complainantNameUpdate").value,
     Email: document.getElementById("complainantEmailUpdate").value,
@@ -396,13 +405,13 @@ const updateComplain = async () => {
     Range: document.getElementById("rangeInputUpdate1").value,
     SPName: document.getElementById("SPNameUpdate1").value,
     Status: document.getElementById("complainStatusUpdate").value,
-    Markto: document.getElementById("SPNameUpdate1").value,
+    // Markto: document.getElementById("SPNameUpdate1").value,
   };
   obj = JSON.stringify(obj);
   console.log(obj);
 
   let res = await fetch(
-    `https://hrycms.onrender.com/complain/update/${a._id}`,
+    `https://haryanacms.onrender.com/complain/update/${complainID._id}`,
     {
       method: "PUT",
       body: obj,
@@ -417,4 +426,82 @@ const updateComplain = async () => {
   // alert("Update");
   // let compUpdate = document.querySelector(".displayUpdateComp");
   // compUpdate.classList.toggle("activeUpdateComp");
+};
+let commentDiv = document.querySelector(".commentDiv");
+const showComp = async () => {
+  let res = await fetch(`https://haryanacms.onrender.com/comment/getcomment`);
+  res = await res.json();
+  console.log(res);
+
+  commentArr = res.filter((elem) => {
+    return elem.complain_id === complainID._id;
+  });
+  console.log(commentArr);
+  appendComment(commentArr);
+};
+const complainComment = async (el) => {
+  complainID = el;
+  console.log(el);
+  commentDiv.classList.toggle("activecommentDiv");
+  // console.log(currentUser)
+  showComp();
+};
+let addComm = async (event) => {
+  event.preventDefault();
+  let obj = {
+    author_id: currentUser._id,
+    complain_id: complainID._id,
+    authorName: `${currentUser.fname} ${currentUser.lname}`,
+    commentData: document.getElementById("commentText").value,
+  };
+  obj = JSON.stringify(obj);
+  console.log(obj);
+  try {
+    let res = await fetch(
+      `https://haryanacms.onrender.com/comment/addcomment`,
+      {
+        method: "POST",
+        body: obj,
+        headers: {
+          "Content-type": "application/json",
+        },
+      }
+    );
+    res = await res.json();
+    alert("Comment Posted");
+    // commentDiv.classList.toggle("activecommentDiv");
+    showComp();
+    document.getElementById("commentText").value = "";
+    console.log(res);
+  } catch (err) {}
+};
+// let addComment = document.getElementById("addComment");
+// addComment.addEventListener("submit", ()=>{
+//   addComm(event)
+// });
+
+let closeIconComment = document.querySelector(".closeIconComment");
+closeIconComment.addEventListener("click", () => {
+  commentDiv.classList.toggle("activecommentDiv");
+});
+
+let appendComment = (data) => {
+  let contan = document.querySelector(".showComments");
+  contan.innerHTML = null;
+  if (data.length > 0) {
+    data.map((el) => {
+      let div = document.createElement("div");
+      div.setAttribute("class", "commentDivView");
+      let h4 = document.createElement("h4");
+      let p = document.createElement("p");
+      h4.innerText = `Comment By : ${el.authorName}`;
+      h4.setAttribute("class", "commentUserView");
+      p.innerText = el.commentData;
+      p.setAttribute("class", "commentTextView");
+      div.append(h4, p);
+      contan.append(div);
+    });
+  }else{
+    contan.innerHTML="<h3>No Comments</h3>"
+  }
 };

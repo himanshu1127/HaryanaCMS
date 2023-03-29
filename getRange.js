@@ -1,4 +1,4 @@
-const url1 = `https://hrycms.onrender.com`;
+const url1 = `https://haryanacms.onrender.com`;
 
 // Get data
 

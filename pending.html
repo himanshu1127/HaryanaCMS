@@ -1216,32 +1216,6 @@
         </div>
       </div>
     </div>
-    <div class="commentDiv">
-      <div>
-        <div class="upperDivAddComp">
-          <h3 class="h3AddComp">Add Comments</h3>
-          <div class="closeIconComment">
-            <div class="line1"></div>
-            <div class="line2"></div>
-          </div>
-        </div>
-      </div>
-      <div class="commentMainDiv">
-        <div>
-          <form id="commentForm" onsubmit="addComm(event)">
-            <div class="innerTextDiv">
-              <textarea
-                name=""
-                id="commentText"
-                placeholder="Write Comment"
-              ></textarea>
-              <input type="submit" value="Post Comment" id="addComment" class="addButton" />
-            </div>
-          </form>
-        </div>
-        <div class="showComments"></div>
-      </div>
-    </div>
   </body>
   <script src="./function.js"></script>
   <script src="./addComplain.js"></script>
@@ -1269,21 +1243,23 @@
 </script>
 <script type="module">
   import {
+    getComplain,
     getCategory,
     getDistrict,
     getRange,
     getStation,
-    getUser,
+    dataArr,
   } from "./Components/GetData.js";
+  //   console.log(dataArr);
   let a = async () => {
+    let complain = await getComplain();
     let catogry = await getCategory();
     let district = await getDistrict();
     let range = await getRange();
     let station = await getStation();
-    let user = await getUser()
-    currentUser = user
-    // console.log(currentUser)
+    pendingComp();
     // range
+
     appendrangeInput(range);
     appendrangeInputUpdate1(range);
     appendrangeInputView1(range);
@@ -1410,6 +1386,15 @@
       option.value = el.policeStationName;
       stationFilter.append(option);
     });
+  };
+  const pendingComp = () => {
+    // console.log("Pending")
+    // console.log(dataArr);
+    let newData = dataArr.filter((el) => {
+      return el.Status === "PENDING";
+    });
+    console.log(newData);
+    append(newData);
   };
   a();
 </script>

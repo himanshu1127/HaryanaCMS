@@ -1,3 +1,10 @@
+#tableDiv{
+  height: fit-content;
+  max-height: 80vh;
+  border: 1px solid black;
+  overflow-y: scroll;
+  
+}
 .table {
   border-collapse: collapse;
   font-size: 0.9em;
@@ -6,6 +13,10 @@
 }
 .tableHead {
   width: 100%;
+  position: sticky;
+  top: 0;
+  background: #f7f7f9;
+  z-index: 10;
 }
 
 .trHead {

@@ -33,10 +33,10 @@
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   border-radius: 5px;
 }
-.required{
+.required {
   color: red;
 }
-.displayViewComp{
+.displayViewComp {
   display: none;
   position: absolute;
   top: 0;
@@ -251,9 +251,16 @@
 .sectionsDisplay {
   min-height: 50px;
   border: 1px solid gray;
-  background: white;
+  /* background: white; */
   overflow-y: scroll;
-  max-height: fit-content;
+  max-height: 100px;
+}
+.sectionsDisplay > textarea {
+  height: 100%;
+  width: 100%;
+  overflow-y: scroll;
+  padding: 5px;
+  box-sizing: border-box;
 }
 .addButtonDiv {
   display: flex;
@@ -265,7 +272,7 @@
 }
 .addButton {
   height: 70%;
-  width: 100px;
+  width: fit;
   /* margin-top: 1.25rem; Equivalent to my-5 with default line height */
   /* margin-bottom: 1.25rem; Equivalent to my-5 with default line height */
   padding: 0.75rem; /* Equivalent to p-3 with default line height */
@@ -275,6 +282,7 @@
   border-radius: 0.375rem; /* Equivalent to rounded */
   font-weight: bold; /* Equivalent to font-bold */
   color: #34d399;
+  cursor: pointer;
 }
 .addButton:hover {
   border-color: #10b981; /* Equivalent to hover:border-green-600 */
@@ -282,10 +290,17 @@
   color: #fff;
 }
 .filesDiv {
-  height: 120px;
+  height: fit-content;
   width: 100%;
   /* margin: 1.25rem; */
   /* border: 1px solid cyan; */
+}
+#inputFilesText {
+  border: 1px solid red;
+  margin-top: 20px;
+  min-height: 0;
+  max-height: 200px;
+  /* height: 170px; */
 }
 
 /* Update Complain Section */
@@ -329,7 +344,7 @@
   display: block;
 }
 
-.closeIconView{
+.closeIconView {
   position: absolute;
   right: 40px;
   top: 50%;
@@ -340,4 +355,93 @@
   border: 1px solid black;
   width: 20px;
   font-weight: 900;
+}
+
+.commentDiv {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  /* border: 1px solid red; */
+  /* height: fit-content; */
+  min-height: 50%;
+  max-height: 80%;
+  width: 80%;
+  font-size: 16px;
+  margin: auto;
+  z-index: 100;
+  background: #e2e8f0;
+  overflow-y: scroll;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 5px;
+  padding: 0 2rem 0 2rem;
+}
+.activecommentDiv {
+  display: block;
+}
+.commentMainDiv {
+  display: flex;
+  justify-content: space-between;
+  height: 80%;
+  /* border: 1px solid cyan; */
+}
+.commentMainDiv > div {
+  width: 50%;
+  height: 100%;
+}
+#commentForm {
+  /* border: 1px solid red; */
+  height: 100%;
+  padding: 2rem;
+}
+.innerTextDiv {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 20px;
+}
+#commentText {
+  width: 100%;
+  min-height: 200px;
+  height: fit-content;
+  max-height: 400px;
+  border-radius: 5px;
+  padding: 1rem;
+}
+.showComments {
+  /* border: 1px solid red; */
+  padding: 2rem;
+  overflow-y: auto;
+}
+
+.closeIconComment {
+  position: absolute;
+  right: 40px;
+  top: 50%;
+  cursor: pointer;
+}
+
+.closeIconComment div {
+  border: 1px solid black;
+  width: 20px;
+  font-weight: 900;
+}
+.commentDivView{
+  /* border: 1px solid black; */
+  margin: 15px 0 15px 0;
+  background: whitesmoke;
+  padding: 1rem;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.commentTextView{
+  background: rgb(242, 242, 242);
+  padding: 0.5rem 0.25rem 0.5rem 0.25rem;
+  font-size: 14px;
+
 }

@@ -5,7 +5,7 @@ let convertDate = (id) => {
 };
 const userID = JSON.parse(localStorage.getItem("userID"));
 const getIO = async () => {
-  let res = await fetch(`https://hrycms.onrender.com/user/allio`);
+  let res = await fetch(`https://haryanacms.onrender.com/user/allio`);
   res = await res.json();
   // console.log(res);
   appendIo(res);
@@ -173,20 +173,20 @@ const append = (data) => {
     updateIcon.setAttribute("id", "updateComp");
     viewIcon.setAttribute("class", "buttonsAction");
     commentsIcon.setAttribute("class", "buttonsAction");
-    updateIcon.innerText = "Update";
+    updateIcon.innerHTML = '<i class="fa-solid fa-pen"></i>';
     updateIcon.addEventListener("click", () => {
       updateData(el);
     });
-    updateIcon.style.width = "30%";
+    updateIcon.style.width = "25%";
 
-    viewIcon.innerText = "View";
+    viewIcon.innerHTML = '<i class="fa-solid fa-eye"></i>';
     viewIcon.addEventListener("click", () => {
       viewData(el);
     });
     viewIcon.style.margin = "5px";
-    viewIcon.style.width = "20%";
+    viewIcon.style.width = "25%";
 
-    commentsIcon.innerText = "Comment";
+    commentsIcon.innerHTML = '<i class="fa-solid fa-comment"></i>';
     commentsIcon.style.width = "40%";
     // commentsIcon.style.margin="5px"
 
@@ -236,7 +236,7 @@ const updateComplain = async () => {
   // alert("Update");
   // let compUpdate = document.querySelector(".displayUpdateComp");
   // compUpdate.classList.toggle("activeUpdateComp");
-  console.log(`https://hrycms.onrender.com/complain/update/${localEl._id}`);
+  console.log(`https://haryanacms.onrender.com/complain/update/${localEl._id}`);
   let obj = {
     ComplainantName: document.getElementById("complainantNameUpdate").value,
     Email: document.getElementById("complainantEmailUpdate").value,
@@ -269,7 +269,7 @@ const updateComplain = async () => {
 
   try {
     let res = await fetch(
-      `https://hrycms.onrender.com/complain/update/${localEl._id}`,
+      `https://haryanacms.onrender.com/complain/update/${localEl._id}`,
       {
         method: "PUT",
         body: obj,

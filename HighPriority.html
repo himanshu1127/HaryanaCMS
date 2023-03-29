@@ -7,7 +7,7 @@
     <title>Add/View Complaints</title>
     <link rel="stylesheet" href="./Dashboard.css" />
     <link rel="stylesheet" href="./complaints.css" />
-    <link rel="stylesheet" href="addComplaints.css" />
+    <link rel="stylesheet" href="./addComplaints.css" />
     <style>
       .upperDivAddComp {
         text-align: center;
@@ -159,11 +159,13 @@
               >
             </li>
             <li class="liText">
-              <a class="aTag" href="./complaints.html">Update/View Pending</a>
+              <a class="aTag" href="./pending.html">Update/View Pending</a>
             </li>
 
             <li class="liText">
-              <a class="aTag" href="#">View Special Complaints</a>
+              <a class="aTag" href="./addOrViewVisitor.html"
+                >Add/Update/View Visitor Complaints</a
+              >
             </li>
           </ul>
           <p>Manage Officers Data</p>
@@ -239,7 +241,6 @@
               justify-content: space-between;
             "
           >
-            <div>District Wise >> <span>Priority</span></div>
             <div>
               <select
                 name=""
@@ -285,23 +286,25 @@
             </div> -->
           </div>
         </div>
-        <table border="1" class="table">
-          <thead class="tableHead">
-            <tr class="trHead">
-              <th class="thHead thHead1">Tracking Id</th>
-              <!-- <th class="thHead thHead2">Category</th> -->
-              <th class="thHead thHead3">Complaint</th>
-              <th class="thHead thHead9">Complaint Type</th>
-              <th class="thHead thHead4">Issued Date</th>
-              <th class="thHead thHead5">Deadline</th>
-              <th class="thHead thHead6">Area</th>
-              <th class="thHead">Flaging</th>
-              <!-- <th class="thHead thHead7">Status</th> -->
-              <th class="thHead thHead8">Action</th>
-            </tr>
-          </thead>
-          <tbody class="tableBody"></tbody>
-        </table>
+        <div id="tableDiv">
+          <table border="1" class="table">
+            <thead class="tableHead">
+              <tr class="trHead">
+                <th class="thHead thHead1">Tracking Id</th>
+                <!-- <th class="thHead thHead2">Category</th> -->
+                <th class="thHead thHead3">Complaint</th>
+                <th class="thHead thHead9">Complaint Type</th>
+                <th class="thHead thHead4">Issued Date</th>
+                <th class="thHead thHead5">Deadline</th>
+                <th class="thHead thHead6">Area</th>
+                <th class="thHead">Flaging</th>
+                <!-- <th class="thHead thHead7">Status</th> -->
+                <th class="thHead thHead8">Action</th>
+              </tr>
+            </thead>
+            <tbody class="tableBody"></tbody>
+          </table>
+        </div>
       </div>
     </div>
     <!-- <form id="addComplainForm">
@@ -808,6 +811,9 @@
                 >
                   <option value="PENDING">PENDING</option>
                   <option value="IN-PROCESS">IN-PROCESS</option>
+                  <option value="CLOSED">CLOSED</option>
+                  <option value="OVERDUE">OVERDUE</option>
+                  <option value="REJECTED">REJECTED</option>
                 </select>
               </div>
             </div>
@@ -1132,6 +1138,9 @@
                 >
                   <option value="PENDING">PENDING</option>
                   <option value="IN-PROCESS">IN-PROCESS</option>
+                  <option value="CLOSED">CLOSED</option>
+                  <option value="OVERDUE">OVERDUE</option>
+                  <option value="REJECTED">REJECTED</option>
                 </select>
               </div>
             </div>
@@ -1292,7 +1301,9 @@
     getRange,
     getIO,
     getDistrict,
+    getStation,
   } from "./Components/GetData.js";
+  
   let userName = document.getElementById("userDetail");
   //   async function a() {
   //
@@ -1306,7 +1317,8 @@
     // userName.innerText = `${user.fname} ${user.lname}, ${user.designation}, ${user.policestation}`;
     const resRange = await getRange();
     const resDistrict = await getDistrict();
-    console.log(resDistrict);
+    let station = await getStation();
+    // console.log(resDistrict);
     highPriority();
     appendrangeInputUpdate(resRange);
     appendrangeInputView1(resRange);
@@ -1314,7 +1326,9 @@
     appenddistrictName(resDistrict);
     appenddistrictNameView(resDistrict);
     appenddistrictFilter(resDistrict);
+    appendstationFilter(station);
   };
+  // range
   const appendrangeInputUpdate = (data) => {
     let rangeInputUpdate = document.getElementById("rangeInputUpdate");
     rangeInputUpdate.innerHTML = null;
@@ -1335,6 +1349,7 @@
       rangesFilter.append(option);
     });
   };
+  // district
   const appenddistrictName = (data) => {
     let districtName = document.getElementById("districtName");
     // let IONameView1 = document.getElementById("IONameView1");
@@ -1380,8 +1395,20 @@
       districtNameView.append(option);
     });
   };
+  // station
+  let appendstationFilter = (data) => {
+    let stationFilter = document.getElementById("stationFilter");
+    // stationFilter.innerHTML = null;
+
+    data.map((el) => {
+      let option = document.createElement("option");
+      option.innerText = el.policeStationName;
+      option.value = el.policeStationName;
+      stationFilter.append(option);
+    });
+  };
   const highPriority = () => {
-    console.log(dataArr);
+    // console.log(dataArr);
     let newData = dataArr.filter((el) => {
       return el.highPriority === true;
     });

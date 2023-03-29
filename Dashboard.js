@@ -1,5 +1,5 @@
 const getComp = async () => {
-  const url = `https://hrycms.onrender.com/complain/allcomplain`;
+  const url = `https://haryanacms.onrender.com/complain/allcomplain`;
   let res = await fetch(url);
   let data = await res.json();
   console.log(data);

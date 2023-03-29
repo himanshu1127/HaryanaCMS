@@ -72,11 +72,13 @@
               >
             </li>
             <li class="liText">
-              <a class="aTag" href="./complaints.html">Update/View Pending</a>
+              <a class="aTag" href="./pending.html">Update/View Pending</a>
             </li>
 
             <li class="liText">
-              <a class="aTag" href="#">View Special Complaints</a>
+              <a class="aTag" href="./addOrViewVisitor.html"
+                >Add/Update/View Visitor Complaints</a
+              >
             </li>
           </ul>
           <p>Manage Officers Data</p>
@@ -571,7 +573,7 @@
 
 <script>
   const getRangeIO = async () => {
-    let res = await fetch(`https://hrycms.onrender.com/range/getRange`);
+    let res = await fetch(`https://haryanacms.onrender.com/range/getRange`);
     res = await res.json();
     console.log(res);
     appendRangeIO(res);
@@ -579,7 +581,9 @@
     appendviewRanges(res);
   };
   const getDistrictIO = async () => {
-    let res = await fetch(`https://hrycms.onrender.com/district/getDistrict`);
+    let res = await fetch(
+      `https://haryanacms.onrender.com/district/getDistrict`
+    );
     res = await res.json();
     console.log(res);
     appendDistrictIO(res);
@@ -588,7 +592,7 @@
   };
   const getStationIO = async () => {
     let res = await fetch(
-      `https://hrycms.onrender.com/policestation/getPolicestation`
+      `https://haryanacms.onrender.com/policestation/getPolicestation`
     );
     res = await res.json();
     console.log(res);
@@ -698,8 +702,8 @@
 </script>
 
 <script>
-  const urlGet = `https://hrycms.onrender.com/user/allio`;
-  const urlAdd = `https://hrycms.onrender.com/user/signup`;
+  const urlGet = `https://haryanacms.onrender.com/user/allio`;
+  const urlAdd = `https://haryanacms.onrender.com/user/signup`;
   let getData = async () => {
     try {
       let res = await fetch(urlGet);
@@ -787,15 +791,15 @@
         viewOfficer(el);
       });
       deleteIcon.setAttribute("class", "buttonsAction");
-      updateIcon.innerText = "Update";
-      updateIcon.style.width = "30%";
+      updateIcon.innerHTML = '<i class="fa-solid fa-pen"></i>';
+      updateIcon.style.width = "25%";
 
-      viewIcon.innerText = "View";
+      viewIcon.innerHTML = '<i class="fa-solid fa-eye"></i>';
       viewIcon.style.margin = "5px";
-      viewIcon.style.width = "20%";
+      viewIcon.style.width = "25%";
 
-      deleteIcon.innerText = "Delete";
-      deleteIcon.style.width = "40%";
+      deleteIcon.innerHTML = `<i class="fa-solid fa-trash"></i>`;
+      deleteIcon.style.width = "25%";
       deleteIcon.style.margin = "5px";
       deleteIcon.addEventListener("click", () => {
         deleteIO(el);
@@ -851,14 +855,17 @@
       password: get("updatePassword").value,
     };
     obj = JSON.stringify(obj);
-    console.log(`https://hrycms.onrender.com/user/update/${a._id}`);
-    let res = await fetch(`https://hrycms.onrender.com/user/update/${a._id}`, {
-      method: "PUT",
-      body: obj,
-      headers: {
-        "Content-type": "application/json",
-      },
-    });
+    console.log(`https://haryanacms.onrender.com/user/update/${a._id}`);
+    let res = await fetch(
+      `https://haryanacms.onrender.com/user/update/${a._id}`,
+      {
+        method: "PUT",
+        body: obj,
+        headers: {
+          "Content-type": "application/json",
+        },
+      }
+    );
     res = await res.json();
     alert("Update");
     let compUpdate = document.querySelector(".updateOfficer");
@@ -892,7 +899,7 @@
   const deleteIO = async (el) => {
     a = el;
     // console.log(a);
-    let url = `https://hrycms.onrender.com/user/delete/${a._id}`;
+    let url = `https://haryanacms.onrender.com/user/delete/${a._id}`;
     let res = await fetch(url, {
       method: "DELETE",
     });

@@ -1,4 +1,4 @@
-const url = `https://hrycms.onrender.com`;
+const url = `https://haryanacms.onrender.com`;
 
 const getRange = async () => {
   let res = await fetch(`${url}/range/getRange`);

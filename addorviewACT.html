@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="addorviewofficers.css" />
     <title>Add/View Act</title>
     <link rel="stylesheet" href="./Dashboard.css" />
+    <link rel="stylesheet" href="./complaints.css" />
+    <link rel="stylesheet" href="./act.css" />
     <script
       src="https://kit.fontawesome.com/ffe2b9fea9.js"
       crossorigin="anonymous"
@@ -69,11 +71,13 @@
               >
             </li>
             <li class="liText">
-              <a class="aTag" href="./complaints.html">Update/View Pending</a>
+              <a class="aTag" href="./pending.html">Update/View Pending</a>
             </li>
 
             <li class="liText">
-              <a class="aTag" href="#">View Special Complaints</a>
+              <a class="aTag" href="./addOrViewVisitor.html"
+                >Add/Update/View Visitor Complaints</a
+              >
             </li>
           </ul>
           <p>Manage Officers Data</p>
@@ -142,89 +146,140 @@
         <h3 style="text-transform: uppercase; margin-top: 20px">
           Add ACT for System
         </h3>
-        <div id="officerinfoinput">
-          <form action="">
-            <div id="whole-form">
-              <div id="left-form" style="width: 100%">
-                <!-- Name -->
+        <form id="addActForm">
+          <div id="whole-form">
+            <div id="left-form" style="width: 100%">
+              <!-- Name -->
 
-                <div
-                  id="designasion"
-                  style="
-                    /* border: 1px solid red; */
-                    justify-content: space-between;
-                    width: 100%;
-                  "
+              <div class="formDiv">
+                <label for="Act"
+                  >ACT Name : <span class="required">*</span></label
                 >
-                  <label for="designasion"> ACT Name : </label>
-                  <input
-                    type="text"
-                    style="
-                      width: 70%;
-                      box-sizing: border-box;
-                      padding-left: 5px;
-                    "
-                    placeholder="ACT name"
-                    name=""
-                    id=""
-                  />
-                </div>
-
-                <!-- <div
-                  id="designasion"
-                  style="
-                    /* border: 1px solid red; */
-                    margin-top: 20px;
-                    justify-content: space-between;
-                    width: 100%;
-                    margin-bottom: 20px;
-                  "
-                >
-                  <label for="">Full Form Of Category :</label>
-                  <input
-                    type="text"
-                    style="
-                      width: 70%;
-                      box-sizing: border-box;
-                      padding-left: 5px;
-                    "
-                    placeholder="Police Station Name"
-                  />
-                </div> -->
-                <!-- <div
-                  id="designasion"
-                  style="
-                    /* border: 1px solid red; */
-                    justify-content: space-between;
-                    width: 100%;
-                  "
-                >
-                  <label for="designasion"> District : </label>
-                  <select name="" id="dist">
-                    <option value="select">Select District</option>
-                    <option value="rewari">Rewari</option>
-                    <option value="gurugram">Gurugram</option>
-                    <option value="karnal">Karnal</option>
-                    <option value="bhiwani">Bhiwani</option>
-                    <option value="sonipat">Sonipat</option>
-                  </select>
-                  <select name="" id="sub-dist">
-                    <option value="select">Select Range</option>
-                    <option value="bawal">Bawal</option>
-                    <option value="dahina">Dahina</option>
-                    <option value="dharuhera">Dharuhera</option>
-                    <option value="kosli">Kosli</option>
-                  </select>
-                </div> -->
+                <input
+                  name="Act"
+                  type="text"
+                  id="actName"
+                  class="inputCat"
+                  placeholder="ACT Name"
+                  required
+                />
               </div>
             </div>
-          </form>
-          <div style="margin-top: 20px; text-align: center">
-            <button onclick="addOfficer()" id="addinfo">Add</button>
           </div>
-        </div>
+          <div class="formDiv">
+            <input type="submit" id="addCate" value="ADD" />
+          </div>
+          <!-- <div style="margin-top: 10px; text-align: center; margin-bottom: 10px;">
+            <button id="addinfo">Add</button>
+          </div> -->
+        </form>
+        <table
+          border="1"
+          style="
+            text-align: center;
+            border-collapse: collapse;
+            border-radius: 3%;
+            width: 100%;
+            margin-top: 20px;
+          "
+        >
+          <thead>
+            <tr
+              style="text-align: center; height: 40px; border: 1px solid green"
+            >
+              <th>S.No</th>
+              <th>ACT</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="tbody"></tbody>
+        </table>
       </div>
     </div>
   </body>
   <script src="./function.js"></script>
 </html>
+<script type="module">
+  import { getAct, addact } from "./Components/GetData.js";
+
+  let a = async () => {
+    let act = await getAct();
+    appendAct(act);
+    console.log(act);
+  };
+  let actArr = [];
+  const addACT = async (event) => {
+    event.preventDefault();
+    // console.log("hi");
+    let abc = document.getElementById("actName").value;
+    actArr.push(abc);
+    let body = {
+      categoryName: "HARYANA",
+      actName: actArr,
+    };
+    body = JSON.stringify(body);
+    console.log(body);
+    addact("act", "/addact", body);
+  };
+
+  document.getElementById("addActForm").addEventListener("submit", addACT);
+  let appendAct = (data) => {
+    let container1 = document.getElementById("tbody");
+    container1.innerHTML = null;
+    let i = 0;
+    data.map((el) => {
+      i++;
+      let tr = document.createElement("tr");
+      tr.style.height = "40px";
+      tr.style.border = "1px solid green";
+      let td1 = document.createElement("td");
+      td1.innerText = i;
+      let td2 = document.createElement("td");
+      td2.innerText = `${el.actName[0]}`;
+      let td3 = document.createElement("td");
+      td3.innerText = `${el.fullform}`;
+      // let td4 = document.createElement("td");
+      // td4.innerText = el.officeTelNo;
+      // let td5 = document.createElement("td");
+      // td5.innerText = el.MobileNo;
+      let td8 = document.createElement("td");
+      let divtd8 = document.createElement("div");
+      divtd8.style.display = "inline";
+      // divtd8.style.gap="5px"
+      let updateIcon = document.createElement("button");
+      updateIcon.addEventListener("click", () => {
+        updateDataForm(el);
+      });
+      let viewIcon = document.createElement("button");
+      let deleteIcon = document.createElement("button");
+      updateIcon.setAttribute("class", "buttonsAction");
+      viewIcon.setAttribute("class", "buttonsAction");
+      viewIcon.addEventListener("click", () => {
+        viewOfficer(el);
+      });
+      deleteIcon.setAttribute("class", "buttonsAction");
+      updateIcon.innerHTML = '<i class="fa-solid fa-pen"></i>';
+      updateIcon.style.width = "25%";
+      viewIcon.innerHTML = '<i class="fa-solid fa-eye"></i>';
+      viewIcon.style.margin = "5px";
+      viewIcon.style.width = "25%";
+      deleteIcon.innerHTML = `<i class="fa-solid fa-trash"></i>`;
+      deleteIcon.style.width = "25%";
+      deleteIcon.style.margin = "5px";
+      deleteIcon.addEventListener("click", () => {
+        deleteASP(el);
+      });
+
+      // td8.innerText = "hi";
+      // updateIcon.innerHTML('<i class="fa-light fa-pen"></i>')
+
+      divtd8.append(updateIcon, viewIcon, deleteIcon);
+      td8.append(divtd8);
+
+      tr.append(td1, td2, td8);
+
+      container1.append(tr);
+    });
+  };
+  a();
+</script>

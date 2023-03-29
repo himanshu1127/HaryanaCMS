@@ -1,4 +1,4 @@
-const url1 = `https://hrycms.onrender.com`;
+const url1 = `https://haryanacms.onrender.com`;
 
 // Get data
 
@@ -72,7 +72,7 @@ const appendStation = (data) => {
   });
 };
 const appendSp = (data) => {
-  let SPName = document.getElementById("SPName");
+  let SPName = document.getElementById("SPName1");
 
   data.map((el) => {
     let option = document.createElement("option");
