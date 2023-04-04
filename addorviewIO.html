@@ -821,6 +821,7 @@
   const updateDataForm = (el) => {
     let updateOfficer = document.querySelector(".updateOfficer");
     updateOfficer.classList.toggle("activeUpdateOfficer");
+    // console.log(el)
     a = el;
     get("updateFname").value = el.fname;
     get("updateLname").value = el.lname;

@@ -1,3 +1,6 @@
+let commentArr = [];
+let currentUser = {};
+let complainID = {};
 let convertDate = (id) => {
   let myDate = new Date(id);
   myDate = myDate.toLocaleString("en-IN", { timeZone: "Asia/Kolkata" });
@@ -188,6 +191,9 @@ const append = (data) => {
 
     commentsIcon.innerHTML = '<i class="fa-solid fa-comment"></i>';
     commentsIcon.style.width = "40%";
+    commentsIcon.addEventListener("click", () => {
+      complainComment(el);
+    });
     // commentsIcon.style.margin="5px"
 
     // td8.innerText = "hi";
@@ -314,5 +320,48 @@ const viewData = (el) => {
   get("complainantNumberView").value = el.trackingId;
   get("highPriorityView").checked = el.highPriority;
   // get("dateOfSubView").value = convertDate(el.createdAt);
+};
+let commentDiv = document.querySelector(".commentDiv");
+const showComp = async () => {
+  let res = await fetch(`https://haryanacms.onrender.com/comment/getcomment`);
+  res = await res.json();
+  console.log(res);
+
+  commentArr = res.filter((elem) => {
+    return elem.complain_id === complainID._id;
+  });
+  console.log(commentArr);
+  appendComment(commentArr);
+};
+const complainComment = async (el) => {
+  complainID = el;
+  console.log(el);
+  commentDiv.classList.toggle("activecommentDiv");
+  // console.log(currentUser)
+  showComp();
+};
+let closeIconComment = document.querySelector(".closeIconComment");
+closeIconComment.addEventListener("click", () => {
+  commentDiv.classList.toggle("activecommentDiv");
+});
+let appendComment = (data) => {
+  let contan = document.querySelector(".showComments");
+  contan.innerHTML = null;
+  if (data.length > 0) {
+    data.map((el) => {
+      let div = document.createElement("div");
+      div.setAttribute("class", "commentDivView");
+      let h4 = document.createElement("h4");
+      let p = document.createElement("p");
+      h4.innerText = `Comment By : ${el.authorName}`;
+      h4.setAttribute("class", "commentUserView");
+      p.innerText = el.commentData;
+      p.setAttribute("class", "commentTextView");
+      div.append(h4, p);
+      contan.append(div);
+    });
+  } else {
+    contan.innerHTML = "<h3>No Comments</h3>";
+  }
 };
 getIO();

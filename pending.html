@@ -8,6 +8,94 @@
     <link rel="stylesheet" href="./Dashboard.css" />
     <link rel="stylesheet" href="./complaints.css" />
     <link rel="stylesheet" href="./addComplaints.css" />
+    <style>
+      .upperDivAddComp {
+        text-align: center;
+        margin: 1rem;
+        position: relative;
+      }
+      .displayUpdateComp {
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        /* border: 1px solid red; */
+        height: 80%;
+        width: 80%;
+        font-size: 16px;
+        margin: auto;
+        z-index: 100;
+        background: #e2e8f0;
+        overflow-y: scroll;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        border-radius: 5px;
+      }
+
+      .updateComp {
+        height: 100%;
+        width: 100%;
+      }
+      .closeIconUpdate {
+        position: absolute;
+        right: 40px;
+        top: 50%;
+        cursor: pointer;
+        /* border: 1px solid red; */
+      }
+      .closeIconUpdate div {
+        border: 1px solid black;
+        width: 20px;
+        font-weight: 900;
+      }
+      .activeUpdateComp {
+        display: block;
+      }
+      .line1 {
+        transform: rotate(45deg);
+      }
+      .line2 {
+        transform: rotate(-45deg);
+      }
+      .displayViewComp {
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        /* border: 1px solid red; */
+        height: 80%;
+        width: 80%;
+        font-size: 16px;
+        margin: auto;
+        z-index: 100;
+        background: #e2e8f0;
+        overflow-y: scroll;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        border-radius: 5px;
+      }
+      .viewComp {
+        height: 100%;
+        width: 100%;
+      }
+      .closeIconView {
+        position: absolute;
+        right: 40px;
+        top: 50%;
+        cursor: pointer;
+        /* border: 1px solid red; */
+      }
+      .closeIconView div {
+        border: 1px solid black;
+        width: 20px;
+        font-weight: 900;
+      }
+      .activeviewComp {
+        display: block;
+      }
+    </style>
 
     <script
       src="https://kit.fontawesome.com/ffe2b9fea9.js"
@@ -194,9 +282,9 @@
               <span>Closed Complaints : &nbsp; </span>
               <p style="color: blue">224</p>
             </div> -->
-            <div style="display: flex; width: 120px; height: 60px">
+            <!-- <div style="display: flex; width: 120px; height: 60px">
               <button id="addComp">Add Complaints</button>
-            </div>
+            </div> -->
           </div>
         </div>
         <div id="tableDiv">
@@ -717,7 +805,7 @@
             <div class="">
               <label class="complaintsFormLabel">Range :</label>
               <div class="complaintContnetDivLeftTop">
-                <select name="" id="rangeInputUpdate1" class="complaintsInput">
+                <select name="" id="rangeInputUpdate" class="complaintsInput">
                   <option value="">Select Range</option>
                 </select>
               </div>
@@ -725,7 +813,7 @@
             <div class="">
               <label class="complaintsFormLabel">District :</label>
               <div class="complaintContnetDivLeftTop">
-                <select name="" id="DistrictUpdate1" class="complaintsInput">
+                <select name="" id="districtName" class="complaintsInput">
                   <option value="">Select SP</option>
                 </select>
               </div>
@@ -1050,7 +1138,7 @@
               <div class="complaintContnetDivLeftTop">
                 <select
                   name=""
-                  id="DistrictView1"
+                  id="districtNameView"
                   class="complaintsInput"
                   disabled
                 ></select>
@@ -1216,9 +1304,41 @@
         </div>
       </div>
     </div>
+    <div class="commentDiv">
+      <div>
+        <div class="upperDivAddComp">
+          <h3 class="h3AddComp">Add Comments</h3>
+          <div class="closeIconComment">
+            <div class="line1"></div>
+            <div class="line2"></div>
+          </div>
+        </div>
+      </div>
+      <div class="commentMainDiv">
+        <div>
+          <form id="commentForm" onsubmit="addComm(event)">
+            <div class="innerTextDiv">
+              <textarea
+                name=""
+                id="commentText"
+                placeholder="Write Comment"
+              ></textarea>
+              <input
+                type="submit"
+                value="Post Comment"
+                id="addComment"
+                class="addButton"
+              />
+            </div>
+          </form>
+        </div>
+        <div class="showComments"></div>
+      </div>
+    </div>
   </body>
   <script src="./function.js"></script>
-  <script src="./addComplain.js"></script>
+  <!-- <script src="./addComplain.js"></script> -->
+  <script src="./highPriority.js"></script>
   <!-- <script src="./updateComplain.js"></script> -->
   <!-- <script src="./filter.js"></script> -->
 </html>
@@ -1248,6 +1368,7 @@
     getDistrict,
     getRange,
     getStation,
+    getUser,
     dataArr,
   } from "./Components/GetData.js";
   //   console.log(dataArr);
@@ -1257,17 +1378,19 @@
     let district = await getDistrict();
     let range = await getRange();
     let station = await getStation();
+    let user = await getUser();
     pendingComp();
+    currentUser = user;
     // range
 
     appendrangeInput(range);
-    appendrangeInputUpdate1(range);
+    appendrangeInputUpdate(range);
     appendrangeInputView1(range);
     appendrangesFilter(range);
     // district
     appenddistrict(district);
     appendDistrict(district);
-    appendDistrictView1(district);
+    appenddistrictNameView(district);
     appenddistrictFilter(district);
     // station
     appendstationFilter(station);
@@ -1288,16 +1411,16 @@
     });
   };
 
-  let appendrangeInputUpdate1 = (data) => {
-    let rangeInputUpdate1 = document.getElementById("rangeInputUpdate1");
-    rangeInputUpdate1.innerHTML = null;
+  let appendrangeInputUpdate = (data) => {
+    let rangeInputUpdate = document.getElementById("rangeInputUpdate");
+    rangeInputUpdate.innerHTML = null;
     data.map((el) => {
       // console.log(el)
       let option = document.createElement("option");
       option.innerText = el.rangeName;
       option.value = el.rangeName;
       // console.log(option)
-      rangeInputUpdate1.append(option);
+      rangeInputUpdate.append(option);
     });
   };
   let appendrangeInputView1 = (data) => {
@@ -1326,7 +1449,7 @@
   };
   // district
   const appenddistrict = (data) => {
-    let district = document.getElementById("district");
+    let districtName = document.getElementById("districtName");
     district.innerHTML = null;
     data.map((el) => {
       // console.log(el)
@@ -1334,12 +1457,12 @@
       option.innerText = el.rangeDistrictName;
       option.value = el.rangeDistrictName;
       // console.log(option)
-      district.append(option);
+      districtName.append(option);
     });
   };
   const appendDistrict = (data) => {
-    let DistrictUpdate1 = document.getElementById("DistrictUpdate1");
-    DistrictUpdate1.innerHTML = null;
+    let districtName = document.getElementById("districtName");
+    districtName.innerHTML = null;
 
     data.map((el) => {
       // console.log(el)
@@ -1347,19 +1470,19 @@
       option.innerText = el.rangeDistrictName;
       option.value = el.rangeDistrictName;
       // console.log(option)
-      DistrictUpdate1.append(option);
+      districtName.append(option);
     });
   };
-  const appendDistrictView1 = (data) => {
-    let DistrictView1 = document.getElementById("DistrictView1");
-    DistrictView1.innerHTML = null;
+  const appenddistrictNameView = (data) => {
+    let districtNameView = document.getElementById("districtNameView");
+    districtNameView.innerHTML = null;
     data.map((el) => {
       // console.log(el)
       let option = document.createElement("option");
       option.innerText = el.rangeDistrictName;
       option.value = el.rangeDistrictName;
       // console.log(option)
-      DistrictView1.append(option);
+      districtNameView.append(option);
     });
   };
   const appenddistrictFilter = (data) => {

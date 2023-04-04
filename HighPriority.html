@@ -269,14 +269,14 @@
                 <option value="">Select Station</option>
               </select>
             </div>
-            <div style="display: flex">
+            <!-- <div style="display: flex">
               <span>Total Complaints : &nbsp; </span>
               <p id="totalComplaints" style="color: blue">224</p>
             </div>
             <div style="display: flex">
               <span>Pending Complaints : &nbsp; </span>
               <p style="color: blue">224</p>
-            </div>
+            </div> -->
             <!-- <div style="display: flex">
               <span>Closed Complaints : &nbsp; </span>
               <p style="color: blue">224</p>
@@ -284,6 +284,7 @@
             <!-- <div style="display: flex; width: 120px; height: 60px">
               <button id="addComp">Add Complaints</button>
             </div> -->
+            <div></div>
           </div>
         </div>
         <div id="tableDiv">
@@ -1286,6 +1287,37 @@
         </div>
       </div>
     </div>
+    <div class="commentDiv">
+      <div>
+        <div class="upperDivAddComp">
+          <h3 class="h3AddComp">Add Comments</h3>
+          <div class="closeIconComment">
+            <div class="line1"></div>
+            <div class="line2"></div>
+          </div>
+        </div>
+      </div>
+      <div class="commentMainDiv">
+        <div>
+          <form id="commentForm" onsubmit="addComm(event)">
+            <div class="innerTextDiv">
+              <textarea
+                name=""
+                id="commentText"
+                placeholder="Write Comment"
+              ></textarea>
+              <input
+                type="submit"
+                value="Post Comment"
+                id="addComment"
+                class="addButton"
+              />
+            </div>
+          </form>
+        </div>
+        <div class="showComments"></div>
+      </div>
+    </div>
   </body>
   <script src="./function.js"></script>
   <script src="./highPriority.js"></script>
@@ -1303,7 +1335,7 @@
     getDistrict,
     getStation,
   } from "./Components/GetData.js";
-  
+
   let userName = document.getElementById("userDetail");
   //   async function a() {
   //

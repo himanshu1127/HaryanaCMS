@@ -42,7 +42,7 @@ const appendRange = (data) => {
     // console.log(option)
     container.append(option);
     rangeInput.append(option);
-    // console.log(rangeInputUpdate1)
+    // console.log(rangeInputUpdate)
     // console.log(rangeInput)
   });
 };

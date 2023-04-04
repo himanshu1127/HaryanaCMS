@@ -26,45 +26,91 @@ const getUser = async () => {
 };
 getUser();
 // console.log(userId);
-let url = `https://hrycms.onrender.com/complain/create`;
-const addComplain = async () => {
+let url = `https://haryanacms.onrender.com/complain/create`;
+const addComplain = async (event) => {
+  event.preventDefault();
   let initialDate = document.getElementById("dateOfSub").value;
-  let obj = {
-    ComplainantName: document.getElementById("complainantName").value,
-    Email: document.getElementById("complainantEmail").value,
-    author_id: userId,
-    policerange: document.getElementById("rangeInput").value,
-    rangeDistrictName: document.getElementById("rangeInput").value,
-    policestation: "",
-    phoneNumber: "",
-    createdAt: "",
-    updatedAt: "",
-    ComplainantPhoneNumber: document.getElementById("mobileNo").value,
-    alternateNumber: document.getElementById("alternateNumber").value,
-    FatherName: document.getElementById("fatherName").value,
-    Address: document.getElementById("address").value,
-    AddressLine1: document.getElementById("addressLine1").value,
-    State: document.getElementById("stateInput").value,
-    City: document.getElementById("cityInput").value,
-    ComplaintCategory: document.getElementById("complainCategory").value,
-    ComplaintShortDescription:
-      document.getElementById("shortDescription").value,
-    SectionsofComplaint: "",
-    Range: document.getElementById("rangeInput").value,
-    SPName: document.getElementById("SPName").value,
-    Status: document.getElementById("complainStatus").value,
-    Markto: document.getElementById("SPName").value,
-    trackingId: document.getElementById("complainantNumber").value,
-    complainDate: document.getElementById("dateOfSub").value,
-  };
-  obj = JSON.stringify(obj);
-  console.log(obj);
+  // let obj = {
+  //   ComplainantName: document.getElementById("complainantName").value,
+  //   Email: document.getElementById("complainantEmail").value,
+  //   author_id: userId,
+  //   policerange: document.getElementById("rangeInput").value,
+  //   rangeDistrictName: document.getElementById("rangeInput").value,
+  //   policestation: "",
+  //   phoneNumber: "",
+  //   createdAt: "",
+  //   updatedAt: "",
+  //   ComplainantPhoneNumber: document.getElementById("mobileNo").value,
+  //   alternateNumber: document.getElementById("alternateNumber").value,
+  //   FatherName: document.getElementById("fatherName").value,
+  //   Address: document.getElementById("address").value,
+  //   AddressLine1: document.getElementById("addressLine1").value,
+  //   State: document.getElementById("stateInput").value,
+  //   City: document.getElementById("cityInput").value,
+  //   ComplaintCategory: document.getElementById("complainCategory").value,
+  //   ComplaintShortDescription:
+  //     document.getElementById("shortDescription").value,
+  //   SectionsofComplaint: "",
+  //   Range: document.getElementById("rangeInput").value,
+  //   // SPName: document.getElementById("SPName").value,
+  //   Status: document.getElementById("complainStatus").value,
+  //   // Markto: document.getElementById("SPName").value,
+  //   trackingId: document.getElementById("complainantNumber").value,
+  //   complainDate: document.getElementById("dateOfSub").value,
+  // };
+  let form = new FormData();
+  form.append(
+    "ComplainantName",
+    document.getElementById("complainantName").value
+  );
+  form.append("Email", document.getElementById("complainantEmail").value);
+  form.append("author_id", userId);
+  form.append("policerange", document.getElementById("rangeInput").value);
+  form.append("rangeDistrictName", document.getElementById("rangeInput").value);
+  form.append("policestation", "");
+  form.append("phoneNumber", "");
+  form.append("createdAt", "");
+  form.append("updatedAt", "");
+  form.append(
+    "ComplainantPhoneNumber",
+    document.getElementById("mobileNo").value
+  );
+  form.append(
+    "alternateNumber",
+    document.getElementById("alternateNumber").value
+  );
+  form.append("FatherName", document.getElementById("fatherName").value);
+  form.append("Address", document.getElementById("address").value);
+  form.append("AddressLine1", document.getElementById("addressLine1").value);
+  form.append("State", document.getElementById("stateInput").value);
+  form.append("City", document.getElementById("cityInput").value);
+  form.append(
+    "ComplaintCategory",
+    document.getElementById("complainCategory").value
+  );
+  form.append(
+    "ComplaintShortDescription",
+    document.getElementById("shortDescription").value
+  );
+  form.append("SectionsofComplaint", "");
+  form.append("Range", document.getElementById("rangeInput").value);
+  // form.append("SPName", document.getElementById("SPName").value);
+  form.append("Status", document.getElementById("complainStatus").value);
+  // form.append("Markto", document.getElementById("SPName").value);
+  form.append("trackingId", document.getElementById("complainantNumber").value);
+  form.append("complainDate", document.getElementById("dateOfSub").value);
+  form.append(
+    "uploadpdfcomplaint",
+    document.getElementById("inputFiles").value
+  );
+  // obj = JSON.stringify(obj);
+  console.log(form);
   try {
     let res = await fetch(url, {
       method: "POST",
-      body: obj,
+      body: form,
       headers: {
-        "Content-type": "application/json",
+        enctype: "multipart/form-data",
       },
     });
     res = await res.json();
@@ -128,11 +174,13 @@ const append = (data) => {
     td7.setAttribute("class", "tablecol");
     td7.setAttribute("class", "tablecol7");
     td7.style.padding = "10px";
+
     let divStatus = document.createElement("div");
-    let p7 = document.createElement("p");
-    p7.innerText = el.status;
-    p7.style.margin = "";
-    divStatus.append(p7);
+    divStatus.style.height = "40px";
+    let p10 = document.createElement("p");
+    p10.innerText = el.Status;
+    p10.style.margin = "10px 0px 10px 0px";
+    divStatus.append(p10);
     td7.append(divStatus);
 
     let td9 = document.createElement("td");
@@ -146,17 +194,17 @@ const append = (data) => {
     divtd9.append(p9);
 
     td9.append(divtd9);
-    let td10 = document.createElement("td");
-    td10.innerText = el.Status;
+    // let td10 = document.createElement("td");
+    // td10.innerText = el.Status;
 
-    if (el.complaintType === "CAW") {
+    if (el.ComplaintCategory === "CAW") {
       divtd9.style.border = "1px solid navy";
       divtd9.style.backgroundColor = "navy";
       divtd9.style.boxSizing = "border-box";
       divtd9.style.alignSelf = "center";
       divtd9.style.height = "40px";
       divtd9.style.color = "white";
-    } else if (el.complaintType === "Officers") {
+    } else if (el.ComplaintCategory === "Officers") {
       divtd9.style.border = "1px solid brown";
       divtd9.style.backgroundColor = "brown";
       divtd9.style.boxSizing = "border-box";
@@ -165,7 +213,7 @@ const append = (data) => {
       divtd9.style.color = "white";
     }
 
-    if (el.priority === "high") {
+    if (el.highPriority) {
       divarea.style.border = "1px solid green";
       divarea.style.backgroundColor = "green";
       divarea.style.boxSizing = "border-box";
@@ -174,7 +222,7 @@ const append = (data) => {
       divarea.style.color = "white";
     }
 
-    if (el.status === "progress") {
+    if (el.Status === "IN-PROCESS") {
       divStatus.style.border = "1px solid lime";
       divStatus.style.backgroundColor = "lime";
       divStatus.style.boxSizing = "border-box";
@@ -188,21 +236,21 @@ const append = (data) => {
       divStatus.style.alignSelf = "center";
       divStatus.style.height = "40px";
       divStatus.style.color = "white";
-    } else if (el.status === "closed") {
+    } else if (el.Status === "CLOSED") {
       divStatus.style.border = "1px solid blue";
       divStatus.style.backgroundColor = "blue";
       divStatus.style.boxSizing = "border-box";
       divStatus.style.alignSelf = "center";
       divStatus.style.height = "40px";
       divStatus.style.color = "white";
-    } else if (el.status === "overdue") {
+    } else if (el.Status === "OVERDUE") {
       divStatus.style.border = "1px solid darkviolet";
       divStatus.style.backgroundColor = "darkviolet";
       divStatus.style.boxSizing = "border-box";
       divStatus.style.alignSelf = "center";
       divStatus.style.height = "40px";
       divStatus.style.color = "white";
-    } else if (el.status === "rejected") {
+    } else if (el.Status === "REJECTED") {
       divStatus.style.border = "1px solid gray";
       divStatus.style.backgroundColor = "gray";
       divStatus.style.boxSizing = "border-box";
@@ -212,6 +260,7 @@ const append = (data) => {
     }
 
     let td8 = document.createElement("td");
+    td8.style.padding = "10px";
     let divtd8 = document.createElement("div");
     divtd8.style.display = "inline";
     // divtd8.style.gap="5px"
@@ -248,7 +297,7 @@ const append = (data) => {
 
     divtd8.append(updateIcon, viewIcon, commentsIcon);
     td8.append(divtd8);
-    tr.append(td1, td3, td9, td4, td5, td6, td10, td8);
+    tr.append(td1, td3, td9, td4, td5, td6, td7, td8);
     // console.log(tr);
     container.append(tr);
   });
@@ -294,16 +343,16 @@ const get = (id) => {
 // };
 
 // let appendRange1 = (data) => {
-//   let rangeInputUpdate1 = document.getElementById("rangeInputUpdate1");
+//   let rangeInputUpdate = document.getElementById("rangeInputUpdate");
 //   data.map((el) => {
 //     let option = document.createElement("option");
 //     option.innerText = el.rangeName;
 //     option.value = el.rangeName;
 //     // console.log(option)
 //     // container.append(option);
-//     rangeInputUpdate1.append(option);
+//     rangeInputUpdate.append(option);
 //     // rangeInput.append(option)
-//     // console.log(rangeInputUpdate1)
+//     // console.log(rangeInputUpdate)
 //     // console.log(rangeInput)
 //   });
 // };
@@ -335,7 +384,7 @@ const updateData = async (el) => {
   get("addressLine1Update").value = el.AddressLine1;
   get("alternateNumberUpdate").value = el.alternateNumber;
   get("cityInputUpdate").value = el.City;
-  get("rangeInputUpdate1").value = el.policerange;
+  get("rangeInputUpdate").value = el.policerange;
   get("DistrictUpdate1").value = el.rangeDistrictName;
   get("complainStatusUpdate").value = el.Status;
   get("shortDescriptionUpdate").value = el.ComplaintShortDescription;
@@ -383,8 +432,8 @@ const updateComplain = async () => {
     ComplainantName: document.getElementById("complainantNameUpdate").value,
     Email: document.getElementById("complainantEmailUpdate").value,
     author_id: userId,
-    policerange: document.getElementById("rangeInputUpdate1").value,
-    rangeDistrictName: document.getElementById("rangeInputUpdate1").value,
+    policerange: document.getElementById("rangeInputUpdate").value,
+    rangeDistrictName: document.getElementById("DistrictUpdate1").value,
     policestation: "",
     phoneNumber: "",
     createdAt: "",
@@ -400,8 +449,8 @@ const updateComplain = async () => {
     ComplaintShortDescription: document.getElementById("shortDescriptionUpdate")
       .value,
     SectionsofComplaint: "",
-    Range: document.getElementById("rangeInputUpdate1").value,
-    SPName: document.getElementById("SPNameUpdate1").value,
+    Range: document.getElementById("rangeInputUpdate").value,
+    // SPName: document.getElementById("SPNameUpdate1").value,
     Status: document.getElementById("complainStatusUpdate").value,
     // Markto: document.getElementById("SPNameUpdate1").value,
   };
@@ -421,9 +470,9 @@ const updateComplain = async () => {
   res = await res.json();
   console.log(res);
   getComp();
-  // alert("Update");
-  // let compUpdate = document.querySelector(".displayUpdateComp");
-  // compUpdate.classList.toggle("activeUpdateComp");
+  alert("Update");
+  let compUpdate = document.querySelector(".displayUpdateComp");
+  compUpdate.classList.toggle("activeUpdateComp");
 };
 let commentDiv = document.querySelector(".commentDiv");
 const showComp = async () => {
@@ -455,13 +504,16 @@ let addComm = async (event) => {
   obj = JSON.stringify(obj);
   console.log(obj);
   try {
-    let res = await fetch(`https://haryanacms.onrender.com/comment/addcomment`, {
-      method: "POST",
-      body: obj,
-      headers: {
-        "Content-type": "application/json",
-      },
-    });
+    let res = await fetch(
+      `https://haryanacms.onrender.com/comment/addcomment`,
+      {
+        method: "POST",
+        body: obj,
+        headers: {
+          "Content-type": "application/json",
+        },
+      }
+    );
     res = await res.json();
     alert("Comment Posted");
     // commentDiv.classList.toggle("activecommentDiv");
