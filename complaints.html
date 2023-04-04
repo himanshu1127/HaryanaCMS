@@ -491,16 +491,19 @@
               </div>
               <div>
                 <label class="complaintsFormLabel" for="sections">ACT :</label>
-                <div class="sectionsDisplay">
-                  <textarea
+                <!-- <div class="sectionsDisplay"> -->
+                <!-- <textarea
                     name=""
                     id=""
                     cols="30"
                     rows="10"
                     placeholder="Write ACT"
-                  ></textarea>
-                </div>
+                  ></textarea> -->
+                <select name="" id="" class="complaintsInput">
+                  <option value="">Select ACT</option>
+                </select>
               </div>
+              <!-- </div> -->
               <div>
                 <label class="complaintsFormLabel"
                   >Sections : <span class="required">*</span></label
@@ -560,7 +563,7 @@
             </div>
 
             <div class="addButtonDiv">
-              <button onclick="addComplain()" type="submit" class="addButton">
+              <button onclick="addComplain(event)" class="addButton">
                 Add
               </button>
             </div>
@@ -717,7 +720,7 @@
             <div class="">
               <label class="complaintsFormLabel">Range :</label>
               <div class="complaintContnetDivLeftTop">
-                <select name="" id="rangeInputUpdate1" class="complaintsInput">
+                <select name="" id="rangeInputUpdate" class="complaintsInput">
                   <option value="">Select Range</option>
                 </select>
               </div>
@@ -1235,7 +1238,12 @@
                 id="commentText"
                 placeholder="Write Comment"
               ></textarea>
-              <input type="submit" value="Post Comment" id="addComment" class="addButton" />
+              <input
+                type="submit"
+                value="Post Comment"
+                id="addComment"
+                class="addButton"
+              />
             </div>
           </form>
         </div>
@@ -1274,18 +1282,20 @@
     getRange,
     getStation,
     getUser,
+    getComplain,
   } from "./Components/GetData.js";
   let a = async () => {
     let catogry = await getCategory();
     let district = await getDistrict();
     let range = await getRange();
     let station = await getStation();
-    let user = await getUser()
-    currentUser = user
+    let user = await getUser();
+    let complain = await getComplain();
+    currentUser = user;
     // console.log(currentUser)
     // range
     appendrangeInput(range);
-    appendrangeInputUpdate1(range);
+    appendrangeInputUpdate(range);
     appendrangeInputView1(range);
     appendrangesFilter(range);
     // district
@@ -1312,16 +1322,16 @@
     });
   };
 
-  let appendrangeInputUpdate1 = (data) => {
-    let rangeInputUpdate1 = document.getElementById("rangeInputUpdate1");
-    rangeInputUpdate1.innerHTML = null;
+  let appendrangeInputUpdate = (data) => {
+    let rangeInputUpdate = document.getElementById("rangeInputUpdate");
+    rangeInputUpdate.innerHTML = null;
     data.map((el) => {
       // console.log(el)
       let option = document.createElement("option");
       option.innerText = el.rangeName;
       option.value = el.rangeName;
       // console.log(option)
-      rangeInputUpdate1.append(option);
+      rangeInputUpdate.append(option);
     });
   };
   let appendrangeInputView1 = (data) => {

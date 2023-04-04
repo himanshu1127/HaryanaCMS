@@ -208,8 +208,8 @@ ul {
   /* border: 1px solid cyan; */
   width: 75%;
   margin: auto;
-  /* height: 90vh;
-  overflow-y: auto; */
+  height: 90vh;
+  overflow-y: auto;
 }
 .contentTop {
   display: flex;
@@ -229,7 +229,7 @@ ul {
 }
 .tablesUpper {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(1, 1fr);
   gap: 20px;
   /* border: 1px solid red; */
   margin-top: 30px;
