@@ -1256,7 +1256,7 @@
   <!-- <script src="./updateComplain.js"></script> -->
   <!-- <script src="./filter.js"></script> -->
 </html>
-<script>
+<!-- <script>
   const fileInput = document.getElementById("inputFiles");
   const fileNamesElement = document.getElementById("fileNames");
   let inputFiles = [];
@@ -1274,7 +1274,7 @@
     // }
     // fileNamesElement.innerHTML = fileNames;
   });
-</script>
+</script> -->
 <script type="module">
   import {
     getCategory,
@@ -1292,7 +1292,7 @@
     let user = await getUser();
     let complain = await getComplain();
     currentUser = user;
-    // console.log(currentUser)
+    console.log(currentUser)
     // range
     appendrangeInput(range);
     appendrangeInputUpdate(range);
