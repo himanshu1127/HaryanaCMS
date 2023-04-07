@@ -30,6 +30,11 @@ let url = `https://haryanacms.onrender.com/complain/create`;
 const addComplain = async (event) => {
   event.preventDefault();
   let initialDate = document.getElementById("dateOfSub").value;
+  let fileInput = document.getElementById("inputFiles");
+  // let file = document.getElementById("inputFiles").addEventListener("change",(event)=>{
+  //   let file1 = event.target.files[0];
+  //   console.log(file1);
+  // })
   // let obj = {
   //   ComplainantName: document.getElementById("complainantName").value,
   //   Email: document.getElementById("complainantEmail").value,
@@ -99,12 +104,10 @@ const addComplain = async (event) => {
   // form.append("Markto", document.getElementById("SPName").value);
   form.append("trackingId", document.getElementById("complainantNumber").value);
   form.append("complainDate", document.getElementById("dateOfSub").value);
-  form.append(
-    "uploadpdfcomplaint",
-    document.getElementById("inputFiles").value
-  );
+  form.append("uploadpdfcomplaint", fileInput.files[0]);
   // obj = JSON.stringify(obj);
-  console.log(form);
+
+  // console.log(file);
   try {
     let res = await fetch(url, {
       method: "POST",
@@ -418,6 +421,7 @@ const viewData = (el) => {
   get("complainCategoryView").value = el.ComplaintCategory;
   get("complainantNumberView").value = el.trackingId;
   get("dateOfSubView").value = convertDate(el.createdAt);
+  get("highPriorityUpdate").checked=el.highPriority
 };
 // console.log(displayUpdateComp)
 
@@ -450,6 +454,7 @@ const updateComplain = async () => {
       .value,
     SectionsofComplaint: "",
     Range: document.getElementById("rangeInputUpdate").value,
+    highPriority: document.getElementById("highPriorityUpdate").checked,
     // SPName: document.getElementById("SPNameUpdate1").value,
     Status: document.getElementById("complainStatusUpdate").value,
     // Markto: document.getElementById("SPNameUpdate1").value,
