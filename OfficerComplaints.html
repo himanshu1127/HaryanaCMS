@@ -162,7 +162,7 @@
                 <option value="kar">Karnal</option>
                 <option value="his">Hisar</option>
                 <option value="amb">Ambala</option>
-                <!-- <option value="closed">Gurugram</option> -->
+                <!-- <option value="DISPOSED">Gurugram</option> -->
               </select>
             </div>
             <div>
@@ -192,7 +192,7 @@
               <p style="color: blue">224</p>
             </div>
             <div style="display: flex">
-              <span>Closed Complaints : &nbsp; </span>
+              <span>DISPOSED Complaints : &nbsp; </span>
               <p style="color: blue">224</p>
             </div>
             <div style="display: flex">
@@ -206,8 +206,8 @@
             <tr class="trHead">
               <th class="thHead thHead1">Tracking Id</th>
               <th class="thHead thHead2">Category</th>
-              <th class="thHead thHead3">Complaint</th>
-              <th class="thHead thHead9">Complaint Type</th>
+              <th class="thHead thHead3">Complainant Name</th>
+              <th class="thHead thHead9">Category</th>
               <th class="thHead thHead4">Issued Date</th>
               <th class="thHead thHead5">Deadline</th>
               <th class="thHead thHead6">Area</th>
@@ -250,7 +250,7 @@
       area: "Rewari",
 
       priority: "low",
-      status: "closed",
+      status: "DISPOSED",
     },
     {
       id: 3,
@@ -393,7 +393,7 @@
       divStatus.style.alignSelf = "center";
       divStatus.style.height = "40px";
       divStatus.style.color = "white";
-    } else if (el.status === "closed") {
+    } else if (el.status === "DISPOSED") {
       divStatus.style.border = "1px solid blue";
       divStatus.style.backgroundColor = "blue";
       divStatus.style.boxSizing = "border-box";

@@ -1,5 +1,6 @@
 let userId = JSON.parse(localStorage.getItem("userID"));
-let currentUser = {};
+let user = {};
+let complainData = [];
 let commentArr = [];
 
 const getComp = async () => {
@@ -8,7 +9,7 @@ const getComp = async () => {
   let data = await res.json();
   // console.log(data);
   document.getElementById("complainantNumber").value = data.length + 1;
-  append(data);
+  // append(data);
 };
 const getUser = async () => {
   // console.log(userId);
@@ -25,12 +26,22 @@ const getUser = async () => {
   }
 };
 getUser();
+let setTargetDate = (date) => {
+  // console.log(date)
+  let currentDate = new Date(date);
+  // console.log(currentDate);
+  let targetDate = new Date(currentDate.getTime() + 30 * 24 * 60 * 60 * 1000);
+  targetDate = targetDate.toISOString().substring(0, 10);
+  return targetDate;
+};
 // console.log(userId);
 let url = `https://haryanacms.onrender.com/complain/create`;
 const addComplain = async (event) => {
   event.preventDefault();
   let initialDate = document.getElementById("dateOfSub").value;
   let fileInput = document.getElementById("inputFiles");
+  let compDate = document.getElementById("dateOfSub").value;
+  console.log(compDate);
   // let file = document.getElementById("inputFiles").addEventListener("change",(event)=>{
   //   let file1 = event.target.files[0];
   //   console.log(file1);
@@ -64,6 +75,7 @@ const addComplain = async (event) => {
   //   complainDate: document.getElementById("dateOfSub").value,
   // };
   let form = new FormData();
+
   form.append(
     "ComplainantName",
     document.getElementById("complainantName").value
@@ -71,7 +83,7 @@ const addComplain = async (event) => {
   form.append("Email", document.getElementById("complainantEmail").value);
   form.append("author_id", userId);
   form.append("policerange", document.getElementById("rangeInput").value);
-  form.append("rangeDistrictName", document.getElementById("rangeInput").value);
+  form.append("rangeDistrictName", "");
   form.append("policestation", "");
   form.append("phoneNumber", "");
   form.append("createdAt", "");
@@ -93,6 +105,8 @@ const addComplain = async (event) => {
     "ComplaintCategory",
     document.getElementById("complainCategory").value
   );
+  form.append("complainDate", compDate);
+  form.append("targetDate", setTargetDate(compDate));
   form.append(
     "ComplaintShortDescription",
     document.getElementById("shortDescription").value
@@ -103,11 +117,12 @@ const addComplain = async (event) => {
   form.append("Status", document.getElementById("complainStatus").value);
   // form.append("Markto", document.getElementById("SPName").value);
   form.append("trackingId", document.getElementById("complainantNumber").value);
-  form.append("complainDate", document.getElementById("dateOfSub").value);
+  form.append("highPriority", document.getElementById("highPriority").checked);
   form.append("uploadpdfcomplaint", fileInput.files[0]);
   // obj = JSON.stringify(obj);
 
   // console.log(file);
+  console.log(form);
   try {
     let res = await fetch(url, {
       method: "POST",
@@ -155,11 +170,11 @@ const append = (data) => {
     let td4 = document.createElement("td");
     td4.setAttribute("class", "tablecol");
     td4.setAttribute("class", "tablecol4");
-    td4.innerText = convertDate(el.createdAt);
+    td4.innerText = el.complainDate;
     let td5 = document.createElement("td");
     td5.setAttribute("class", "tablecol");
     td5.setAttribute("class", "tablecol5");
-    td5.innerText = el.deadline;
+    td5.innerText = el.targetDate;
     let td6 = document.createElement("td");
     td6.setAttribute("class", "tablecol");
     td6.setAttribute("class", "tablecol6");
@@ -239,7 +254,7 @@ const append = (data) => {
       divStatus.style.alignSelf = "center";
       divStatus.style.height = "40px";
       divStatus.style.color = "white";
-    } else if (el.Status === "CLOSED") {
+    } else if (el.Status === "DISPOSED") {
       divStatus.style.border = "1px solid blue";
       divStatus.style.backgroundColor = "blue";
       divStatus.style.boxSizing = "border-box";
@@ -421,7 +436,7 @@ const viewData = (el) => {
   get("complainCategoryView").value = el.ComplaintCategory;
   get("complainantNumberView").value = el.trackingId;
   get("dateOfSubView").value = convertDate(el.createdAt);
-  get("highPriorityUpdate").checked=el.highPriority
+  get("highPriorityUpdate").checked = el.highPriority;
 };
 // console.log(displayUpdateComp)
 
@@ -495,16 +510,23 @@ const complainComment = async (el) => {
   complainID = el;
   console.log(el);
   commentDiv.classList.toggle("activecommentDiv");
-  // console.log(currentUser)
+  // console.log(user)
   showComp();
 };
 let addComm = async (event) => {
   event.preventDefault();
+  // let obj = {
+  //   author_id: user._id,
+  //   complain_id: complainID._id,
+  //   authorName: `${user.fname} ${user.lname}`,
+  //   commentData: document.getElementById("commentText").value,
+  // };
   let obj = {
-    author_id: currentUser._id,
+    author_id: user._id,
     complain_id: complainID._id,
-    authorName: `${currentUser.fname} ${currentUser.lname}`,
+    authorName: `${user.fname} ${user.lname}`,
     commentData: document.getElementById("commentText").value,
+    Designation: user.designation,
   };
   obj = JSON.stringify(obj);
   console.log(obj);
@@ -546,14 +568,33 @@ let appendComment = (data) => {
       div.setAttribute("class", "commentDivView");
       let h4 = document.createElement("h4");
       let p = document.createElement("p");
-      h4.innerText = `Comment By : ${el.authorName}`;
+      console.log(el);
+      let h41 = document.createElement("h4");
+      let span = document.createElement("span");
+      span.innerText = "Comment By";
+      if (el.Designation === "ADGP") {
+        h4.style.color = "red";
+      }
+
+      h4.innerText = `${el.Designation} ${el.authorName}`;
+      h41.append(span, h4);
       h4.setAttribute("class", "commentUserView");
       p.innerText = el.commentData;
       p.setAttribute("class", "commentTextView");
-      div.append(h4, p);
+      div.append(h41, p);
       contan.append(div);
     });
   } else {
     contan.innerHTML = "<h3>No Comments</h3>";
   }
+};
+
+// filter
+
+let filteredData = [];
+const rangeFilter = () => {
+  const value = document.getElementById("rangesFilter").value;
+  filteredData = complainData.filter((el) => {
+    return el.policerange === value;
+  });
 };

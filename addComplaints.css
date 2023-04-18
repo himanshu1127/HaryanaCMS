@@ -428,7 +428,7 @@
   width: 20px;
   font-weight: 900;
 }
-.commentDivView{
+.commentDivView {
   /* border: 1px solid black; */
   margin: 15px 0 15px 0;
   background: whitesmoke;
@@ -439,9 +439,8 @@
   gap: 10px;
 }
 
-.commentTextView{
+.commentTextView {
   background: rgb(242, 242, 242);
   padding: 0.5rem 0.25rem 0.5rem 0.25rem;
   font-size: 14px;
-
 }
