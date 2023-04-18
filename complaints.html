@@ -159,9 +159,10 @@
                 name=""
                 id="rangesFilter"
                 style="border: none; outline: none"
+                onchange="rangeFilter()"
               >
                 <option value="">Select Range</option>
-                <!-- <option value="closed">Gurugram</option> -->
+                <!-- <option value="DISPOSED">Gurugram</option> -->
               </select>
             </div>
             <div>
@@ -169,6 +170,7 @@
                 name=""
                 id="districtFilter"
                 style="border: none; outline: none"
+                disabled
               >
                 <option value="">Select District</option>
               </select>
@@ -178,20 +180,21 @@
                 name=""
                 id="stationFilter"
                 style="border: none; outline: none"
+                disabled
               >
                 <option value="">Select Station</option>
               </select>
             </div>
             <div style="display: flex">
               <span>Total Complaints : &nbsp; </span>
-              <p id="totalComplaints" style="color: blue">224</p>
-            </div>
-            <div style="display: flex">
-              <span>Pending Complaints : &nbsp; </span>
-              <p style="color: blue">224</p>
+              <p id="totalComplaints" style="color: blue">0</p>
             </div>
             <!-- <div style="display: flex">
-              <span>Closed Complaints : &nbsp; </span>
+              <span>Pending Complaints : &nbsp; </span>
+              <p style="color: blue">224</p>
+            </div> -->
+            <!-- <div style="display: flex">
+              <span>DISPOSED Complaints : &nbsp; </span>
               <p style="color: blue">224</p>
             </div> -->
             <div style="display: flex; width: 120px; height: 60px">
@@ -205,8 +208,8 @@
               <tr class="trHead">
                 <th class="thHead thHead1">Tracking Id</th>
                 <!-- <th class="thHead thHead2">Category</th> -->
-                <th class="thHead thHead3">Complaint</th>
-                <th class="thHead thHead9">Complaint Type</th>
+                <th class="thHead thHead3">Complainant Name</th>
+                <th class="thHead thHead9">Category</th>
                 <th class="thHead thHead4">Issued Date</th>
                 <th class="thHead thHead5">Deadline</th>
                 <th class="thHead thHead6">Area</th>
@@ -418,7 +421,7 @@
                   >
                     <option value="PENDING">PENDING</option>
                     <option value="IN-PROCESS">IN-PROCESS</option>
-                    <option value="CLOSED">CLOSED</option>
+                    <option value="DISPOSED">DISPOSED</option>
                     <option value="OVERDUE">OVERDUE</option>
                     <option value="REJECTED">REJECTED</option>
                   </select>
@@ -473,7 +476,7 @@
               </div> -->
               <div class="highPriorityCheckDiv">
                 <div class="complaintContnetDivLeftTop">
-                  <input type="checkbox" name="priority" id="" value="yes" />
+                  <input type="checkbox" name="priority" id="highpriority" />
                 </div>
                 <label for="priority">High Priority</label>
               </div>
@@ -744,7 +747,7 @@
                 >
                   <option value="PENDING">PENDING</option>
                   <option value="IN-PROCESS">IN-PROCESS</option>
-                  <option value="CLOSED">CLOSED</option>
+                  <option value="DISPOSED">DISPOSED</option>
                   <option value="OVERDUE">OVERDUE</option>
                   <option value="REJECTED">REJECTED</option>
                 </select>
@@ -1071,7 +1074,7 @@
                 >
                   <option value="PENDING">PENDING</option>
                   <option value="IN-PROCESS">IN-PROCESS</option>
-                  <option value="CLOSED">CLOSED</option>
+                  <option value="DISPOSED">DISPOSED</option>
                   <option value="OVERDUE">OVERDUE</option>
                   <option value="REJECTED">REJECTED</option>
                 </select>
@@ -1277,35 +1280,47 @@
 </script> -->
 <script type="module">
   import {
-    getCategory,
-    getDistrict,
-    getRange,
-    getStation,
-    getUser,
-    getComplain,
+    a,
+    complain,
+    currentUser,
+    visitorComplain,
+    IO,
+    Ranges,
+    category,
+    currentRange,
+    currentDistrict,
+    currentPoliceStation,
+    districts,
+    act,
+    SP,
+    DSP,
+    SHO,
+    policeStations,
+    today,
+    priority,
+    pending,
+    disposed,
+    pendHigh,
   } from "./Components/GetData.js";
-  let a = async () => {
-    let catogry = await getCategory();
-    let district = await getDistrict();
-    let range = await getRange();
-    let station = await getStation();
-    let user = await getUser();
-    let complain = await getComplain();
-    currentUser = user;
-    console.log(currentUser)
+  let app = async () => {
+    await a();
+    console.log(currentUser);
+    complainData = complain;
+    user = currentUser
     // range
-    appendrangeInput(range);
-    appendrangeInputUpdate(range);
-    appendrangeInputView1(range);
-    appendrangesFilter(range);
+    appendrangeInput(Ranges);
+    appendrangeInputUpdate(Ranges);
+    appendrangeInputView1(Ranges);
+    appendrangesFilter(Ranges);
     // district
-    appenddistrict(district);
-    appendDistrict(district);
-    appendDistrictView1(district);
-    appenddistrictFilter(district);
+    appenddistrict(districts);
+    appendDistrict(districts);
+    appendDistrictView1(districts);
+    appenddistrictFilter(districts);
     // station
-    appendstationFilter(station);
-    console.log(station);
+    appendstationFilter(policeStations);
+
+    append(complain)
   };
 
   // range
@@ -1421,5 +1436,5 @@
       stationFilter.append(option);
     });
   };
-  a();
+  app();
 </script>

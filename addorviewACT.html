@@ -200,26 +200,55 @@
   <script src="./function.js"></script>
 </html>
 <script type="module">
-  import { getAct, addact } from "./Components/GetData.js";
+  import {
+    a,
+    complain,
+    currentUser,
+    visitorComplain,
+    IO,
+    Ranges,
+    category,
+    currentRange,
+    currentDistrict,
+    currentPoliceStation,
+    districts,
+    act,
+    SP,
+    DSP,
+    SHO,
+    policeStations,
+    today,
+    priority,
+    pending,
+    disposed,
+    pendHigh,
+  } from "./Components/GetData.js";
 
-  let a = async () => {
-    let act = await getAct();
+  let app = async () => {
+    await a();
     appendAct(act);
-    console.log(act);
   };
   let actArr = [];
   const addACT = async (event) => {
     event.preventDefault();
-    // console.log("hi");
+    console.log("hi");
     let abc = document.getElementById("actName").value;
     actArr.push(abc);
     let body = {
       categoryName: "HARYANA",
-      actName: actArr,
+      actName: abc,
     };
     body = JSON.stringify(body);
     console.log(body);
-    addact("act", "/addact", body);
+    let res = await fetch("https://haryanacms.onrender.com/act/addact", {
+      method: "POST",
+      body: body,
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    alert("Act Added");
+    window.location.reload();
   };
 
   document.getElementById("addActForm").addEventListener("submit", addACT);
@@ -281,5 +310,5 @@
       container1.append(tr);
     });
   };
-  a();
+  app();
 </script>

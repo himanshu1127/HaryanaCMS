@@ -1,5 +1,5 @@
 let commentArr = [];
-let currentUser = {};
+let user = {};
 let complainID = {};
 let convertDate = (id) => {
   let myDate = new Date(id);
@@ -142,7 +142,7 @@ const append = (data) => {
       divtd10.style.alignSelf = "center";
       divtd10.style.height = "40px";
       divtd10.style.color = "white";
-    } else if (el.Status === "CLOSED") {
+    } else if (el.Status === "DISPOSED") {
       divtd10.style.border = "1px solid blue";
       divtd10.style.backgroundColor = "blue";
       divtd10.style.boxSizing = "border-box";
@@ -337,7 +337,7 @@ const complainComment = async (el) => {
   complainID = el;
   console.log(el);
   commentDiv.classList.toggle("activecommentDiv");
-  // console.log(currentUser)
+  // console.log(user)
   showComp();
 };
 let closeIconComment = document.querySelector(".closeIconComment");
@@ -353,11 +353,20 @@ let appendComment = (data) => {
       div.setAttribute("class", "commentDivView");
       let h4 = document.createElement("h4");
       let p = document.createElement("p");
-      h4.innerText = `Comment By : ${el.authorName}`;
+      console.log(el);
+      let h41 = document.createElement("h4");
+      let span = document.createElement("span");
+      span.innerText = "Comment By";
+      if (el.Designation === "ADGP") {
+        h4.style.color = "red";
+      }
+
+      h4.innerText = `${el.Designation} ${el.authorName}`;
+      h41.append(span, h4);
       h4.setAttribute("class", "commentUserView");
       p.innerText = el.commentData;
       p.setAttribute("class", "commentTextView");
-      div.append(h4, p);
+      div.append(h41, p);
       contan.append(div);
     });
   } else {
