@@ -170,6 +170,7 @@
                 name=""
                 id="districtFilter"
                 style="border: none; outline: none"
+                onchange="districtFilter()"
                 disabled
               >
                 <option value="">Select District</option>
@@ -180,6 +181,7 @@
                 name=""
                 id="stationFilter"
                 style="border: none; outline: none"
+                onchange="stationFilter()"
                 disabled
               >
                 <option value="">Select Station</option>
@@ -1306,7 +1308,7 @@
     await a();
     console.log(currentUser);
     complainData = complain;
-    user = currentUser
+    user = currentUser;
     // range
     appendrangeInput(Ranges);
     appendrangeInputUpdate(Ranges);
@@ -1320,7 +1322,7 @@
     // station
     appendstationFilter(policeStations);
 
-    append(complain)
+    append(complain);
   };
 
   // range

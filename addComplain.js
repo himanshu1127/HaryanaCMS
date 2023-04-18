@@ -491,6 +491,7 @@ const updateComplain = async () => {
   console.log(res);
   getComp();
   alert("Update");
+  window.location.reload();
   let compUpdate = document.querySelector(".displayUpdateComp");
   compUpdate.classList.toggle("activeUpdateComp");
 };
@@ -592,9 +593,45 @@ let appendComment = (data) => {
 // filter
 
 let filteredData = [];
+let distfilteredData = [];
+let stationfilteredData = [];
 const rangeFilter = () => {
   const value = document.getElementById("rangesFilter").value;
   filteredData = complainData.filter((el) => {
     return el.policerange === value;
   });
+  if (value !== "") {
+    document.getElementById("districtFilter").disabled = false;
+    append(filteredData);
+  } else {
+    document.getElementById("districtFilter").value = "";
+    document.getElementById("districtFilter").disabled = true;
+    districtFilter();
+    append(complainData);
+  }
+};
+const districtFilter = () => {
+  const value = document.getElementById("districtFilter").value;
+  distfilteredData = filteredData.filter((el) => {
+    return el.rangeDistrictName === value;
+  });
+  if (value !== "") {
+    document.getElementById("stationFilter").disabled = false;
+    append(distfilteredData);
+  } else {
+    document.getElementById("stationFilter").value = "";
+    document.getElementById("stationFilter").disabled = true;
+    append(filteredData);
+  }
+};
+const stationFilter = () => {
+  const value = document.getElementById("stationFilter").value;
+  let stationfilteredData = distfilteredData.filter((el) => {
+    return el.policestation === value;
+  });
+  if (value !== "") {
+    append(stationfilteredData);
+  } else {
+    append(distfilteredData);
+  }
 };
