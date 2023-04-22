@@ -13,7 +13,15 @@
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   border-radius: 5px;
 }
-
+#right-container {
+  /* border: 1px solid red; */
+  width: 75%;
+  margin: auto;
+  height: 90vh;
+  padding: 20px;
+  box-sizing: border-box;
+  overflow-y: scroll;
+}
 .updateHeader {
   text-align: center;
   padding: 0.75rem;
@@ -114,6 +122,12 @@
   background-color: #10b981; /* Equivalent to hover:bg-green-600 */
   color: #fff;
 }
-.activeviewOfficer{
+.activeviewOfficer {
   display: block;
+}
+
+@media only screen and (max-width: 980px) {
+  #right-container {
+    width: 100%;
+  }
 }

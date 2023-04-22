@@ -9,18 +9,18 @@ const addOfficer = () => {
   console.log("clicked add");
 };
 
-let profileImageDiv = document.querySelector(".profileImageDiv");
+// let profileImageDiv = document.querySelector(".profileImageDiv");
 
-let profileOptionDiv = document.querySelector(".profileOptionDiv");
+// let profileOptionDiv = document.querySelector(".profileOptionDiv");
 
-profileImageDiv.onclick = function () {
-  profileOptionDiv.classList.toggle("active");
-};
-let hemb = document.getElementById("hemb");
-let sidebar = document.querySelector(".sidebar");
-hemb.onclick = function () {
-  sidebar.classList.toggle("activeSidebar");
-};
+// profileImageDiv.onclick = function () {
+//   profileOptionDiv.classList.toggle("active");
+// };
+// let hemb = document.getElementById("hemb");
+// let sidebar = document.querySelector(".sidebar");
+// hemb.onclick = function () {
+//   sidebar.classList.toggle("activeSidebar");
+// };
 
 let displayAddComp = document.querySelector(".displayAddComp");
 
