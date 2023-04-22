@@ -14,7 +14,8 @@
   </head>
   <body>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.2.1/dist/chart.umd.min.js"></script>
-    <nav id="navbar">
+    <nav id="navbar"></nav>
+    <!-- <nav id="navbar">
       <div id="navLeft">
         <div class="hemIcon">
           <i id="hemb" class="fa-solid fa-bars"></i>
@@ -32,7 +33,7 @@
         <h3 class="h3Mid">Admin panel</h3>
       </div>
       <div id="navRight">
-        <!-- <button onclick="logout()">Logout</button> -->
+        
         <div class="profileMainDiv">
           <div class="profileImageDiv">
             <img
@@ -49,86 +50,13 @@
           </div>
         </div>
       </div>
-    </nav>
+    </nav> -->
 
     <div id="main">
-      <div class="sidebar">
-        <div style="display: flex; justify-content: space-between">
-          <div>Home</div>
-          <div><a href="./Dashboard.html">Dashboard</a></div>
-        </div>
-        <div id="sideMenu">
-          <p>Manage Complaints</p>
-          <ul>
-            <li class="liText">
-              <a class="aTag" href="./complaints.html"
-                >Add/View/Update Complaint</a
-              >
-            </li>
-            <li class="liText">
-              <a class="aTag" href="./HighPriority.html"
-                >Add/View/Update High Priority</a
-              >
-            </li>
-            <li class="liText">
-              <a class="aTag" href="./pending.html">Update/View Pending</a>
-            </li>
-
-            <li class="liText">
-              <a class="aTag" href="./addOrViewVisitor.html"
-                >Add/Update/View Visitor Complaints</a
-              >
-            </li>
-          </ul>
-          <p>Manage Officers Data</p>
-          <ul>
-            <li class="liText">
-              <a class="aTag" href="./addorviewSP.html"> Add/View/Update SP </a>
-            </li>
-            <li class="liText">
-              <a class="aTag" href="./addorviewDSP.html">Add/View/Update DSP</a>
-            </li>
-            <li class="liText">
-              <a class="aTag" href="./addorviewASP.html">Add/View/Update ASP</a>
-            </li>
-            <li class="liText">
-              <a class="aTag" href="./AddViewSho.html">Add/View/Update SHO</a>
-            </li>
-            <li class="liText">
-              <a class="aTag" href="./addorviewIO.html">Add/View/Update IO</a>
-            </li>
-          </ul>
-          <p>Manage Category</p>
-          <ul>
-            <li class="liText">
-              <a class="aTag" href="./category.html"
-                >Add/View/Update Category</a
-              >
-            </li>
-            <li class="liText">
-              <a class="aTag" href="./addorviewACT.html">Add/View/Update ACT</a>
-            </li>
-          </ul>
-          <p>Manage Areas</p>
-          <ul>
-            <li class="liText">
-              <a class="aTag" href="./addorviewDist.html"
-                >Add/View/Update Districts</a
-              >
-            </li>
-            <li class="liText">
-              <a class="aTag" href="./addorviewRange.html"
-                >Add/View/Update Range</a
-              >
-            </li>
-            <li class="liText">
-              <a class="aTag" href="./addorviewPoliceStation.html"
-                >Add/View/Update Police Station</a
-              >
-            </li>
-          </ul>
-        </div>
-      </div>
+      <div class="sidebar"></div>
+      <!-- <div class="sidebar">
+        
+      </div> -->
       <div class="rightMain">
         <div class="contentTop">
           <div
@@ -325,285 +253,7 @@
               </table>
             </div>
           </div>
-          <!-- <div class="tableUpperRight">
-            <div
-              style="
-                display: flex;
-                margin-top: 10px;
-                align-self: center;
-                justify-content: space-between;
-                /* border: 1px solid red; */
-              "
-            >
-              <p style="margin-left: 5%; margin-top: 10px">My Task</p>
-              <select
-                style="
-                  margin-right: 5%;
-                  margin-top: 8px;
-                  /* color: #029aa7; */
-                  /* background-color: #96dee4; */
-                  border: none;
-                  border-radius: 2%;
-                  width: 120px;
-                  height: 30px;
-                "
-              >
-                <option value="all">All Task</option>
-              </select>
-            </div>
-            <table
-              style="
-                width: 100%;
-                /* border: 1px solid red; */
-                margin-top: 20px;
-                font-size: 14px;
-                text-align: center;
-                height: 20vh;
-                overflow-y: auto;
-              "
-            >
-              <thead>
-                <tr>
-                  <th style="width: 40%">Name</th>
-                  <th>Deadline</th>
-                  <th>Status</th>
-                  <th>Assignee</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr
-                  style="
-                    /* border: 1px solid cyan; */
-                    height: 50px;
-                    border-collapse: collapse;
-                  "
-                >
-                  <td>
-                    <div style="display: flex">
-                      <input type="checkbox" />
-                      <p style="margin-left: 5px">Report to SHO</p>
-                    </div>
-                  </td>
-                  <td>03 Nov 2021</td>
-                  <td>
-                    <p style="background-color: #f1e98c; color: #908402">
-                      Pending
-                    </p>
-                  </td>
-                  <td>Kernal</td>
-               
-                </tr>
-                <tr
-                  style="
-                    /* border: 1px solid cyan; */
-                    height: 50px;
-                    border-collapse: collapse;
-                  "
-                >
-                  <td>
-                    <div style="display: flex">
-                      <input type="checkbox" />
-                      <p style="margin-left: 5px">Report to IO</p>
-                    </div>
-                  </td>
-                  <td>03 Nov 2021</td>
-                  <td>
-                    <p style="background-color: #f1e98c; color: #908402">
-                      Pending
-                    </p>
-                  </td>
-                  <td>Kernal</td>
-             
-                </tr>
-                <tr
-                  style="
-                    /* border: 1px solid cyan; */
-                    height: 50px;
-                    border-collapse: collapse;
-                  "
-                >
-                  <td>
-                    <div style="display: flex">
-                      <input type="checkbox" />
-                      <p style="margin-left: 5px">Report to IG</p>
-                    </div>
-                  </td>
-                  <td>03 Nov 2021</td>
-                  <td>
-                    <p style="background-color: #f1e98c; color: #908402">
-                      Pending
-                    </p>
-                  </td>
-                  <td>Kernal</td>
-                </tr>
-              </tbody>
-            </table>
-          </div> -->
         </div>
-        <!-- <div class="lastDiv">
-          <div class="lastDivLeft">
-            <table
-              style="
-                width: 100%;
-                /* border: 1px solid red; */
-                margin-top: 20px;
-                font-size: 14px;
-                text-align: center;
-                height: 20vh;
-                overflow-y: auto;
-              "
-            >
-              <thead>
-                <tr style="background-color: #f3f7fa; height: 50px">
-                  <th style="width: 30%; margin-left: 5px">Member</th>
-                  <th>Hours</th>
-                  <th>Task</th>
-                  <th>Status</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr
-                  style="
-                    /* border: 1px solid cyan; */
-                    height: 50px;
-                    border-collapse: collapse;
-                  "
-                >
-                  <td>
-                    <div style="margin-left: 5px">
-                      <p>SHO Sadar</p>
-                      <p>24 case Pending</p>
-                    </div>
-                  </td>
-                  <td>03 Nov 2021</td>
-                  <td>
-                    <p
-                      style="
-                        text-align: center;
-                        background-color: #f1e98c;
-                        color: #908402;
-                      "
-                    >
-                      Pending
-                    </p>
-                  </td>
-                  <td style="text-align: center">Kernal</td>
-                </tr>
-                <tr
-                  style="
-                    /* border: 1px solid cyan; */
-                    height: 50px;
-                    border-collapse: collapse;
-                  "
-                >
-                  <td>
-                    <div style="margin-left: 5px">
-                      <p>SHO Sadar</p>
-                      <p>24 case Pending</p>
-                    </div>
-                  </td>
-                  <td>03 Nov 2021</td>
-                  <td>
-                    <p
-                      style="
-                        text-align: center;
-                        background-color: #f1e98c;
-                        color: #908402;
-                      "
-                    >
-                      Pending
-                    </p>
-                  </td>
-                  <td style="text-align: center">Kernal</td>
-                </tr>
-                <tr
-                  style="
-                    /* border: 1px solid cyan; */
-                    height: 50px;
-                    border-collapse: collapse;
-                  "
-                >
-                  <td>
-                    <div style="margin-left: 5px">
-                      <p>SHO Sadar</p>
-                      <p>24 case Pending</p>
-                    </div>
-                  </td>
-                  <td>03 Nov 2021</td>
-                  <td>
-                    <p
-                      style="
-                        text-align: center;
-                        background-color: #f1e98c;
-                        color: #908402;
-                      "
-                    >
-                      Pending
-                    </p>
-                  </td>
-                  <td style="text-align: center">Kernal</td>
-                </tr>
-                <tr
-                  style="
-                    /* border: 1px solid cyan; */
-                    height: 50px;
-                    border-collapse: collapse;
-                  "
-                >
-                  <td>
-                    <div style="margin-left: 5px">
-                      <p>SHO Sadar</p>
-                      <p>24 case Pending</p>
-                    </div>
-                  </td>
-                  <td>03 Nov 2021</td>
-                  <td>
-                    <p
-                      style="
-                        text-align: center;
-                        background-color: #f1e98c;
-                        color: #908402;
-                      "
-                    >
-                      Pending
-                    </p>
-                  </td>
-                  <td style="text-align: center">Kernal</td>
-                </tr>
-                <tr
-                  style="
-                    /* border: 1px solid cyan; */
-                    height: 50px;
-                    border-collapse: collapse;
-                  "
-                >
-                  <td>
-                    <div style="margin-left: 5px">
-                      <p>SHO Sadar</p>
-                      <p>24 case Pending</p>
-                    </div>
-                  </td>
-                  <td>03 Nov 2021</td>
-                  <td>
-                    <p
-                      style="
-                        text-align: center;
-                        background-color: #f1e98c;
-                        color: #908402;
-                      "
-                    >
-                      Pending
-                    </p>
-                  </td>
-                  <td style="text-align: center">Kernal</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <div class="donuChartDiv">
-            <canvas id="donut" style="height: 100%; width: 100%"></canvas>
-          </div>
-        </div> -->
       </div>
     </div>
   </body>
@@ -727,6 +377,25 @@
     disposed,
     pendHigh,
   } from "./Components/GetData.js";
+  import sidebar from "./Components/Sidebar.js";
+  import navbar from "./Components/Navbar.js";
+
+  document.querySelector("#navbar").innerHTML = navbar();
+
+  document.querySelector(".sidebar").innerHTML = sidebar();
+
+  let profileImageDiv = document.querySelector(".profileImageDiv");
+
+  let profileOptionDiv = document.querySelector(".profileOptionDiv");
+
+  profileImageDiv.onclick = function () {
+    profileOptionDiv.classList.toggle("active");
+  };
+  let hemb = document.getElementById("hemb");
+  let sidebar1 = document.querySelector(".sidebar");
+  hemb.onclick = function () {
+    sidebar1.classList.toggle("activeSidebar");
+  };
 
   const app = async () => {
     await a();

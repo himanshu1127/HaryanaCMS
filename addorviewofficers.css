@@ -6,7 +6,14 @@
     background: aliceblue;
     font-family:sans-serif;
 } */
-
+#right-container {
+  /* border: 1px solid red; */
+  width: 75%;
+  margin: auto;
+  height: 90vh;
+  padding: 20px;
+  box-sizing: border-box;
+}
 #officerinfoinput {
   width: 100%;
   margin: auto;
@@ -72,7 +79,7 @@
   margin-right: 30%;
   margin-bottom: 15px;
 } */
-#addressinp > div >div >div> input {
+#addressinp > div > div > div > input {
   /* margin-bottom: 15px; */
   /* border: 1px solid blue; */
   align-self: center;
@@ -89,7 +96,6 @@
   box-sizing: border-box;
 }
 
-
 /* form-right-css */
 #emailinput {
   width: 100%;
@@ -99,8 +105,7 @@
   margin-right: 20%;
 }
 
-
-#addinfo{
+#addinfo {
   height: 40px;
   width: 90px;
   border: none;
@@ -113,7 +118,6 @@
   /* justify-self: center; */
   /* text-align: center; */
   cursor: pointer;
-  
 }
 
 /* #nameandemail{
@@ -200,4 +204,9 @@ width: 60%;
 #officerlist > table {
   width: 100%;
   margin: auto;
+}
+@media only screen and (max-width: 980px) {
+  #right-container {
+    width: 100%;
+  }
 }

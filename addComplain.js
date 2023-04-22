@@ -42,38 +42,6 @@ const addComplain = async (event) => {
   let fileInput = document.getElementById("inputFiles");
   let compDate = document.getElementById("dateOfSub").value;
   console.log(compDate);
-  // let file = document.getElementById("inputFiles").addEventListener("change",(event)=>{
-  //   let file1 = event.target.files[0];
-  //   console.log(file1);
-  // })
-  // let obj = {
-  //   ComplainantName: document.getElementById("complainantName").value,
-  //   Email: document.getElementById("complainantEmail").value,
-  //   author_id: userId,
-  //   policerange: document.getElementById("rangeInput").value,
-  //   rangeDistrictName: document.getElementById("rangeInput").value,
-  //   policestation: "",
-  //   phoneNumber: "",
-  //   createdAt: "",
-  //   updatedAt: "",
-  //   ComplainantPhoneNumber: document.getElementById("mobileNo").value,
-  //   alternateNumber: document.getElementById("alternateNumber").value,
-  //   FatherName: document.getElementById("fatherName").value,
-  //   Address: document.getElementById("address").value,
-  //   AddressLine1: document.getElementById("addressLine1").value,
-  //   State: document.getElementById("stateInput").value,
-  //   City: document.getElementById("cityInput").value,
-  //   ComplaintCategory: document.getElementById("complainCategory").value,
-  //   ComplaintShortDescription:
-  //     document.getElementById("shortDescription").value,
-  //   SectionsofComplaint: "",
-  //   Range: document.getElementById("rangeInput").value,
-  //   // SPName: document.getElementById("SPName").value,
-  //   Status: document.getElementById("complainStatus").value,
-  //   // Markto: document.getElementById("SPName").value,
-  //   trackingId: document.getElementById("complainantNumber").value,
-  //   complainDate: document.getElementById("dateOfSub").value,
-  // };
   let form = new FormData();
 
   form.append(
@@ -83,11 +51,7 @@ const addComplain = async (event) => {
   form.append("Email", document.getElementById("complainantEmail").value);
   form.append("author_id", userId);
   form.append("policerange", document.getElementById("rangeInput").value);
-  form.append("rangeDistrictName", "");
-  form.append("policestation", "");
-  form.append("phoneNumber", "");
-  form.append("createdAt", "");
-  form.append("updatedAt", "");
+  form.append("rangeDistrictName", get("district").value);
   form.append(
     "ComplainantPhoneNumber",
     document.getElementById("mobileNo").value
@@ -136,7 +100,7 @@ const addComplain = async (event) => {
     let displayAddComp1 = document.querySelector(".displayAddComp");
     displayAddComp1.classList.toggle("activeAddComp");
     alert("Complain Added Successfuly!");
-    getComp();
+    window.location.reload();
   } catch (err) {
     console.log(err);
   }
@@ -390,6 +354,8 @@ const get = (id) => {
 // getRange1();
 // getSp1();
 const updateData = async (el) => {
+  let deadline = new Date(el.targetDate);
+  deadline = deadline.toISOString().substring(0, 10);
   let displayUpdateComp = document.querySelector(".displayUpdateComp");
   displayUpdateComp.classList.toggle("activeUpdateComp");
   complainID = el;
@@ -408,17 +374,15 @@ const updateData = async (el) => {
   get("shortDescriptionUpdate").value = el.ComplaintShortDescription;
   get("complainCategoryUpdate").value = el.ComplaintCategory;
   get("complainantNumberUpdate").value = el.trackingId;
-  // get("sectionsUpdate").value=el.
-  // get("highPriorityUpdate").value=el.
+  get("highPriorityUpdate").checked = el.highPriority;
+  get("deadlineUpdate").value = deadline;
 
   return complainID;
 };
-let updateComp = document.querySelector(".closeIconUpdate");
-updateComp.onclick = function () {
-  let compUpdate = document.querySelector(".displayUpdateComp");
-  compUpdate.classList.toggle("activeUpdateComp");
-};
+
 const viewData = (el) => {
+  let deadline = new Date(el.targetDate);
+  deadline = deadline.toISOString().substring(0, 10);
   let displayViewComp = document.querySelector(".displayViewComp");
   displayViewComp.classList.toggle("activeUpdateComp");
   get("complainantNameView").value = el.ComplainantName;
@@ -435,17 +399,17 @@ const viewData = (el) => {
   get("shortDescriptionView").value = el.ComplaintShortDescription;
   get("complainCategoryView").value = el.ComplaintCategory;
   get("complainantNumberView").value = el.trackingId;
-  get("dateOfSubView").value = convertDate(el.createdAt);
-  get("highPriorityUpdate").checked = el.highPriority;
+  get("deadlineView").value = deadline;
+  get("highPriorityView").checked = el.highPriority;
 };
 // console.log(displayUpdateComp)
 
-let ViewComp = document.querySelector(".closeIconView");
-ViewComp.onclick = function () {
-  let compUpdate = document.querySelector(".displayViewComp");
-  compUpdate.classList.toggle("activeUpdateComp");
-};
-const updateComplain = async () => {
+// document
+//     .getElementById("updateComplain")
+//     .addEventListener("submit", updateComplain);
+
+const updateComplain = async (event) => {
+  event.preventDefault();
   // console.log(`https://hrycms.onrender.com/complain/update/${complainID._id}`)
   let obj = {
     ComplainantName: document.getElementById("complainantNameUpdate").value,
@@ -453,10 +417,6 @@ const updateComplain = async () => {
     author_id: userId,
     policerange: document.getElementById("rangeInputUpdate").value,
     rangeDistrictName: document.getElementById("DistrictUpdate1").value,
-    policestation: "",
-    phoneNumber: "",
-    createdAt: "",
-    updatedAt: "",
     ComplainantPhoneNumber: document.getElementById("mobileNoUpdate").value,
     alternateNumber: document.getElementById("alternateNumberUpdate").value,
     FatherName: document.getElementById("fatherNameUpdate").value,
@@ -470,9 +430,8 @@ const updateComplain = async () => {
     SectionsofComplaint: "",
     Range: document.getElementById("rangeInputUpdate").value,
     highPriority: document.getElementById("highPriorityUpdate").checked,
-    // SPName: document.getElementById("SPNameUpdate1").value,
     Status: document.getElementById("complainStatusUpdate").value,
-    // Markto: document.getElementById("SPNameUpdate1").value,
+    targetDate: get("deadlineUpdate").value,
   };
   obj = JSON.stringify(obj);
   console.log(obj);
@@ -495,7 +454,37 @@ const updateComplain = async () => {
   let compUpdate = document.querySelector(".displayUpdateComp");
   compUpdate.classList.toggle("activeUpdateComp");
 };
+
 let commentDiv = document.querySelector(".commentDiv");
+let appendComment = (data) => {
+  let contan = document.querySelector(".showComments");
+  contan.innerHTML = null;
+  if (data.length > 0) {
+    data.map((el) => {
+      let div = document.createElement("div");
+      div.setAttribute("class", "commentDivView");
+      let h4 = document.createElement("h4");
+      let p = document.createElement("p");
+      console.log(el);
+      let h41 = document.createElement("h4");
+      let span = document.createElement("span");
+      span.innerText = "Comment By";
+      if (el.Designation === "ADGP") {
+        h4.style.color = "red";
+      }
+
+      h4.innerText = `${el.Designation} ${el.authorName}`;
+      h41.append(span, h4);
+      h4.setAttribute("class", "commentUserView");
+      p.innerText = el.commentData;
+      p.setAttribute("class", "commentTextView");
+      div.append(h41, p);
+      contan.append(div);
+    });
+  } else {
+    contan.innerHTML = "<h3>No Comments</h3>";
+  }
+};
 const showComp = async () => {
   let res = await fetch(`https://haryanacms.onrender.com/comment/getcomment`);
   res = await res.json();
@@ -555,41 +544,6 @@ let addComm = async (event) => {
 //   addComm(event)
 // });
 
-let closeIconComment = document.querySelector(".closeIconComment");
-closeIconComment.addEventListener("click", () => {
-  commentDiv.classList.toggle("activecommentDiv");
-});
-
-let appendComment = (data) => {
-  let contan = document.querySelector(".showComments");
-  contan.innerHTML = null;
-  if (data.length > 0) {
-    data.map((el) => {
-      let div = document.createElement("div");
-      div.setAttribute("class", "commentDivView");
-      let h4 = document.createElement("h4");
-      let p = document.createElement("p");
-      console.log(el);
-      let h41 = document.createElement("h4");
-      let span = document.createElement("span");
-      span.innerText = "Comment By";
-      if (el.Designation === "ADGP") {
-        h4.style.color = "red";
-      }
-
-      h4.innerText = `${el.Designation} ${el.authorName}`;
-      h41.append(span, h4);
-      h4.setAttribute("class", "commentUserView");
-      p.innerText = el.commentData;
-      p.setAttribute("class", "commentTextView");
-      div.append(h41, p);
-      contan.append(div);
-    });
-  } else {
-    contan.innerHTML = "<h3>No Comments</h3>";
-  }
-};
-
 // filter
 
 let filteredData = [];
@@ -626,6 +580,7 @@ const districtFilter = () => {
 };
 const stationFilter = () => {
   const value = document.getElementById("stationFilter").value;
+  // console.log(value);
   let stationfilteredData = distfilteredData.filter((el) => {
     return el.policestation === value;
   });

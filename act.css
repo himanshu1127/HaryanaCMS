@@ -1,28 +1,41 @@
 .formDiv {
-    margin-top: 20px;
-    /* border: 1px solid red; */
-    display: flex;
-    justify-content: space-between;
+  margin-top: 20px;
+  /* border: 1px solid red; */
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 40px;
+}
+#right-container {
+  /* border: 1px solid red; */
+  width: 75%;
+  margin: auto;
+  height: 90vh;
+  padding: 20px;
+  box-sizing: border-box;
+}
+.inputCat {
+  width: 60%;
+  box-sizing: border-box;
+  padding: 5px;
+  /* border: 1px solid red; */
+}
+#addCate {
+  height: 40px;
+  width: 90px;
+  border: none;
+  background-color: green;
+  color: white;
+  font-weight: 500;
+  border-radius: 3%;
+  margin: auto;
+  cursor: pointer;
+}
+.required {
+  color: red;
+}
+@media only screen and (max-width: 980px) {
+  #right-container {
     width: 100%;
-    margin-bottom: 40px;
   }
-  .inputCat {
-    width: 60%;
-    box-sizing: border-box;
-    padding: 5px;
-    /* border: 1px solid red; */
-  }
-  #addCate {
-    height: 40px;
-    width: 90px;
-    border: none;
-    background-color: green;
-    color: white;
-    font-weight: 500;
-    border-radius: 3%;
-    margin: auto;
-    cursor: pointer;
-  }
-  .required{
-      color: red;
-  }
+}

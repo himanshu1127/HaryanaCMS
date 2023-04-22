@@ -6,6 +6,14 @@
   width: 100%;
   margin-bottom: 40px;
 }
+#right-container {
+  /* border: 1px solid red; */
+  width: 75%;
+  margin: auto;
+  height: 90vh;
+  padding: 20px;
+  box-sizing: border-box;
+}
 .inputCat {
   width: 60%;
   box-sizing: border-box;
@@ -23,6 +31,11 @@
   margin: auto;
   cursor: pointer;
 }
-.required{
-    color: red;
+.required {
+  color: red;
+}
+@media only screen and (max-width: 980px) {
+  #right-container {
+    width: 100%;
+  }
 }

@@ -1,9 +1,14 @@
-#tableDiv{
+#tableDiv {
   height: fit-content;
   max-height: 80vh;
   border: 1px solid black;
   overflow-y: scroll;
-  
+}
+#table {
+  /* border: 1px solid red; */
+  width: 75%;
+  margin: auto;
+  height: 90vh;
 }
 .table {
   border-collapse: collapse;
@@ -54,8 +59,8 @@
 .thHead7 {
   width: 10%;
 }
-.thHead9{
-    width: 13%;
+.thHead9 {
+  width: 13%;
 }
 .tableBody {
   width: 100%;
@@ -91,14 +96,20 @@
   justify-content: space-around;
   box-sizing: border-box;
 }
-.buttonsAction{
+.buttonsAction {
   /* border: 1px solid cyan; */
   height: 30px;
   border-radius: 3%;
   border: none;
   cursor: pointer;
 }
-.buttonsAction:hover{
+.buttonsAction:hover {
   color: black;
   background-color: orange;
+}
+@media only screen and (max-width: 980px) {
+  #table {
+    width: 100%;
+    padding: 1%;
+  }
 }

@@ -396,6 +396,6 @@ ul {
     grid-template-columns: repeat(1, 1fr);
   }
   .chartDiv {
-    height: 700px;
+    height: fit-content;
   }
 }
